@@ -15,7 +15,7 @@
       <ul>
         {% if site.email %}<li>
 
-          <a href="mailto:{{ site.email }}"><!--{{ site.email }}-->
+          <a href="mailto:{{ site.email }}">
             <span class="icon email">
               <svg version="1.1" class="email-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                  viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve" style="position:relative; width:16px; height:16px">
@@ -25,7 +25,7 @@
                 L14.687,21.205z M27.994,7.019L16,19.014L4.006,7.019H27.994z M11.588,18.105l-9.11,5.871V8.995L11.588,18.105z"/>
               </svg>
             </span>
-            <span class="username">{{ site.email }}</span>
+            <!--<span class="username">{{ site.email }}</span>-->
           </a>
         </li>{% endif %}
         {% if site.github_username %}<li>
