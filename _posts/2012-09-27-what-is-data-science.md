@@ -2,7 +2,7 @@
 layout: post
 title:  "What Is Data Science?"
 date:   2012-09-27 18:04:00
-categories: blog
+categories: [blog, blogger]
 ---
 
 If I'm to write about becoming a _data scientist_, I should first define what I mean by _data science_. A simple [Google search](http://lmgtfy.com/?q=what+is+data+science%3F) yields over one billion results... so I'll do my best to summarize. (This is easier said than done, of course, since the concept has been around and [evolved considerably](http://smartdatacollective.com/gilpress/50120/evolution-what-data-science) since the 1970s, and a generally-accepted definition does not appear to exist.)
