@@ -1,9 +1,9 @@
 # Site settings
 title: Work In Progress
-email: burtondewilde@gmail.com
-description: "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
+description: "This is my site description, as set in _config.yml"
 baseurl: ""
 url: "http://yourdomain.com"
+email: burtondewilde@gmail.com
 twitter_username: bjdewilde
 github_username:  bdewilde
 timezone: America/New_York
