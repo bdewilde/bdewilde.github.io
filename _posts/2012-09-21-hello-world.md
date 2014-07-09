@@ -7,6 +7,8 @@ categories: blog
 
 Hi, I'm Burton. Welcome to my blog!
 
+![My helpful screenshot]({{ site.url }}/assets/images/hello_world_selfie.jpg)
+
 I'm currently learning how to be a data scientist, and for my personal benefit (and possibly yours), I've decided to keep a blog and share as I go. First, though, I should introduce myself.
 
 I'm from Grand Rapids, Michigan. I got into science by way of successive childhood obsessions: dinosaurs => astronauts => Star Wars => computer-generated physics simulations. Of course. I went to undergrad at [Kalamazoo College](http://www.kzoo.edu/) in Kalamazoo, MI, where I majored in Physics and Spanish and minored in Applied Mathematics, worked as a computer lab supervisor for four years, and yet never took a formal computer science course. (I suppose it's too late for regrets...) For my undergraduate thesis, I performed a search for the Higgs Boson — which was not actually discovered until [six years later](http://www.nytimes.com/2012/07/05/science/cern-physicists-may-have-discovered-higgs-boson-particle.html) — using an artificial neural network. It was my first real experience in programming, and _I loved it_.
