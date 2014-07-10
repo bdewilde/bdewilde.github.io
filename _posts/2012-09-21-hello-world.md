@@ -7,7 +7,7 @@ categories: [blog, blogger]
 
 Hi, I'm Burton. Welcome to my blog!
 
-![wedding photog selfie]({{ site.url }}/assets/images/wedding_photog_selfie.jpg)
+![wedding photog selfie](/assets/images/wedding_photog_selfie.jpg)
 
 I'm currently learning how to be a data scientist, and for my personal benefit (and possibly yours), I've decided to keep a blog and share as I go. First, though, I should introduce myself.
 
