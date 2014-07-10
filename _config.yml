@@ -8,6 +8,13 @@ twitter_username: bjdewilde
 github_username:  bdewilde
 timezone: America/New_York
 
+# kramdown:
+#   input: GFM
+
+markdown: rdiscount
+rdiscount:
+  extensions: [smart]
+
 # Build settings
 markdown: kramdown
 permalink: pretty
