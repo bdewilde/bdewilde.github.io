@@ -3,6 +3,7 @@ layout: post
 title:  "What Is Data Science?"
 date:   2012-09-27 18:04:00
 categories: [blog, blogger]
+tags: [data science, data scientists, overview, skills, tasks]
 ---
 
 If I'm to write about becoming a _data scientist_, I should first define what I mean by _data science_. A simple [Google search](http://lmgtfy.com/?q=what+is+data+science%3F) yields over one billion results... so I'll do my best to summarize. (This is easier said than done, of course, since the concept has been around and [evolved considerably](http://smartdatacollective.com/gilpress/50120/evolution-what-data-science) since the 1970s, and a generally-accepted definition does not appear to exist.)
@@ -11,7 +12,9 @@ Data science is a relatively new field that lies at the intersection of math and
 
 A visual attempt at definition comes in the form of [The Data Science Venn Diagram](http://www.drewconway.com/zia/?p=2378) by [Drew Conway](http://www.drewconway.com/Drew_Conway/About.html):
 
-![The Data Science Venn Diagram](/assets/images/Data_Science_VD.png)
+<figure>
+  <img src="/assets/images/Data_Science_VD.png" alt="Data_Science_VD.png" width="600">
+</figure>
 
 The emphasis here is, again, on the interdisciplinary nature of data science, which lies at the intersection of three general domains of knowledge and experience. His inclusion of "substantive expertise" points to what makes data science (and data scientists) new and distinct from, say, business intelligence analysts: It's not just about the existence of the data and the ability to quantitatively analyze it; data science is about testing hypotheses, and deriving new knowledge from the data, then making sure that the conclusions are valid. It's about _discovery_.
 
@@ -21,6 +24,8 @@ Another way to define data science is to describe the sort of work that's actual
 
 _Amazing_. [Mike Driscoll](http://thephenomlist.com/Big_Data_Scientists/Michael_Driscoll) details the [three sexy skills of data geeks](http://www.dataspora.com/2009/05/sexy-data-geeks/) — statistics, data munging, and visualization — the last of which is a critical component of data science that I've not yet mentioned. Presenting the data such that its underlying structure is clear and visible facilitates a better understanding of the dataset itself, not to mention communication of your conclusions with others! On that note, here's a final, visual take on tasks now associated with data science, taken from a 2004 dissertation on computational information design by [Ben Fry](http://benfry.com/):
 
-![data science tasks](/assets/images/data_science_tasks.png)
+<figure>
+  <img src="/assets/images/data_science_tasks.png" alt="data_science_tasks.png" width="600">
+</figure>
 
 So, as far as I can tell, that's data science in a nutshell. But, given that it's a new and varied field, I've probably missed some important points; if anybody out there has something to add, please do so in the comments!

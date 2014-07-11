@@ -3,6 +3,7 @@ layout: post
 title: Data as Force for Positive Change
 date: 2012-10-06 19:27:00
 categories: [blog, blogger]
+tags: [big data, DataKind, positive change, practice]
 ---
 
 [I've](http://www.nytimes.com/2012/02/12/sunday-review/big-datas-impact-in-the-world.html) [been](http://www.nytimes.com/2012/08/12/business/how-big-data-became-so-big-unboxed.html?smid=pl-share) [reading](http://www.wired.com/wiredenterprise/2012/09/human-face-of-big-data/) a lot about how big data is or is going to revolutionize the world we live in. Yes, some of this is hype; yes, more data means more potential for statistical shenanigans and bad analysis; and yes, some changes may not necessarily be for the better (think: violation of privacy and [other unethical abuses](http://strata.oreilly.com/2012/06/ethics-big-data-business-decisions.html) of personal data). But it's important to recognize that data can be a powerful force for positive change in the world.

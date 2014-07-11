@@ -3,11 +3,14 @@ layout: post
 title: "Hello, World"
 date: 2012-09-21 00:14:00
 categories: [blog, blogger]
+tags: [background, biography, data science, physics, science]
 ---
 
 Hi, I'm Burton. Welcome to my blog!
 
-![wedding photog selfie](/assets/images/wedding_photog_selfie.jpg)
+<figure>
+  <img src="/assets/images/wedding_photog_selfie.png" alt="wedding_photog_selfie.png" width="600">
+</figure>
 
 I'm currently learning how to be a data scientist, and for my personal benefit (and possibly yours), I've decided to keep a blog and share as I go. First, though, I should introduce myself.
 
