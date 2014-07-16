@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to Learn Data Science -- Part 1"
+title: "How to Learn Data Science (1)"
 date: 2012-10-01 19:34:00
 categories: [blog, blogger]
 tags: [blogs, data science, learning, MOOCs, overview, resources]

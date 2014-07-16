@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "How to Learn Data Science -- Part 2"
+title: "How to Learn Data Science (2)"
 date: 2012-10-03 16:56:00
 categories: [blog, blogger]
 tags: [books, data science, free data, Kaggle, practice, R, SciPy, tutorials]
 ---
 
-Given the newness and breadth of the field, it can be tough to make sense of and get going in data science. This plus the [previous post]({% post_url 2012-10-01-how-to-learn-data-science-part-1 %}) is my attempt to organize and summarize the effective learning resources I've found thus far. So. After __MOOCs__ and __Blogs__, we get to more intense forms of self-learning...
+Given the newness and breadth of the field, it can be tough to make sense of and get going in data science. This plus the [previous post]({% post_url 2012-10-01-how-to-learn-data-science-1 %}) is my attempt to organize and summarize the effective learning resources I've found thus far. So. After __MOOCs__ and __Blogs__, we get to more intense forms of self-learning...
 
 ### Books & Tutorials
 
