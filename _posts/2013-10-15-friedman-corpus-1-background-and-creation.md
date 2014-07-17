@@ -24,7 +24,7 @@ But _what if_ you wanted to study a particular subject, author, language, etc. f
 
 Unlike most newspapers, the NYT has [an excellent set of APIs](http://developer.nytimes.com/page) for accessing their data, integrating it into new applications, and otherwise applying it to novel purposes. Specifically, I used [the Article Search API v2](http://developer.nytimes.com/docs/read/article_search_api_v2) to find all of Thomas Friedman’s articles over the years. [An API Request Tool](http://prototype.nytimes.com/gst/apitool/index.html) can be used to test out queries quickly, although a word of warning: since upgrading to v2 of Article Search, documentation and tool stability has been lacking...
 
-```python
+{% highlight python %}
 from pprint import pprint
 import requests
  
@@ -52,11 +52,11 @@ resp = requests.get('http://api.nytimes.com/svc/search/v2/articlesearch.json',
  
 # check out all teh dataz
 pprint(resp.json())
-```
+{% endhighlight %}
 
 The API provides additional content, depending on the parameters passed to it; a particularly useful one is the <span style="font-family:courier">facets</span> field, which lets you explore NYT-specific categories and subsets of the data returned by your keyword-based search query. Using Python's built-in `str.format()` [method](http://docs.python.org/2/library/stdtypes.html#str.format), I printed out a nice display of the facets for this query:
 
-<span style="font-family:courier">
+```
 facet                           count 
 -------------------------------------
 type_of_material..............   6847
@@ -86,13 +86,13 @@ day_of_week...................   6853
    Friday.....................   1049
    Tuesday....................    833
    Thursday...................    748
-</span>
+```
 
 Hm. It looks like the dataset is mostly news and op-eds —-- makes sense —-- published as New York Times articles --— also makes sense —-- in the Opinion and NY/World sections of the paper --— again, makes sense. I don't know enough to assess the distribution over days of the week or whether the other material types are appropriate for Friedman (__Spoiler Alert:__ I should've checked!), but this seems plausible enough.
 
 Downloading from the API is, by design, meant to be straightforward; it's mostly just looping over the <span style="font-family:courier">page</span> parameter passed through the URL and aggregating the results. Here's a snippet of a single document returned by the API as JSON:
 
-<span style="font-family:courier">
+```
 {u'_id': u'5254b0a738f0d8198974116f',
  u'abstract': u'Thomas L Friedman Op-Ed column contends that mainstream Republicans have a greater interest than Democrats in Pres Obama prevailing over Tea Party Republicans in the government shutdown showdown; holds that a Tea Party victory would serve to marginalize mainstream Republicans, and would make the party incapable of winning presidential elections.',
  u'blog': [],
@@ -142,7 +142,7 @@ Downloading from the API is, by design, meant to be straightforward; it's mostly
  u'type_of_material': u'Op-Ed',
  u'web_url': u'http://www.nytimes.com/2013/10/09/opinion/friedman-us-fringe-festival.html',
  u'word_count': u'900'}
-</span>
+```
 
 As you can see, the Times adds _lots_ of metadata to each post! There are human-annotated entities (e.g. Barack Obama) and subjects (e.g. Shutdown), the publication date, word count, a link to Thomas Friedman's [new portrait](http://nytimes.com/images/2010/09/16/opinion/Friedman_New/Friedman_New-thumbStandard.jpg), the URL for the digital article, as well as an abstract and the lead paragraph. Excellent! Except... Well, shit. Where's the full article text?!
 
