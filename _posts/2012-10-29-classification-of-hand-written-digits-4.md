@@ -23,7 +23,7 @@ n-\text{dim} &=& \sqrt{\sum^{n}_{i=1}(p_i - q_i)^2}
 The 2-dimensional case should look familiar (think: _Pythagorean theorem_). In the parlance of non-parametric statistics, Euclidean distance corresponds to a uniform (or _rectangular_) [kernel](http://en.wikipedia.org/wiki/Kernel_(statistics)). [Technical note: kNN is a _non-parametric_ learning algorithm, meaning that it makes no assumptions about the underlying distribution of the data. Contrast this with, say, a [generalized linear model](http://en.wikipedia.org/wiki/Generalized_linear_model).] However, this isn't the only option! We can use a _triangular_ kernel, where the weight assigned to a neighbor decreases linearly with the distance from the test observation; Gaussian kernel, where the weighting function follows a Gaussian distribution; or many others. Here's a nice plot from Wikipedia that overlays a variety of kernels:
 
 <figure>
-  <img class="halfw" src="/assets/images/kernels.png" alt="kernels.png">
+  <img class="halfw" src="/assets/images/2012-10-29-kernels.png" alt="2012-10-29-kernels.png">
 </figure>
 
 Okay! Now I would like to optimize a kNN model for both the number of neighbors _and_ the kernel weighting function. To do this, I use a different package in R —-- [kknn](http://cran.r-project.org/web/packages/kknn/index.html) --— since the one I used last time —-- the [FNN](http://cran.r-project.org/web/packages/FNN/index.html) package —-- has a rectangular kernel only. The kknn package implements _leave-one-out_ cross-validation, in which a model is trained on all but one example in the training set, tested on that one validation example, then repeated such that each example acts as the validation example once. Here's the code:
@@ -52,7 +52,7 @@ print(model$MISCLASS)
 And here's the resulting plot:
 
 <figure>
-  <img class="tqw" src="/assets/images/knnPerformance_vs_kAndKernel_10kSet.png" alt="knnPerformance_vs_kAndKernel_10kSet.png">
+  <img class="tqw" src="/assets/images/2012-10-29-knn-performance-vs-kAndKernel-10kSet.png" alt="2012-10-29-knn-performance-vs-kAndKernel-10kSet.png">
 </figure>
 
 Models corresponding to the solid lines use _all_ features in the training data, while those corresponding to the dashed lines use a reduced set _without_ the near-zero variance features. The best models of both sets are marked by a black symbol. What do we see? Models trained on a reduced feature set perform significantly better than those trained on all features. (They also run faster!) Models with a triangular kernel perform better than those with rectangular or gaussian kernels. The _best_ kNN model uses a triangular kernel, excludes near-zero variance features, and has _k_ = 9, which we implement and run over the test data set like so:
@@ -72,7 +72,7 @@ write(as.numeric(levels(results))[results], file="kknn_submission.csv", ncolumns
 As before, [Kaggle](http://www.kaggle.com/) uses prediction error to assess the model's performance — so how does this one do? _Much better!_
 
 <figure>
-  <img class="fullw" src="/assets/images/ranking_bestKnn.png" alt="ranking_bestKnn.png">
+  <img class="fullw" src="/assets/images/2012-10-29-ranking-best-knn.png" alt="2012-10-29-ranking-best-knn.png">
 </figure>
 
 Clearly, optimizing your statistical model pays off!

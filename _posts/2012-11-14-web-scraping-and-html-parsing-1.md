@@ -15,7 +15,7 @@ So what's a data-starved data scientist to do?!? Well, one way to fetch data is 
 Let's consider a simple case: You want to know [tomorrow's local weather forecast](http://www.weather.com/weather/tomorrow/USNY0996), but you don't feel like going to the website, typing in the search bar, and dealing with all the advertisements. So, you write a little program that sends an HTTP request to [weather.com](http://www.weather.com/)'s server, which responds with (among other things) the HTML content you asked for, then you parse that HTML to find the string of characters embedded in a deep hierarchy of tags corresponding to the temperature: 48.
 
 <figure>
-  <img class="tqw" src="/assets/images/weatherDotComExample.png" alt="weatherDotComExample.png">
+  <img class="tqw" src="/assets/images/2012-11-14-weather-dot-com-example.png" alt="2012-11-14-weather-dot-com-example.png">
 </figure>
 
 This example is kind of ridiculous, I know --— _just bookmark the damn site!_ --— but vastly more complicated web scraping tasks can be built up from this basic procedure: request HTML, parse HTML, extract data (repeat). Maybe you'd like to compile a [list of abilities](http://en.wikipedia.org/wiki/Superman#Powers_and_abilities) of all superheroes on Wikipedia, or get U.S. election results by district from [this guy](http://uselectionatlas.org/) without paying lots of money for his already-structured and -cleaned Excel spreadsheets, or get the [Metacritic scores](http://www.metacritic.com/search/movie/results?genres%5Bhorror%5D=1&date_range_from=11-14-2002&search_type=advanced&sort=score) of all horror films in the past ten years. Sure, given enough time and patience, you could probably do this manually, but it's much _much_ easier to automate through code.

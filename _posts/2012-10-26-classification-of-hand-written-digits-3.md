@@ -13,7 +13,7 @@ Now for the fun part! In [Part 1]({% post_url 2012-10-14-classification-of-hand-
 One of the simplest machine learning algorithms is [nearest-neighbors](http://en.wikipedia.org/wiki/K-nearest_neighbor_algorithm), where an object is assigned to the class most common among the training set neighbors nearest to its location in feature-space. "Nearness" implies a distance metric, which by default is the Euclidean distance. Consider this basic example:
 
 <figure>
-  <img class="tqw" src="/assets/images/knnConcept.png" alt="knnConcept.png">
+  <img class="tqw" src="/assets/images/2012-10-26-knn-concept.png" alt="2012-10-26-knn-concept.png">
 </figure>
 
 We have a training set consisting of two classes ($A$ and $B$) with five instances apiece, as indicated by gold and purple dots. Only two features ($x_1$ and $x_2$) are used to discriminate between the classes, so feature-space is 2-dimensional. Now, we are presented with an unlabeled observation, indicated by the red star, and would like to classify it as either $A$ or $B$. How do we do this? Well, if we assume that objects of the same class tend to be closer together in feature-space —-- and, looking at the data, that assumption seems fair —-- we can assign class by a majority vote of the _k_ nearest neighbors. For the case _k_ = 3 (small circle), one neighbor is of Class $A$ and two are of Class $B$, so we classify the unlabeled observation as a member of $B$; for _k_ = 6 (large circle), however, four neighbors are of Class $A$ and only two are of Class $B$, so the unlabeled observation is instead classified as a member of $A$. Easy, right?
@@ -27,13 +27,13 @@ where $x = (x_1, x_2)$ is the feature vector (input) for the unlabeled observati
 Alright, let's add a bit more data to our simple example's training set:
 
 <figure>
-  <img class="halfw" src="/assets/images/knnExample_trainingSet.png" alt="knnExample_trainingSet.png">
+  <img class="halfw" src="/assets/images/2012-10-26-knn-example-training-set.png" alt="2012-10-26-knn-example-training-set.png">
 </figure>
 
 We'd like to define regions in feature-space in which any unlabeled observation will be assigned to a single class ($A$ or $B$), separated by _decision boundaries_. Of course, the decision regions depend on the value of _k_, as illustrated below:
 
 <figure>
-  <img class="fullw" src="/assets/images/knnExample_ks.png" alt="knnExample_ks.png">
+  <img class="fullw" src="/assets/images/2012-10-26-knn-example-ks.png" alt="2012-10-26-knn-example-ks.png">
 </figure>
 
 An unlabeled observation falling in the gold-colored region(s) is assigned to Class $A$; in the purple-colored region(s), Class $B$. The decision boundary, shown as a black line, corresponds to the set of positions in feature-space where $\hat{Y} = 0.5$ exactly. For _k_ = 1 (left plot), where an unlabeled observation is given the class of its nearest neighbor, there are _no_ misclassified training examples; however, the decision boundary is jagged and almost certainly "overtrained" to fit the training data, which means that its predictions probably won't generalize well to new observations. For _k_ = 25 (right plot), some training examples are misclassified, but the decision boundary is relatively smooth and seems more likely to produce reasonable predictions for new data. Clearly, choosing the right value of _k_ for your algorithm is important; I'll discuss how we do that later.
@@ -77,7 +77,7 @@ As I wrote before, a common way to optimize the parameters of a machine learning
 Well. The most obvious parameter we would like to optimize is _k_, the number of neighbors to consider when making a prediction for an unlabeled observation. I set aside a randomly-selected 40% of the training examples for the validation set, then trained a series of models over the remaining 60% of the training set, varying the value of _k_ from 1 to 10. I then plotted the kNN's classification error for both the training and validation sets as a function of _k_:
 
 <figure>
-  <img class="tqw" src="/assets/images/numK_10kSet.png" alt="numK_10kSet.png">
+  <img class="tqw" src="/assets/images/2012-10-26-numK-10k-set.png" alt="2012-10-26-numK-10k-set.png">
   <figcaption>Classification error as a function of k for both training and validation sets.</figcaption>
 </figure>
 
@@ -102,14 +102,14 @@ cv <- cv[, -badCols]
 Approximately 66% of the pixels in these images have near-zero variance, owing to the large, all-white margins around most digits. Not surprisingly, program runtime was significantly reduced, while the classification error was minimally affected:
 
 <figure>
-  <img class="tqw" src="/assets/images/numK_10kSet_noZeroVarCols.png" alt="numK_10kSet_noZeroVarCols.png">
+  <img class="tqw" src="/assets/images/2012-10-26-numK-10k-set-noZeroVarCols.png" alt="2012-10-26-numK-10k-set-noZeroVarCols.png">
   <figcaption>Classification error vs. k for training/validation sets, with near-zero variance features removed.</figcaption>
 </figure>
 
 A potential pitfall of kNN models is that features with very different ranges can skew predictions, since certain features will more probably be _near_ an unlabeled observation, while others will more probably be _far_. To check this, I performed feature centering and scaling — collectively, _standardizing_ — where you subtract the mean value of a feature from each example's value then divide by the standard deviation of the feature. So, rather than ranging from 0 to 255, pixel values are centered about 0, with +1 corresponding to a value one standard deviation above the mean, -1 as one standard deviation below the mean, and so on. Doing this in R was simple: `train <- apply(train, 2, scale, center=TRUE, scale=TRUE)`. As it turned out, the classification error actually _increased_ slightly:
 
 <figure>
-  <img class="tqw" src="/assets/images/numK_10kSet_noZeroColVars_standardized.png" alt="numK_10kSet_noZeroColVars_standardized.png">
+  <img class="tqw" src="/assets/images/2012-10-26-numK-10k-set-noZeroColVars-standardized.png" alt="2012-10-26-numK-10k-set-noZeroColVars-standardized.png">
   <figcaption>Classification error vs. k, with near-zero variance features removed and standardized features.</figcaption>
 </figure>
 
@@ -118,7 +118,7 @@ I'm not entirely sure why classification error should _increase_, but I can conc
 Ultimately, I concluded that _k_ = 5 with near-zero variance features removed gave me optimal kNN performance. I then trained a model with these parameters over the _full_ training set (no validation set!), and ran it over the test data provided by Kaggle. How did I do compared to the benchmark shown above?
 
 <figure>
-  <img class="tqw" src="/assets/images/firstTryRanking.png" alt="firstTryRanking.png">
+  <img class="tqw" src="/assets/images/2012-10-26-first-try-ranking.png" alt="2012-10-26-first-try-ranking.png">
   <figcaption>Kaggle leader board at the time of my first submission.</figcaption>
 </figure>
 

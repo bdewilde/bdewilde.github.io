@@ -13,14 +13,14 @@ In the last few posts, I've attempted to lay a basic foundation explaining what 
 A common and important task in machine learning is [classification](http://en.wikipedia.org/wiki/Statistical_classification): given a new observation, determine the category to which it belongs by comparing it to known examples of those categories. A familiar case is spam email filtering, where a new email is classified as spam or non-spam based on its contents. Specifically, an email that has words such as "male enhancement" or "fast cash," a subject line in all caps, web links with shady domain names, a high ratio of images to text, etc. will likely be classified as spam.
 
 <figure>
-  <img class="tqw" src="/assets/images/spam_email.png" alt="spam_email.png">
+  <img class="tqw" src="/assets/images/2012-10-14-spam-email.png" alt="2012-10-14-spam-email.png">
   <figcaption>Example email from my inbox, correctly classified as spam.</figcaption>
 </figure>
 
 Another classic example is Fisher's [iris data set](http://en.wikipedia.org/wiki/Iris_flower_data_set), in which three species of iris — _setosa_, _versicolor_, and _virginica_ — are characterized by the length and width in centimeters of their [petals and sepals](http://en.wikipedia.org/wiki/File:Petal-sepal.jpg). (Note: This data set comes with R, just type `iris` at the prompt!) Upon finding an unknown iris, a botanist might like to classify it as a member of the appropriate species based on measurements of its petals and sepals. Well, as it turns out, only one of the species (setosa, in orange below) is simply distinguishable from the other two (versicolor in cyan and virginica in violet), resulting in a non-trivial challenge for classification algorithms.
 
 <figure>
-  <img class="tqw" src="/assets/images/iris_dataset.png" alt="iris_dataset.png">
+  <img class="tqw" src="/assets/images/2012-10-14-iris-dataset.png" alt="2012-10-14-iris-dataset.png">
   <figcaption>Pair-wise scatter plots of the four attributes distinguishing three iris species.</figcaption>
 </figure>
 
@@ -37,14 +37,14 @@ Another classic classification problem is identifying digits from images of indi
 The data come from the Modified National Institute of Standards and Technology (MNIST) [database](http://yann.lecun.com/exdb/mnist/index.html). Each instance is a square gray-scale image, 28 x 28 pixels in size (for a total of 784 pixels), of a single, centered, hand-written digit in the range 0 to 9. Like this:
 
 <figure>
-  <img class="tqw" src="/assets/images/digit_to_pixels.png" alt="digit_to_pixels.png">
+  <img class="tqw" src="/assets/images/2012-10-14-digit-to-pixels.png" alt="2012-10-14-digit-to-pixels.png">
   <figcaption>Left: Example image of a hand-written "6." Right: Numbering of pixels in the image.</figcaption>
 </figure>
 
 Each pixel has an integer value associated with it indicating brightness, from 0 (white) to 255 (black). For convenience, each digit is stored as one row in a table, with 784 columns corresponding to the pixels in the image; in the training set, an additional first column indicates the actual value of the digit (its class). Like this:
 
 <figure>
-  <img class="fullw" src="/assets/images/digit_feature_vector.png" alt="digit_feature_vector.png">
+  <img class="fullw" src="/assets/images/2012-10-14-digit-feature-vector.png" alt="2012-10-14-digit-feature-vector.png">
   <figcaption>Training example of a hand-written "6," represented as a single row in a table.</figcaption>
 </figure>
 

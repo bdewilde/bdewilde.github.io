@@ -62,7 +62,7 @@ Special Report; Chronology           1
 Roughly half news, half op-eds, with a smattering of analyses and such over the years. Sounds like Friedman! As a final sanity check, though, I wanted to see how the above breakdown was distributed over time. So, I grouped results by year of publication and type of material, then plotted them together using [matplotlib](http://matplotlib.org/) (Python's de facto standard plotting library) and, just for kicks, [prettyplotlib](http://olgabot.github.io/prettyplotlib/) (a recently-released package that makes plots pretty). Here's what I got:
 
 <figure>
-  <img class="fullw" src="/assets/images/article_counts_by_type_over_time.png" alt="article_counts_by_type_over_time.png">
+  <img class="fullw" src="/assets/images/2013-10-20-article-counts-by-type-over-time.png" alt="2013-10-20-article-counts-by-type-over-time.png">
 </figure>
 
 It is indeed pretty, but does it make _sense_? Yes, if you know a bit about Friedman's career at The New York Times. [Insert comment about how domain expertise matters in data science, à la [Drew Conway's venn diagram](http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram)...] Friedman was hired in 1981 and sent to Beirut to cover [the Lebanese Civil War](http://en.wikipedia.org/wiki/Lebanese_Civil_War); he won a Pulitzer prize for his war-time coverage in 1983. The following year he was transferred to Jerusalem, where he served as Bureau Chief until 1988. In that year, he won another Pulitzer for his reporting on international affairs —-- and wrote a book about it. Friedman moved on to American foreign policy, George Bush's Secretary of State, and then the White House itself. In 1995 he became a foreign affairs columnist writing in the Op-Eds section. In 2002 he won yet _another_ Pulitzer, this one for his commentary on the global threat posed by terrorism. And he's been yammering away ever since.
@@ -117,7 +117,7 @@ CIVIL WAR AND GUERRILLA WARFARE (174)
 Considering his bio, this looks totally reasonable, if a bit depressing. If you're curious, his top _locations_ were the Middle East, Israel, and Lebanon (which is not at all surprising), and his top _organizations_ were the U.N., NATO, and the Palestine Liberation Organization, followed distantly by the Republican and Democratic Parties. On a lark, I made a pie chart of the equivalent _persons_ keywords, where the percentages equal the number of times Friedman has mentioned a given person divided by the total number of people-mentions (multiplied by 100):
 
 <figure>
-  <img class="tqw" src="/assets/images/person_counts_pie_chart.png" alt="person_counts_pie_chart.png">
+  <img class="tqw" src="/assets/images/2013-10-20-person-counts-pie-chart.png" alt="2013-10-20-person-counts-pie-chart.png">
 </figure>
 
 In the top ten you see the usual subjects --— current and former presidents, George Bush's Secretary of State ([Mr. Baker](http://en.wikipedia.org/wiki/James_Baker)), Middle Eastern heads of state, _Gorbachev_ --— which together comprise almost 50% of all mentions. The other half —-- "EVERYONE ELSE" —-- is a multitude whose 920 wedges can't be visualized like this. So much for pie charts!

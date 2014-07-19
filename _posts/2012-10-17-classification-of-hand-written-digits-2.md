@@ -24,21 +24,21 @@ The specifics of one's analysis strategy depend on the problem at hand, of cours
 As it turns out, there's not a whole lot to visualize in the hand-written digits training set. Each digit (_class_) is represented by a few thousand examples, and one of the biggest challenges is in correctly accounting for the variability within each class. So, on that note, I produced a plot showing ten examples of each of the ten digits:
 
 <figure>
-  <img class="halfw" src="/assets/images/minst_database_example_digits.png" alt="minst_database_example_digits.png">
+  <img class="halfw" src="/assets/images/2012-10-17-minst-database-example-digits.png" alt="2012-10-17-minst-database-example-digits.png">
   <figcaption>Made in R with the <code>ggplot</code> package, using <code>facet_wrap</code> and <code>geom_tile</code>.</figcaption>
 </figure>
 
 Besides the obvious variations in shape (e.g. 4s closed/open, 7s with/without hanging lines or cross-bars, etc.), one thing I noticed is that some examples are much bolder than others. To see if that varied systematically by digit (which could potentially be a useful discriminating feature!), I plotted the _mean pixel brightness_ (on a scale from 0 to 255, i.e. white to black) for each class:
 
 <figure>
-  <img class="tqw" src="/assets/images/digitMeanPixBright.png" alt="digitMeanPixBright.png">
+  <img class="tqw" src="/assets/images/2012-10-17-digit-mean-pix-bright.png" alt="2012-10-17-digit-mean-pix-bright.png">
   <figcaption>Boxplot made using R's base graphics package, showing min/max values, lower/upper quartiles, and medians.</figcaption>
 </figure>
 
 In retrospect, this wasn't _particularly_ insightful, since most digits (with the exception of 1 and maybe 7) are in the same low range of values, owing to the white background on which the black digits are drawn. It did, however, point me to a potentially more interesting variable: the fraction of white pixels in each 28x28 pixel image, which I show here:
 
 <figure>
-  <img class="tqw" src="/assets/images/digitFracWhite.png" alt="digitFracWhite.png">
+  <img class="tqw" src="/assets/images/2012-10-17-digit-frac-white.png" alt="2012-10-17-digit-frac-white.png">
   <figcaption>Another basic boxplot made in R. Btw, those individual points are outliers.</figcaption>
 </figure>
 
@@ -47,7 +47,7 @@ You can see that 1s are about 90% white (empty) pixels, and the other digits are
 Lastly, I wanted to see how digits varied in height and width. One way is to look at the _maximum_ horizontal and vertical ranges spanned by the digits — that is, the first and last columns and rows in [1, 28] with at least one non-white pixel. Here's a plot of the maximum width for each class of digit:
 
 <figure>
-  <img class="tqw" src="/assets/images/digitWidth.png" alt="digitWidth.png">
+  <img class="tqw" src="/assets/images/2012-10-17-digit-width.png" alt="2012-10-17-digit-width.png">
 </figure>
 
 As you might expect, 1s and 9s tend to be the narrowest, while 0s, 2s, and 5s tend to be the widest. There's a hard upper bound at 19 pixels because each digit in the [MINST database](http://yann.lecun.com/exdb/mnist/index.html) was first normalized to 20x20 pixels in size then centered in a larger 28x28 pixel image. Would this value be useful as an additional discriminator? _Eh_, probably not, but it was worth a shot. Even less useful was the distribution of heights, since the aforementioned normalization of the digits meant that nearly all digits are exactly 19 pixels tall. I won't waste your time with the plot.

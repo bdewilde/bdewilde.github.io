@@ -9,7 +9,7 @@ tags: [background, biography, data science, physics, science]
 Hi, I'm Burton. Welcome to my blog!
 
 <figure>
-  <img src="/assets/images/wedding_photog_selfie.jpg" alt="wedding_photog_selfie.jpg" class="halfw">
+  <img src="/assets/images/2012-09-21-wedding-photog-selfie.jpg" alt="2012-09-21-wedding-photog-selfie.jpg" class="halfw">
 </figure>
 
 I'm currently learning how to be a data scientist, and for my personal benefit (and possibly yours), I've decided to keep a blog and share as I go. First, though, I should introduce myself.

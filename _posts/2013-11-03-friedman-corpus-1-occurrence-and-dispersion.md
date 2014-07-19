@@ -37,7 +37,7 @@ all_words = list(chain(*tokenized_text))
 Now I had one last set of decisions to make: _Which_ words do I want to count? Depends on what you want to do, of course! For example, [this article](http://phenomena.nationalgeographic.com/2013/07/19/how-forensic-linguistics-outed-j-k-rowling-not-to-mention-james-madison-barack-obama-and-the-rest-of-us/) explains how filtering for and studying certain words helped computational linguists identify J.K. Rowling as the person behind the author Robert Galbraith. In _my_ case, I just wanted to get a general feeling for the meaningful words Friedman has used the most. So, I filtered out [stop words](http://en.wikipedia.org/wiki/Stop_words) and bare punctuation tokens, and I lowercased all letters, but I did not stem or lemmatize the words; the total number of words dropped from 2.96M to 1.43M. I then used NLTK's handy `FreqDist()` class to get counts by word. Here are both counts and frequencies for the top 30 "good" words in my Friedman corpus:
 
 <figure>
-  <img class="fullw" src="/assets/images/top_words_by_count_and_freq.png" alt="top_words_by_count_and_freq.png">
+  <img class="fullw" src="/assets/images/2013-11-03-top-words-by-count-and-freq.png" alt="2013-11-03-top-words-by-count-and-freq.png">
 </figure>
 
 You can see that the distributions are identical, except for the _y_-axis values: as discussed above, counts are the absolute number of occurrences for each word, while frequencies are those counts divided by the total number of words in the corpus. It's interesting but not particularly surprising that Friedman's top two meaningful words are _mr._ and _said_ --— he's a journalist, after all, and he's quoted a lot of people. (Perhaps [he met them on the way](http://www.nytimes.com/2006/11/01/opinion/01friedman.html) to/from a foreign airport...) Given what we know about Friedman's career (as discussed in [(1)]({% post_url 2013-10-15-friedman-corpus-1-background-and-creation %})), most of the other top words also sound about right: Israel/Israeli, president, American, people, world, _Bush_, ...
@@ -52,7 +52,7 @@ On a lark, I compared word counts for the five presidents that have held office 
 Yes, the two Bush's got combined, and Hillary is definitely contaminating Bill's counts (I didn't feel like doing reference disambiguation on this, sorry!). I find it more interesting to plot _conditional_ frequency distributions, i.e. a set of frequency distributions, one for each value of some condition. So, taking the article's year of publication as the condition, I produced this plot of presidential mentions by year:
 
 <figure>
-  <img class="fullw" src="/assets/images/presidents_by_frequency_over_time.png" alt="presidents_by_frequency_over_time.png">
+  <img class="fullw" src="/assets/images/2013-11-03-presidents-by-frequency-over-time.png" alt="2013-11-03-presidents-by-frequency-over-time.png">
 </figure>
 
 Nice! You can clearly see frequencies peaking during a given president's term(s), which makes sense. Plus, they show Friedman's change in focus over time: early on, he covered Middle Eastern conflict, not the American presidency; in 1994, a year in which Clinton was mentioned particularly frequently, Friedman was specifically covering the White House. I'm tempted to read further into the data, such as the long decline of W. Bush mentions throughout —-- and beyond --— his second term possibly indicating his slide into irrelevance, but I shouldn't without first inspecting context. Some other time, perhaps.
@@ -60,11 +60,11 @@ Nice! You can clearly see frequencies peaking during a given president's term(s)
 I made a few other conditional frequency distributions using NLTK's `ConditionalFreqDist()` class, just for kicks. Here are two, presented without comment (only hints of a raised eyebrow on the author's part):
 
 <figure>
-  <img class="fullw" src="/assets/images/countries_by_frequency_over_time.png" alt="countries_by_frequency_over_time.png">
+  <img class="fullw" src="/assets/images/2013-11-03-countries-by-frequency-over-time.png" alt="2013-11-03-countries-by-frequency-over-time.png">
 </figure>
 
 <figure>
-  <img class="fullw" src="/assets/images/war_peace_by_frequency_over_time.png" alt="war_peace_by_frequency_over_time.png">
+  <img class="fullw" src="/assets/images/2013-11-03-war-peace-by-frequency-over-time.png" alt="2013-11-03-war-peace-by-frequency-over-time.png">
 </figure>
 
 These plots-over-time lead naturally into the concept of dispersion.
@@ -85,7 +85,7 @@ dispersion_plot(all_words,
 {% endhighlight %}
 
 <figure>
-  <img class="fullw" src="/assets/images/presidential_mention_dispersion.png" alt="presidential_mention_dispersion.png">
+  <img class="fullw" src="/assets/images/2013-11-03-presidential-mention-dispersion.png" alt="2013-11-03-presidential-mention-dispersion.png">
 </figure>
 
 To be honest, I'm not even sure how to interpret this plot --— for starters, why does Obama appear at what I think is the beginning of the corpus?! Clearly, it would be nice to quantify dispersion as, like, a single, scalar value. Many dispersion measures have been proposed over the years (see [1] for a nice overview), but in the context of linguistic elements, most are poorly known, little studied, and suffer from a variety of statistical shortcomings. Also in [1], the author proposes an alternative, conceptually simple measure of dispersion called _DP_, for deviation of proportions, whose derivation he gives as follows:
@@ -97,7 +97,7 @@ To be honest, I'm not even sure how to interpret this plot --— for starters, w
 Sounds reasonable to me! (Read the cited paper if you disagree, I found it very convincing.) Using this definition, I calculated _DP_ values for all words in the Friedman corpus and plotted those values against their corresponding counts:
 
 <figure>
-  <img class="tqw" src="/assets/images/counts_vs_dispersion.png" alt="counts_vs_dispersion.png">
+  <img class="tqw" src="/assets/images/2013-11-03-counts-vs-dispersion.png" alt="2013-11-03-counts-vs-dispersion.png">
 </figure>
 
 As expected, the most frequent words tend to have lower _DP_ values (be more evenly distributed in the corpus), and vice-versa; however, note the wide spread in _DP_ for a fixed count, particularly in the middle range. Many words are _definitely_ distributed unevenly in the Friedman corpus!
@@ -105,7 +105,7 @@ As expected, the most frequent words tend to have lower _DP_ values (be more eve
 A common —-- but not entirely ideal --— way to account for dispersion in corpus linguistics is to compute the _adjusted frequency_ of words, which is often just frequency multiplied by dispersion. (Other definitions exist, but I won't get into it.) Such adjusted frequencies are by definition some fraction of the raw frequency, and words with low dispersion are penalized more than those with high dispersion. Here, I plotted the frequencies and adjusted frequencies of Friedman's top 30 words from before:
 
 <figure>
-  <img class="fullw" src="/assets/images/top_words_by_adjusted_frequency.png" alt="top_words_by_adjusted_frequency.png">
+  <img class="fullw" src="/assets/images/2013-11-03-top-words-by-adjusted-frequency.png" alt="2013-11-03-top-words-by-adjusted-frequency.png">
 </figure>
 
 You can see that the rankings would change if I used adjusted frequency to order the words! This difference can be quantified with, say, [a Spearman correlation coefficient](http://en.wikipedia.org/wiki/Spearman's_rank_correlation_coefficient), for which a value of 1.0 indicates identical rankings and -1.0 indicates exactly opposite rankings. I calculated a value of 0.89 for frequency-ranks vs adjusted frequency-ranks: similar, but not the same! It's clear that the effect of (under-)dispersion should not be ignored in corpus linguistics. My big issue with adjusted frequencies is that they are more difficult to interpret: What, exactly, does frequency\*dispersion actually mean? What units go with those values? Maybe smarter people than I will come up with a better measure.

@@ -13,7 +13,7 @@ Data science is a relatively new field that lies at the intersection of math and
 A visual attempt at definition comes in the form of [The Data Science Venn Diagram](http://www.drewconway.com/zia/?p=2378) by [Drew Conway](http://www.drewconway.com/Drew_Conway/About.html):
 
 <figure>
-  <img class="halfw" src="/assets/images/Data_Science_VD.png" alt="Data_Science_VD.png">
+  <img class="halfw" src="/assets/images/2012-09-27-data-science-venn-diagram.png" alt="2012-09-27-data-science-venn-diagram.png">
 </figure>
 
 The emphasis here is, again, on the interdisciplinary nature of data science, which lies at the intersection of three general domains of knowledge and experience. His inclusion of "substantive expertise" points to what makes data science (and data scientists) new and distinct from, say, business intelligence analysts: It's not just about the existence of the data and the ability to quantitatively analyze it; data science is about testing hypotheses, and deriving new knowledge from the data, then making sure that the conclusions are valid. It's about _discovery_.
@@ -25,7 +25,7 @@ Another way to define data science is to describe the sort of work that's actual
 _Amazing_. [Mike Driscoll](http://thephenomlist.com/Big_Data_Scientists/Michael_Driscoll) details the [three sexy skills of data geeks](http://www.dataspora.com/2009/05/sexy-data-geeks/) — statistics, data munging, and visualization — the last of which is a critical component of data science that I've not yet mentioned. Presenting the data such that its underlying structure is clear and visible facilitates a better understanding of the dataset itself, not to mention communication of your conclusions with others! On that note, here's a final, visual take on tasks now associated with data science, taken from a 2004 dissertation on computational information design by [Ben Fry](http://benfry.com/):
 
 <figure>
-  <img class="fullw" src="/assets/images/data_science_tasks.png" alt="data_science_tasks.png">
+  <img class="fullw" src="/assets/images/2012-09-27-data-science-tasks.png" alt="2012-09-27-data-science-tasks.png">
 </figure>
 
 So, as far as I can tell, that's data science in a nutshell. But, given that it's a new and varied field, I've probably missed some important points; if anybody out there has something to add, please do so in the comments!

@@ -9,7 +9,7 @@ tags: [data science, domain expertise, Kalamazoo College, liberal arts education
 This past weekend I was at [Kalamazoo College](http://www.kzoo.edu/) for my five-year college reunion. I mentally prepared myself to feel _really old_ but came out of it feeling young and refreshed instead. Funny how that works out.
 
 <figure>
-  <img class="tqw" src="/assets/images/kzoo_reunion.jpg" alt="kzoo_reunion.jpg">
+  <img class="tqw" src="/assets/images/2012-10-22-kzoo-reunion.jpg" alt="2012-10-22-kzoo-reunion.jpg">
   <figcaption>Senior year housemates!</figcaption>
 </figure>
 
