@@ -1,7 +1,8 @@
 ---
 layout: default
 ---
-<div id="post-nav">
+
+<div class="post-nav">
   {% if page.previous.url %}
     <a class="post-link" href="{{ page.previous.url | prepend: site.baseurl }}" title="{{ page.previous.title }}">&laquo; previous</a>
   {% endif %}
@@ -25,3 +26,9 @@ layout: default
   </article>
 
 </div>
+
+<div class="post-nav">
+  <a class="post-link" href="{{ "/blog" | prepend: site.baseurl }}">&#8676; back to blog</a>
+</div>
+
+
