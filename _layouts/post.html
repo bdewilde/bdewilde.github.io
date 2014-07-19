@@ -1,6 +1,18 @@
 ---
 layout: default
 ---
+<div class="nav">
+  {% if page.previous %}
+    <a class="post-link" href="{{ page.previous.url | prepend: site.baseurl }}">&laquo; previous</a>
+  {% endif %}
+  {% if page.previous and page.next%}
+    <span> | </span>
+  {% endif %}
+  {% if page.next %}
+    <a class="post-link" href="{{ page.next.url | prepend: site.baseurl }}">next &raquo;</a>
+  {% endif %}
+</div>
+
 <div class="post">
 
   <header class="post-header">

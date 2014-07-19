@@ -1,5 +1,5 @@
 # Site settings
-title: Work In Progress
+title: burton dewilde
 description: "This is my site description, as set in _config.yml"
 baseurl: ""
 url: "http://yourdomain.com"
@@ -14,3 +14,6 @@ permalink: pretty
 
 kramdown:
   input: GFM
+
+paginate: 10
+paginate_path: "blog/:num"
