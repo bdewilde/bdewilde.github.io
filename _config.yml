@@ -21,5 +21,7 @@ kramdown:
   use_coderay: false
   input: GFM
 
+#lsi: true
+
 #paginate: 10
 #paginate_path: "blog/:num"
