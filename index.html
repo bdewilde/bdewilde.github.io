@@ -1,23 +1,20 @@
 ---
 layout: default
 ---
-<!DOCTYPE html>
-
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
 
 <div class="home">
 
-  <h1>Blog Posts</h1>
+  <h1>recent blog posts</h1>
 
   <ul class="posts">
-    {% for post in site.posts %}
+    {% for post in site.posts limit:5 %}
       <li>
         <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
         <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
       </li>
     {% endfor %}
   </ul>
+
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
