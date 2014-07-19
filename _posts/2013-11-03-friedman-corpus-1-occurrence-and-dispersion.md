@@ -6,11 +6,7 @@ categories: [blog, blogger]
 tags: [co-occurrence, corpus linguistics, dispersion, natural language processing, occurrence, Thomas Friedman, tokenization]
 ---
 
-[(1) — Background and Creation]({% post_url 2013-10-15-friedman-corpus-1-background-and-creation %})
-
-[(2) — Data Quality and Corpus Stats]({% post_url 2013-10-20-friedman-corpus-2-data-quality-and-corpus-stats %})
-
-Thus far, I've pseudo-justified why a collection of [NYT articles by Thomas Friedman](http://topics.nytimes.com/top/opinion/editorialsandoped/oped/columnists/thomaslfriedman/index.html) would be interesting to study, actually compiled/scraped the text and metadata, improved/verified the quality of the data, and computed a handful of simple, corpus-level statistics. Now, onward to actual natural language analysis!
+Thus far, I've pseudo-justified why a collection of [NYT articles by Thomas Friedman](http://topics.nytimes.com/top/opinion/editorialsandoped/oped/columnists/thomaslfriedman/index.html) would be interesting to study, actually compiled/scraped the text and metadata (see [Background and Creation]({% post_url 2013-10-15-friedman-corpus-1-background-and-creation %}) post), improved/verified the quality of the data, and computed a handful of simple, corpus-level statistics (see [Data Quality and Corpus Stats]({% post_url 2013-10-20-friedman-corpus-2-data-quality-and-corpus-stats %}) post). Now, onward to actual natural language analysis!
 
 ### Occurrence
 
