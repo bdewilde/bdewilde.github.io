@@ -13,7 +13,7 @@ A particularly easy way to join (or at least _follow_) the conversation is via T
 I've also become a regular at an informal, weekly data/journalism working group called [CSV Soundsystem](http://csvsoundsystem.com/), which convenes at a Think Coffee in The Village for its decent beer and free wi-fi. I was introduced to the group by Harmony Institute's previous data scientist, [Brian Abelson](http://brianabelson.com/), who now works at The New York Times. The benefits of working in the company of other data folks need no explanation. During my first evening with CSV, I acquired a new text editor ([Sublime Text](http://www.sublimetext.com/2)) and a new terminal ([iTerm](http://iterm.sourceforge.net/)), thereby fundamentally improving my workflow; this sort of thing happens surprisingly often. Another great experience has been working together on group projects, which brings me to the next paragraph...
 
 <figure>
-  <img src="/assets/images/team_csv_at_hackathon.jpg" alt="team_csv_at_hackathon.jpg" width="600">
+  <img class="tqw" src="/assets/images/team_csv_at_hackathon.jpg" alt="team_csv_at_hackathon.jpg">
   <figcaption>Two members of Team CSV: Brian Abelson (NYT) and Michael Keller (The Daily Beast).</figcaption>
 </figure>
 

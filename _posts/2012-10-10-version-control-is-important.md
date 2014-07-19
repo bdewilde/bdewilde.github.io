@@ -9,7 +9,7 @@ tags: [backup, branching, collaboration, Git, Kaggle, rewinding, SVN, version co
 I recently came across a post on Kaggle's [no free hunch blog](http://blog.kaggle.com/), "[Engineering Practices in Data Science](http://blog.kaggle.com/2012/10/04/engineering-practices-in-data-science/)", in which Chris Clark describes a set of best practices for those who work in the medium of code — specifically, those practices common among software engineers but _not_ among data scientists. I was much chagrined by the first wag of his finger: many data scientists don't use [version control](http://en.wikipedia.org/wiki/Revision_control) (a logical way to manage multiple versions of the same information, e.g. source code), preferring instead to save files with elaborate names and/or back them up dropbox. _Ugh_, I realized, _he's talking about me_.
 
 <figure>
-  <img src="/assets/images/dropbox_code_backup.png" alt="dropbox_code_backup.png" width="600">
+  <img class="tqw" src="/assets/images/dropbox_code_backup.png" alt="dropbox_code_backup.png">
   <figcaption>Part of my <code>/code_backup</code> directory in Dropbox. This is bad.</figcaption>
 </figure>
 
@@ -25,7 +25,7 @@ Basically, version control gives you a permanent undo button to use in case of e
 When I worked on [ATLAS](http://atlas.ch/), most people seemed to use [Apache Subversion](http://en.wikipedia.org/wiki/Apache_Subversion) (commonly known as SVN). That said, I get the impression that [Git](http://en.wikipedia.org/wiki/Git_(software)) is more popular among the tech crowd. They follow different models but implement the same basic principles. Happily, both are open source, so you don't have to pay! I'm not going to bother with a How-To, since the Internet has already provided us with many: for Git, see [this](http://www-cs-students.stanford.edu/~blynn/gitmagic/), [this](http://git-scm.com/book), or [this](http://coding.smashingmagazine.com/2011/07/26/modern-version-control-with-git-series/); for SVN, see [this](http://svnbook.red-bean.com/) or [this](http://subversion.apache.org/docs/community-guide/).
 
 <figure>
-  <img src="/assets/images/github_mac_gui.png" alt="github_mac_gui.png" width="600">
+  <img class="tqw" src="/assets/images/github_mac_gui.png" alt="github_mac_gui.png">
   <figcaption>Work, commit, sync. Repeat.</figcaption>
 </figure>
 

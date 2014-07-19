@@ -12,7 +12,7 @@ In this post, I'll give practical details and example code for basic NLP tasks; 
 
 The first thing we need to get started is, of course, some sample text. Let's use [this recent op-ed](http://www.nytimes.com/2013/04/07/opinion/sunday/friedman-weve-wasted-our-timeout.html) in the New York Times by [Thomas Friedman](http://topics.nytimes.com/top/opinion/editorialsandoped/oped/columnists/thomaslfriedman/index.html), which is about as close to [lorem ipsum](http://en.wikipedia.org/wiki/Lorem_ipsum) as natural language gets. Although copy-pasting the text works fine for a single article, it quickly becomes a hassle for multiple articles; instead, let's do this programmatically and put [our web scraping skillz]({% post_url 2012-11-26-web-scraping-and-html-parsing-2 %}) to good use. A bare-bones Python script gets the job done:
 
-```python
+{% highlight python %}
 import bs4
 import requests
  
@@ -26,7 +26,7 @@ article = ''
 paragraphs = soup.find_all('p', itemprop='articleBody')
 for paragraph in paragraphs:
     article += paragraph.get_text()
-```
+{% endhighlight %}
 
 We have indeed retrieved the text of Friedman's vapid commentary —--
 
@@ -36,7 +36,7 @@ We have indeed retrieved the text of Friedman's vapid commentary —--
 
 The first steps in any NLP analysis are text _cleaning_ and _normalization_. Although the specific steps we should take to clean and normalize our text depend on the analysis we mean to apply to it, a decent, general-purpose cleaning procedure removes any digits, non-[ASCII](http://www.asciitable.com/) characters, URLs, and HTML markup; standardizes white space and line breaks; and converts all text to lowercase. Like so:
 
-```python
+{% highlight python %}
 def clean_text(text):
     
     from nltk import clean_html
@@ -57,7 +57,7 @@ def clean_text(text):
     text = text.lower()
     
     return text
-```
+{% endhighlight %}
 
 After passing the article through `clean_text`, it comes out like this:
 
@@ -67,7 +67,7 @@ It may look worse to your eyes, but machines tend to perform better without the 
 
 Since normalization is applied word-by-word, it is inextricably linked with _tokenization_, the process of splitting text into pieces, i.e. sentences and words. For some analyses, tokenizing a document or a collection of documents (called a _corpus_) directly into words is fine; for others, it's necessary to first tokenize a text into sentences, then tokenize each sentence into words, resulting in nested lists. Although this seems like a straightforward task — words are separated by spaces, duh! — one notable complication arises from punctuation. Should "don't know" be tokenized as ["don't", "know"], ["don", "'t", "know"], or ["don", "'", "t", "know"]? I don't know. ;) It's common, but not always applicable, to filter out high-frequency words with little lexical content like "the," "it," and "so," called [_stop words_](http://en.wikipedia.org/wiki/Stop_words). Of course, there's no universally-accepted list, so you have to use your own judgement! Lastly, it's usually a good idea to put an upper bound on the length of words you'll keep. In English, average word length is about five letters, and [the longest word in Shakespeare's works](http://en.wikipedia.org/wiki/Honorificabilitudinitatibus) is 27 letters; errors in text sources or weird HTML cruft, however, can produce much longer chains of letters. It's a pretty safe bet to filter out words longer than 25 letters long. As you can see below, NLTK and Python make all of this _relatively_ easy:
 
-```python
+{% highlight python %}
 def tokenize_and_normalize_doc(doc, filter_stopwords=True, normalize='lemma'):
     
     import nltk.corpus
@@ -109,7 +109,7 @@ def tokenize_and_normalize_doc(doc, filter_stopwords=True, normalize='lemma'):
             normalized_sents.append([word for word in good_words])
     
     return normalized_sents
-```
+{% endhighlight %}
 
 Running our sample article through the grinder gives us this:
 
@@ -121,12 +121,12 @@ The next key step in a typical NLP pipeline is [part-of-speech (POS) tagging](ht
 
 The simplest POS tagger out there assigns a default tag to each word; in English, singular nouns ("NN") are probably your best bet, although you'll only be right about 15% of the time! Other simple taggers determine POS from spelling: words ending in "-ment" tend to be nouns, "-ly" adverbs, "-ing" gerunds, and so on. Smarter taggers use the context of surrounding words to assign POS tags to each word. Basically, you calculate the frequency that a tag has occurred in each context based on pre-tagged training data, then for a new word, assign the tag with the highest frequency for the given context. The models can get rather elaborate (more on this in my next post), but this is the gist. NLTK comes pre-loaded with a pretty decent POS tagger trained using a Maximum Entropy classifier on the Penn Treebank corpus (I think). See here:
 
-```python
+{% highlight python %}
 def pos_tag_sents(tokenized_sents):
     from nltk.tag import pos_tag
     tagged_sents = [pos_tag(sent) for sent in tokenized_sents]
     return tagged_sents
-```
+{% endhighlight %}
 
 Each tokenized word is now paired with its assigned part of speech in the form of (word, tag) tuples:
 
@@ -138,7 +138,7 @@ One final, fundamental task in NLP is [_chunking_](http://en.wikipedia.org/wiki/
 
 A simple chunker can use patterns in part-of-speech tags to determine the types and extents of chunks. For example, a noun phrase (NP) in English often consists of a determiner, followed by an adjective, followed by a noun: the/DT fierce/JJ queen/NN. A more thorough definition might include a possessive pronoun, any number of adjectives, and more than one (singular/plural, proper) noun: his/PRP$ adorable/JJ fluffy/JJ kitties/NNS. I've implemented one such [regular expression-based chunker](http://nltk.org/api/nltk.chunk.html#regexpchunkparser) in NLTK, which looks for noun, prepositional, and verb phrases, as well as full clauses:
 
-```python
+{% highlight python %}
 def chunk_tagged_sents(tagged_sents):
     
     from nltk.chunk import regexp
@@ -173,7 +173,7 @@ def get_chunks(chunked_sents, chunk_type='NP'):
         all_chunks.append(chunks)
     
     return all_chunks
-```
+{% endhighlight %}
 
 I also included a function that iterates through the resulting parse trees and grabs only chunks of a certain type, e.g. noun phrases. Here's how Friedman fares:
 

@@ -25,7 +25,7 @@ a:visited { color: #205caa; }
 /* Utility */
 
 .wrap:before,
-.wrap:after { content:""; display:table; }
+.wrap:after { content: ""; display: table; }
 .wrap:after { clear: both; }
 .wrap {
   max-width: 800px;
@@ -260,6 +260,27 @@ a:visited { color: #205caa; }
 }
 
 .post pre.terminal code { background-color: #333; }
+
+.post figcaption {
+  text-align: center;
+}
+
+.post img,
+.post iframe {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.post img.halfw {
+  width: 50%;
+}
+.post img.tqw {
+  width: 75%;
+}
+.post img.fullw {
+  width: 100%;
+}
 
 /* Syntax highlighting styles */
 /* ----------------------------------------------------------*/
