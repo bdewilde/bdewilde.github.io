@@ -4,9 +4,9 @@ layout: default
 
 <div class="home">
 
-  <h1>recent blog posts</h1>
+  <h1>recent posts</h1>
 
-  <ul id="recent-posts">
+  <ul id="recent-posts"><!-- style="float:right">-->
     {% for post in site.posts limit:5 %}
       <li>
         <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
@@ -15,6 +15,17 @@ layout: default
     {% endfor %}
   </ul>
 
+  <h1>categories</h1>
+
+  <ul id="tags">
+    {% for tag in site.tags %}
+        <li style="font-size: {{ tag | last | size | times: 5000 | divided_by: site.tags.size | plus: 25}}%">
+            <a href="/{{ tag | first | slugize }}/">
+                {{ tag | first }}
+            </a>
+        </li>
+    {% endfor %}
+  </ul>
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
