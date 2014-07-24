@@ -15,17 +15,6 @@ layout: default
     {% endfor %}
   </ul>
 
-  <h1>categories</h1>
-
-  <ul id="tags">
-    {% for tag in site.tags %}
-        <li style="font-size: {{ tag | last | size | times: 5000 | divided_by: site.tags.size | plus: 25}}%">
-            <a href="/{{ tag | first | slugize }}/">
-                {{ tag | first }}
-            </a>
-        </li>
-    {% endfor %}
-  </ul>
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
