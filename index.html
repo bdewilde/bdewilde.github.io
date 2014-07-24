@@ -6,7 +6,7 @@ layout: default
 
   <h1>recent posts</h1>
 
-  <ul id="recent-posts"><!-- style="float:right">-->
+  <ul id="recent-posts">
     {% for post in site.posts limit:5 %}
       <li>
         <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
