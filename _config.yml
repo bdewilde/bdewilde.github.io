@@ -2,7 +2,7 @@
 title: burton dewilde
 description: "This is my site description, as set in _config.yml"
 baseurl: ""
-url: "http://bdewilde.github.io"
+#url: "http://bdewilde.github.io"
 email: burtondewilde@gmail.com
 twitter_username: bjdewilde
 github_username:  bdewilde
