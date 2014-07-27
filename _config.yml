@@ -1,6 +1,6 @@
-# Site settings
-title: burton dewilde
-description: "This is my site description, as set in _config.yml"
+title: Burton DeWilde
+tagline: "Data Science, Physics, and Zombies!"
+description: "data scientist, data scientologist, former physicist, filmmaker"
 baseurl: ""
 url: ""
 email: burtondewilde@gmail.com
@@ -8,7 +8,6 @@ twitter_username: bjdewilde
 github_username:  bdewilde
 timezone: America/New_York
 
-# Build settings
 markdown: kramdown
 permalink: pretty
 
@@ -23,5 +22,11 @@ kramdown:
 
 #lsi: true
 
-#paginate: 10
+paginate: 10
 #paginate_path: "blog/:num"
+
+pages_list:       
+  About: '/about/'
+  Archive: '/archive/'
+  #Feed: '/atom.xml'
+
