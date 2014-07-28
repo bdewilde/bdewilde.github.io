@@ -4,6 +4,7 @@ title: Friedman Corpus (3) — Occurrence and Dispersion
 date: 2013-11-03 20:05:00
 categories: [blog, blogger]
 tags: [co-occurrence, corpus linguistics, dispersion, natural language processing, occurrence, Thomas Friedman, tokenization]
+comments: true
 ---
 
 Thus far, I've pseudo-justified why a collection of [NYT articles by Thomas Friedman](http://topics.nytimes.com/top/opinion/editorialsandoped/oped/columnists/thomaslfriedman/index.html) would be interesting to study, actually compiled/scraped the text and metadata (see [Background and Creation]({% post_url 2013-10-15-friedman-corpus-1-background-and-creation %}) post), improved/verified the quality of the data, and computed a handful of simple, corpus-level statistics (see [Data Quality and Corpus Stats]({% post_url 2013-10-20-friedman-corpus-2-data-quality-and-corpus-stats %}) post). Now, onward to actual natural language analysis!

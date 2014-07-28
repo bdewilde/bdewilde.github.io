@@ -23,9 +23,9 @@ kramdown:
 #lsi: true
 
 paginate: 10
-#paginate_path: "blog/:num"
+paginate_path: "blog/:num"
 
-pages_list:       
+header_pages:       
   About: '/about/'
   Archive: '/archive/'
   #Feed: '/atom.xml'

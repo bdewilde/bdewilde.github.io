@@ -31,4 +31,6 @@ layout: default
   <a class="post-link" href='#top'>&uarr; back to top</a>
 </div>
 
-
+{% if page.comments %}
+  {% include comments.html %}
+{% endif %}
