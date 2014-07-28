@@ -4,6 +4,7 @@ title: Intro to Natural Language Processing (2)
 date: 2013-04-16 12:24:00
 categories: [blog, blogger]
 tags: [chunking, information extraction, Natural Language Processing, NLTK, part-of-speech tagging, text processing, tokenization, web scraping]
+comments: true
 ---
 
 A couple months ago, I posted [a brief, conceptual overview]({% post_url 2012-12-16-intro-to-natural-language-processing-1 %}) of Natural Language Processing (NLP) as applied to the common task of information extraction (IE) —-- that is, the process of extracting _structured_ data from _unstructured_ data, the majority of which is text. A significant component of my job at [HI](http://harmony-institute.org/) involves scraping text from websites, press articles, social media, and other sources, then analyzing the quantity and especially quality of the discussion as it relates to a film and/or social issue. Although humans are inarguably better than machines at understanding natural language, it's impractical for humans to analyze large numbers of documents for themes, trends, content, sentiment, etc., and to do so consistently throughout. This is where NLP comes in.

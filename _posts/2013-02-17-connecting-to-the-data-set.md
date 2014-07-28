@@ -4,6 +4,7 @@ title: Connecting to the Data Set
 date: 2013-02-17 15:20:00
 categories: [blog, blogger]
 tags: [CSV Soundsystem, datafest, hackathon, money, munging, networking, politics, Twitter]
+comments: true
 ---
 
 As a relative newcomer to the field, I've been learning and doing data science largely on my own. This is okay, I guess, given access to Stack Overflow, MOOCs, and a handful of [O'Reilly's textbooks](http://shop.oreilly.com/category/get/data-science-kit.do), but not ideal. Fortunately, the data science community here in New York seems to be big and active, so opportunities to connect are plentiful.

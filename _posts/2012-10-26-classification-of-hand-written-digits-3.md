@@ -4,6 +4,7 @@ title: Classification of Hand-written Digits (3)
 date: 2012-10-26 16:00:00
 categories: [blog, blogger]
 tags: [classification, hand-written digits, Kaggle, kNN, machine learning, optimization, R]
+comments: true
 ---
 
 Now for the fun part! In [Part 1]({% post_url 2012-10-14-classification-of-hand-written-digits-1 %}), I described the machine learning task of classification and some well-known examples, such as predicting the values of hand-written digits from scanned images. In [Part 2]({% post_url 2012-10-17-classification-of-hand-written-digits-2 %}), I outlined a general analysis strategy and visualized the training set of hand-written digits, gleaning at least one useful insight from that. Now, in Part 3, I pick a learning algorithm, train and optimize a model, and make predictions about new data!

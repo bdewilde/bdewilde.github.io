@@ -4,6 +4,7 @@ title: "Hello, World"
 date: 2012-09-21 00:14:00
 categories: [blog, blogger]
 tags: [background, biography, data science, physics, science]
+comments: true
 ---
 
 Hi, I'm Burton. Welcome to my blog!

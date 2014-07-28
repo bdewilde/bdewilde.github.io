@@ -4,6 +4,7 @@ title: Classification of Hand-written Digits (2)
 date: 2012-10-17 17:47:00
 categories: [blog, blogger]
 tags: [algorithm, analysis strategy, classification, data visualization, hand-written digits, machine learning, optimization]
+comments: true
 ---
 
 In [Classification of Hand-written Digits (1)]({% post_url 2012-10-14-classification-of-hand-written-digits-1 %}), I qualitatively described the machine learning task of _classification_ and sketched out two classic examples, then went into more detail about another well-known example: the classification of hand-written digits. The challenge here is to program a _classifier_ that correctly predicts the value represented in a scanned image of a hand-written digit.

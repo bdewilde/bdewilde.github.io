@@ -4,6 +4,7 @@ title: Web Scraping and HTML Parsing (1)
 date: 2012-11-14 13:18:00
 categories: [blog, blogger]
 tags: [BeautifulSoup, HTML parsing, HTTP, Python, Scrapy, web scraping]
+comments: true
 ---
 
 Hi! I haven't posted in a while: I got displaced by [Sandy](http://www.nytimes.com/interactive/2012/10/28/nyregion/hurricane-sandy.html), distracted by [job applications](http://harmony-institute.org/about-us/career-opportunities/), and overrun by [zombies](http://youtu.be/luNueXoAw3I). It happens. But back to business...

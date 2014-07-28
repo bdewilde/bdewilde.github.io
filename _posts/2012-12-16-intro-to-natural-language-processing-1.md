@@ -4,6 +4,7 @@ title: Intro to Natural Language Processing (1)
 date: 2012-12-16 17:14:00
 categories: [blog, blogger]
 tags: [Harmony Institute, information extraction, Natural Language Processing, NLTK, zombies]
+comments: true
 ---
 
 First, the big news: I got a job! I'm now a data scientist at a non-profit organization here in Manhattan called [Harmony Institute](http://harmony-institute.org/), where we study the science of influence through entertainment. Basically, simple metrics like box office sales and television viewers don't adequately quantify a film or show's social impact; we use theory-driven methodology to more fully assess this impact in individuals and across networks. In the case of, say, a social justice documentary that was made specifically to have such an impact, we are able to quantify the film's level of success. More on this over time, I'm sure.

@@ -4,6 +4,7 @@ title: Friedman Corpus (2) — Data Quality and Corpus Stats
 date: 2013-10-20 20:05:00
 categories: [blog, blogger]
 tags: [corpus linguistics, data quality, domain expertise, metadata, pie chart, Thomas Friedman]
+comments: true
 ---
 
 With a full-text Friedman corpus finally in hand (see [Background and Creation]({% post_url 2013-10-15-friedman-corpus-1-background-and-creation %}) post), my first task was to verify data quality. Given "[Garbage In, Garbage Out](http://en.wikipedia.org/wiki/Garbage_in,_garbage_out)", the fun stuff (analysis! plots! [Friedman_ebooks](https://twitter.com/Horse_ebooks)?!) had to wait. Yes, it's a pain in the ass, but this step is _really_ important.

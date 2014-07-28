@@ -4,6 +4,7 @@ title: Friedman Corpus (1) — Background and Creation
 date: 2013-10-15 08:33:00
 categories: [blog, blogger]
 tags: [APIs, corpus linguistics, Natural Language Processing, New York Times, NLTK, Thomas Friedman, web scraping]
+comments: true
 ---
 
 Much work in Natural Language Processing (NLP) begins with a large collection of text documents, called a _corpus_, that represents a written sample of language in a particular domain of study. Corpora come in a variety of flavors: mono- or multi-lingual; category-specific or a representative sampling from a variety of categories, e.g. genres, authors, time periods; simply “plain” text or annotated with additional linguistic information, e.g. part-of-speech tags, full parse trees; and so on. They allow for hypothesis testing and statistical analysis of natural language, but one must be very cautious about applying results derived from a given corpus to other domains.

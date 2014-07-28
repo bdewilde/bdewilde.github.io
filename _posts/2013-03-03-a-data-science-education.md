@@ -4,6 +4,7 @@ title: A Data Science Education?
 date: 2013-03-03 15:14:00
 categories: [blog, blogger]
 tags: [accreditation, blogs, data science, education, MOOCs, Strata]
+comments: true
 ---
 
 Given that you're currently reading a data science blog, you're probably well aware that online resources for an informal education in data science abound. Blogs are a great place to start ([here](http://www.p-value.info/), [here](http://datascience101.wordpress.com/), [here](http://flowingdata.com/), [here](http://simplystatistics.org/), [here](http://blog.kaggle.com/)), but topics and pedagogical quality are --— let's be honest --— scattershot at best. No comment on the usefulness of _this_ particular blog...

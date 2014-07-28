@@ -4,6 +4,7 @@ title: "How to Learn Data Science (1)"
 date: 2012-10-01 19:34:00
 categories: [blog, blogger]
 tags: [blogs, data science, learning, MOOCs, overview, resources]
+comments: true
 ---
 
 As I wrote in my introductory post, I've been learning how to do data science (_specifically_) for the past five months, building on ten years of formal training in physics and math. Although I'm certainly no expert, I've found many online resources and habits to be useful in this endeavor. Here's an overview:

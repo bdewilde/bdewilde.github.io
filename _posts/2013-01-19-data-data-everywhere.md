@@ -4,6 +4,7 @@ title: Data, Data, Everywhere
 date: 2013-01-19 18:49:00
 categories: [blog, blogger]
 tags: [APIs, big data, data resources, free data, hackathon, web scraping]
+comments: true
 ---
 
 As I've mentioned before, the Internet is a huge ([and ever huger!](http://www.visualnews.com/2012/06/19/how-much-data-created-every-minute/?view=infographic)) repository of data. Much of that is in the form of unstructured text —-- for which [natural language processing]({% post_url 2012-12-16-intro-to-natural-language-processing-1 %}) comes in handy —-- but an impressive variety of _structured_ datasets can be found and downloaded, too, if you know where to look. Here are some of my favorite sources...

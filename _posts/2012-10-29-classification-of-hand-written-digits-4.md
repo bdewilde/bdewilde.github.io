@@ -4,6 +4,7 @@ title: Classification of Hand-written Digits (4)
 date: 2012-10-29 18:11:00
 categories: [blog, blogger]
 tags: [classification, cross-validation, hand-written digits, Kaggle, kNN, R]
+comments: true
 ---
 
 In my previous posts ([Part 1]({% post_url 2012-10-14-classification-of-hand-written-digits-1 %}) \| [Part 2]({% post_url 2012-10-17-classification-of-hand-written-digits-2 %}) \| [Part 3]({% post_url 2012-10-26-classification-of-hand-written-digits-3 %})), I described the _k_-nearest neighbors algorithm, applied a benchmark model to the classification of hand-written digits, then chose an optimal value for _k_ as the one that minimized the model's prediction error on a dedicated validation data set. I also excluded about 2/3 of the features (image pixels) from the model because they had near-zero variance, thereby improving both performance and runtime. Now, I'd like to add one last complication to the kNN model: _weighting_.

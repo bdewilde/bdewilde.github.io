@@ -4,6 +4,7 @@ title: Classification of Hand-written Digits (1)
 date: 2012-10-14 13:09:00
 categories: [blog, blogger]
 tags: [classification, hand-written digits, iris dataset, Kaggle, MINST, spam email filtering, supervised learning]
+comments: true
 ---
 
 In the last few posts, I've attempted to lay a basic foundation explaining what data science is generally about; in the next few posts, I'd like to delve deeper into a specific example.
