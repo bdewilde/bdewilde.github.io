@@ -18,9 +18,12 @@ body {
 
 h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: 400; }
 
-a         { color: #2a7ae2; text-decoration: none; }
+/*a         { color: #2a7ae2; text-decoration: none; }
 a:hover   { color: #000; text-decoration: underline; }
-a:visited { color: #205caa; }
+a:visited { color: #205caa; }*/
+a         { color: #6baed6; text-decoration: none; }
+a:hover   { text-decoration: underline; }
+a:visited { color: #08519c; }
 
 /* Utility */
 
@@ -151,18 +154,31 @@ a:visited { color: #205caa; }
 
 .posts li { margin-bottom: 30px; }
 
-.posts .post-link {
-  font-size: 20px;
-  letter-spacing: -1px;
-  line-height: 1;
-}
-
 .posts .post-date {
   display: block;
   font-size: 15px;
   color: #818181;
 }
 
+.posts .post {
+  margin-bottom: 30px;
+}
+
+.posts .post-title {
+  font-size: 20px;
+}
+
+.posts .post-link {
+  color: #54278f;
+}
+
+.posts p {
+  display: inline;
+}
+
+#disqus_thread {
+    margin-top: 20px;
+}
 
 /* Post styles */
 /* ----------------------------------------------------------*/

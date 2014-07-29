@@ -2,53 +2,35 @@
 layout: default
 ---
 
-<!--
-<div class="home">
-
-  <h1>recent posts</h1>
-
-  <ul id="recent-posts">
-    {% for post in site.posts limit:5 %}
-      <li>
-        <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
-        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
-</div>
--->
-
 <div class="posts">
   {% for post in paginator.posts %}
   <div class="post">
     <h1 class="post-title">
-      <a href="{{ post.url }}">{{ post.title }}</a>
+      <a class="post-link" href="{{ post.url }}">{{ post.title }}</a>
     </h1>
 
     <span class="post-date">{{ post.date | date: '%Y-%m-%d' }}</span>
-
-    {{ post.excerpt }}
+    <span class="post-exerpt">
+      {{ post.excerpt }}
+      <a class="post-link" href="{{ post.url }}">Read More...</a>
+    </span>
   </div>
   {% endfor %}
 </div>
 
 <div class="pagination">
   {% if paginator.next_page %}
-    <a class="pagination-item older" href="/blog/{{paginator.next_page}}/">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
+    <a class="pagination-item older" href="/blog/{{ paginator.next_page }}/">&laquo; previous</a>
+  {% endif %}
+  {% if paginator.next_page and paginator.previous_page %}
+    <span> | </span>
   {% endif %}
   {% if paginator.previous_page %}
     {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="/">Newer</a>
+      <a class="pagination-item newer" href="/">next &raquo;</a>
     {% else %}
-      <a class="pagination-item newer" href="/blog/{{paginator.previous_page}}/">Newer</a>
+      <a class="pagination-item newer" href="/blog/{{paginator.previous_page}}/">next &raquo;</a>
     {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
   {% endif %}
 </div>
 
