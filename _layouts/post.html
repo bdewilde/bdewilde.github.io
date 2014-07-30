@@ -2,18 +2,6 @@
 layout: default
 ---
 
-<div class="post-nav">
-  {% if page.previous.url %}
-    <a class="nav-link" href="{{ page.previous.url | prepend: site.baseurl }}" title="{{ page.previous.title }}">&laquo; previous</a>
-  {% endif %}
-  {% if page.previous and page.next %}
-    <span> | </span>
-  {% endif %}
-  {% if page.next.url %}
-    <a class="nav-link" href="{{ page.next.url | prepend: site.baseurl }}" title="{{ page.next.title }}">next &raquo;</a>
-  {% endif %}
-</div>
-
 <div class="post">
 
   <header class="post-header">
@@ -28,7 +16,15 @@ layout: default
 </div>
 
 <div class="post-nav">
-  <a class="nav-link" href='#top'>&uarr; back to top</a>
+  {% if page.previous.url %}
+    <a class="nav-link" href="{{ page.previous.url | prepend: site.baseurl }}" title="{{ page.previous.title }}">&#8592; previous</a>
+  {% endif %}
+  {% if page.previous and page.next %}
+    <span> | </span>
+  {% endif %}
+  {% if page.next.url %}
+    <a class="nav-link" href="{{ page.next.url | prepend: site.baseurl }}" title="{{ page.next.title }}">next &#8594;</a>
+  {% endif %}
 </div>
 
 {% if page.comments %}

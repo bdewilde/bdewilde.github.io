@@ -9,18 +9,22 @@
 html, body { height: 100%; }
 
 body {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;  /*"Palatino Linotype", "Book Antiqua", Palatino, serif;*/
   font-size: 16px;
   line-height: 1.5;
-  font-weight: 300;
+  font-weight: 200;
   background-color: #fdfdfd;
 }
 
-h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: 400; }
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: 400;
+  /*font-family: Helvetica, Arial, sans-serif;*/
+}
 
-a         { color: #4292c6; text-decoration: none; }
-a:hover   { text-decoration: underline; }
-
+/* link color and decoration*/
+a { color: #4292c6; text-decoration: none; }
+a:hover { text-decoration: underline; }
 a.nav-link { color: #6a51a3 }
 
 /* Utility */
@@ -88,10 +92,20 @@ a.nav-link { color: #6a51a3 }
   margin-bottom: 15px;
 }
 
-.site-footer .column { float: left; margin-bottom: 15px; }
+.footer-left {
+  float: left;
+  width: 45%;
+}
+
+.footer-right {
+  float: right;
+  width: 45%;
+}
+
+/*.site-footer .column { float: left; margin-bottom: 15px; }
 
 .footer-col-1 {
-  width: 270px; /*fallback*/
+  width: 270px;
   width: -webkit-calc(35% - 10px);
   width: -moz-calc(35% - 10px);
   width: -o-calc(35% - 10px);
@@ -99,7 +113,7 @@ a.nav-link { color: #6a51a3 }
   margin-right: 10px
 }
 .footer-col-2 {
-  width: 175px; /*fallback*/
+  width: 175px;
   width: -webkit-calc(23.125% - 10px);
   width: -moz-calc(23.125% - 10px);
   width: -o-calc(23.125% - 10px);
@@ -107,12 +121,12 @@ a.nav-link { color: #6a51a3 }
   margin-right: 10px
 }
 .footer-col-3 {
-  width: 335px; /*fallback*/
+  width: 335px;
   width: -webkit-calc(41.875%);
   width: -moz-calc(41.875%);
   width: -o-calc(41.875%);
   width: calc(41.875%);
-}
+}*/
 
 .site-footer ul { list-style: none; }
 
@@ -165,10 +179,6 @@ a.nav-link { color: #6a51a3 }
 .posts .post-title {
   font-size: 20px;
 }
-
-/*.posts .post-link {
-  color: #54278f;
-}*/
 
 .posts p {
   display: inline;

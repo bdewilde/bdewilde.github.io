@@ -12,7 +12,7 @@ layout: default
     <span class="post-date">{{ post.date | date: '%Y-%m-%d' }}</span>
     <span class="post-exerpt">
       {{ post.excerpt }}
-      <a class="nav-link" href="{{ post.url }}">Read More...</a>
+      <a class="nav-link" href="{{ post.url }}">Read More &raquo;</a>
     </span>
   </div>
   {% endfor %}
@@ -20,17 +20,16 @@ layout: default
 
 <div class="pagination">
   {% if paginator.next_page %}
-    <a class="nav-link" href="/blog/{{ paginator.next_page }}/">&laquo; previous</a>
+    <a class="nav-link" href="/blog/{{ paginator.next_page }}/">&#8592; previous</a>
   {% endif %}
   {% if paginator.next_page and paginator.previous_page %}
     <span> | </span>
   {% endif %}
   {% if paginator.previous_page %}
     {% if paginator.page == 2 %}
-      <a class="nav-link" href="/">next &raquo;</a>
+      <a class="nav-link" href="/">next &#8594;</a>
     {% else %}
-      <a class="nav-link" href="/blog/{{paginator.previous_page}}/">next &raquo;</a>
+      <a class="nav-link" href="/blog/{{paginator.previous_page}}/">next &#8594;</a>
     {% endif %}
   {% endif %}
 </div>
-
