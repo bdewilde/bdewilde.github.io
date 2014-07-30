@@ -102,6 +102,13 @@ a.nav-link { color: #6a51a3 }
   width: 45%;
 }
 
+footer a {
+  color: black;
+}
+/*footer a:hover {
+  color: black;
+}*/
+
 /*.site-footer .column { float: left; margin-bottom: 15px; }
 
 .footer-col-1 {
