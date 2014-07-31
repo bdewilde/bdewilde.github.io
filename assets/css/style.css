@@ -26,6 +26,19 @@ h1, h2, h3, h4, h5, h6 {
 a { color: #4292c6; text-decoration: none; }
 a:hover { text-decoration: underline; }
 a.nav-link { color: #6a51a3 }
+/*a.nav-link {
+  color: #6a51a3;
+  background-color: white;
+  padding: 5px;
+  border-radius: 7px;
+  webkit-transition: color 0.25s, background-color 0.25s;
+  transition: color 0.25s, background-color 0.25s;
+}
+a.nav-link:hover {
+  color: white;
+  background-color: #6a51a3;
+  text-decoration: none;
+}*/
 
 /* Utility */
 
@@ -80,9 +93,13 @@ a.nav-link { color: #6a51a3 }
 
 /* Site footer */
 
+footer {
+  font-size: 30px;
+}
+
 .site-footer {
   border-top: 1px solid #e8e8e8;
-  padding: 30px 0;
+  padding: 15px 0;
 }
 
 .footer-heading {
@@ -92,7 +109,15 @@ a.nav-link { color: #6a51a3 }
   margin-bottom: 15px;
 }
 
-.footer-left {
+.footer-top {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+.footer-bottom {
+  font-size: 15px;
+}
+
+/*.footer-left {
   float: left;
   width: 45%;
 }
@@ -100,58 +125,27 @@ a.nav-link { color: #6a51a3 }
 .footer-right {
   float: right;
   width: 45%;
-}
-
-footer a {
-  color: black;
-}
-/*footer a:hover {
-  color: black;
 }*/
 
-/*.site-footer .column { float: left; margin-bottom: 15px; }
-
-.footer-col-1 {
-  width: 270px;
-  width: -webkit-calc(35% - 10px);
-  width: -moz-calc(35% - 10px);
-  width: -o-calc(35% - 10px);
-  width: calc(35% - 10px);
-  margin-right: 10px
+footer a { color: black }
+footer a:hover {
+  color: #6a51a3;
+  text-decoration: none;
 }
-.footer-col-2 {
-  width: 175px;
-  width: -webkit-calc(23.125% - 10px);
-  width: -moz-calc(23.125% - 10px);
-  width: -o-calc(23.125% - 10px);
-  width: calc(23.125% - 10px);
-  margin-right: 10px
-}
-.footer-col-3 {
-  width: 335px;
-  width: -webkit-calc(41.875%);
-  width: -moz-calc(41.875%);
-  width: -o-calc(41.875%);
-  width: calc(41.875%);
-}*/
 
 .site-footer ul { list-style: none; }
 
-.site-footer li,
-.site-footer p {
-  font-size: 15px;
-  letter-spacing: -.3px;
-  color: #828282;
+.site-footer li {
+  display: inline;
+  list-style-type: none;
+  padding-right: 20px;
 }
 
-.email-icon-svg,
-.github-icon-svg,
-.twitter-icon-svg {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  position: relative;
-  top: 3px;
+.site-footer li,
+.site-footer p {
+  /*font-size: 18px;*/
+  /*letter-spacing: -.3px;*/
+  color: #828282;
 }
 
 
