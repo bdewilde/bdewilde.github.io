@@ -20,6 +20,7 @@ Let's consider a simple case: You want to know [tomorrow's local weather forecas
 </figure>
 
 This example is kind of ridiculous, I know --— _just bookmark the damn site!_ --— but vastly more complicated web scraping tasks can be built up from this basic procedure: request HTML, parse HTML, extract data (repeat). Maybe you'd like to compile a [list of abilities](http://en.wikipedia.org/wiki/Superman#Powers_and_abilities) of all superheroes on Wikipedia, or get U.S. election results by district from [this guy](http://uselectionatlas.org/) without paying lots of money for his already-structured and -cleaned Excel spreadsheets, or get the [Metacritic scores](http://www.metacritic.com/search/movie/results?genres%5Bhorror%5D=1&date_range_from=11-14-2002&search_type=advanced&sort=score) of all horror films in the past ten years. Sure, given enough time and patience, you could probably do this manually, but it's much _much_ easier to automate through code.
+<!--more-->
 
 Although you can do limited web scraping tasks directly from a command line (with the `curl`, `grep`, and `awk` commands, among others), it's nicer to work in a full-fledged scripting language. Python, for example, is great for web scraping and HTML parsing! Happily, people have written libraries and even entire frameworks specifically for these purposes:
 

@@ -47,6 +47,7 @@ model <- train.kknn(as.factor(label) ~ ., train, kmax=15, kernel=c("triangular",
 print(paste("Best parameters:", "kernel =", model$best.parameters$kernel, ", k =", model$best.parameters$k))
 print(model$MISCLASS)
 {% endhighlight %}
+<!--more-->
 
 And here's the resulting plot:
 

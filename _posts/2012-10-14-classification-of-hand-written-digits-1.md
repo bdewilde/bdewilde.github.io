@@ -30,6 +30,7 @@ In the terminology of machine learning, such discriminating attributes are calle
 To accomplish this, the classifier creates an internal representation of the relationship between features and classes — a statistical _model_. When exposed to training examples for which the actual classes are known, the classifier modifies its model such that its prediction accuracy is maximized; up to a point, more training examples makes for more accurate predictions. After training, the classifier's predictive ability should generalize to new observations for which the class is not known. This process of learning by example is the essence of supervised learning; I'll explore some of the learning algorithms used to train a model in upcoming posts.
 
 [For context: [Regression](http://en.wikipedia.org/wiki/Regression_analysis) is a closely related supervised learning task in which the outputs are _continuous/quantitative_ rather than _discrete/qualitative_; [clustering](http://en.wikipedia.org/wiki/Data_clustering) is the _un_supervised version of this task, in which sets of new observations are split into like groups without guidance from already-known classes.]
+<!--more-->
 
 ### Hand-written digits
 

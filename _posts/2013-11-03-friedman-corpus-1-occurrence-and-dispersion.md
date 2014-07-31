@@ -15,7 +15,7 @@ I would argue that the _frequency of occurrence_ of words and other linguistic e
 
 __Note:__ In the past I've been confused by the terminology used for absolute and relative frequencies —-- pretty sure it's used inconsistently in the literature. I use _count_ to refer to absolute frequencies (whole, positive numbers: 1, 2, 3, ...) and _frequency_ to refer to relative frequencies (rational numbers between 0.0 and 1.0). These definitions sweep certain complications under the rug, but I don't want to get into it right now...
 
-Anyway, in order to count individual words, I had to split the corpus text into a list of its component words. [I've discussed tokenization before]({% post_url 2012-12-16-intro-to-natural-language-processing-1 %}, so I won't go into details. Given that I scraped this text from the web, though, I should note that I cleaned it up a bit before tokenizing: namely, I decoded any HTML entities; removed all HTML markup, URLs, and non-ASCII characters; and normalized white-space. Perhaps controversially, I also unpacked contractions (e.g., "don't" => "do not") in an effort to avoid weird tokens that creep in around apostrophes (e.g., "don"+"'"+"t" or "don"+"'t"). Since any mistakes in tokenization propagate to results downstream, it's probably best to use a "standard" tokenizer rather than something homemade; I've found NLTK's defaults to be good enough (usually). Here's some sample code:
+Anyway, in order to count individual words, I had to split the corpus text into a list of its component words. [I've discussed tokenization before]({% post_url 2012-12-16-intro-to-natural-language-processing-1 %}), so I won't go into details. Given that I scraped this text from the web, though, I should note that I cleaned it up a bit before tokenizing: namely, I decoded any HTML entities; removed all HTML markup, URLs, and non-ASCII characters; and normalized white-space. Perhaps controversially, I also unpacked contractions (e.g., "don't" => "do not") in an effort to avoid weird tokens that creep in around apostrophes (e.g., "don"+"'"+"t" or "don"+"'t"). Since any mistakes in tokenization propagate to results downstream, it's probably best to use a "standard" tokenizer rather than something homemade; I've found NLTK's defaults to be good enough (usually). Here's some sample code:
 
 {% highlight python %}
 from itertools import chain
@@ -65,6 +65,7 @@ I made a few other conditional frequency distributions using NLTK's `Conditional
 </figure>
 
 These plots-over-time lead naturally into the concept of dispersion.
+<!--more-->
 
 ### Dispersion
 

@@ -16,6 +16,7 @@ Attending a conference (or viewing videos/slides after-the-fact) is a great way 
 <iframe width="560" height="315" src="//www.youtube.com/embed/ZK_PXlbvOfM?list=PL055Epbe6d5ZEYjq8K7CA37-1fEST-yWe" frameborder="0" allowfullscreen></iframe>
 
 [I've discussed]({% post_url 2012-10-03-how-to-learn-data-science-2 %}) these and other informal/online resources for learning data science before, but what about people interested in a formal (and perhaps _accredited_) data science education? Fortunately, data science has been expanding more and more into a traditional forum: Academia.\*
+<!--more-->
 
 A couple weeks ago NYU announced the launch of a new [Center for Data Science](http://cds.nyu.edu/) and the first offering of an [M.S. in Data Science](http://cds.nyu.edu/academics/ms-in-data-science/) this coming fall (now accepting applications). It looks as if they'll also be incorporating data science into several programs over a range of disciplines — very exciting news! I'm also happy to see that one of their "associated faculty" members is [Kyle Cranmer](http://physics.as.nyu.edu/object/kylecranmer.html), a high-energy physicist working on the ATLAS experiment, as I used to be.
 

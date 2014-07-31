@@ -10,6 +10,7 @@ timezone: America/New_York
 
 markdown: kramdown
 permalink: pretty
+excerpt_separator: <!--more-->
 
 kramdown:
   auto_ids: true
@@ -22,7 +23,7 @@ kramdown:
 
 #lsi: true
 
-paginate: 10
+paginate: 5
 paginate_path: "blog/:num"
 
 header_pages:       

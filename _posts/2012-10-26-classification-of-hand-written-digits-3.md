@@ -36,6 +36,7 @@ We'd like to define regions in feature-space in which any unlabeled observation 
 <figure>
   <img class="fullw" src="/assets/images/2012-10-26-knn-example-ks.png" alt="2012-10-26-knn-example-ks.png">
 </figure>
+<!--more-->
 
 An unlabeled observation falling in the gold-colored region(s) is assigned to Class $A$; in the purple-colored region(s), Class $B$. The decision boundary, shown as a black line, corresponds to the set of positions in feature-space where $\hat{Y} = 0.5$ exactly. For _k_ = 1 (left plot), where an unlabeled observation is given the class of its nearest neighbor, there are _no_ misclassified training examples; however, the decision boundary is jagged and almost certainly "overtrained" to fit the training data, which means that its predictions probably won't generalize well to new observations. For _k_ = 25 (right plot), some training examples are misclassified, but the decision boundary is relatively smooth and seems more likely to produce reasonable predictions for new data. Clearly, choosing the right value of _k_ for your algorithm is important; I'll discuss how we do that later.
 

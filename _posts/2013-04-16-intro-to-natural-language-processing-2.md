@@ -63,6 +63,7 @@ def clean_text(text):
 After passing the article through `clean_text`, it comes out like this:
 
 <span style="font-family:courier">yes, its true a crisis is a terrible thing to waste. but a timeout is also a terrible thing to waste, and as i look at the world today i wonder if thats exactly what weve just done. weve wasted a five-year timeout from geopolitics, and if we dont wake up and get our act together as a country and if the chinese, russians and europeans dont do the same were all really going to regret it. think about what a relative luxury weve enjoyed since the great recession hit in ...</span>
+<!--more-->
 
 It may look worse to your eyes, but machines tend to perform better without the extraneous features. As an additional step on top of cleaning, normalization comes in two varieties: [stemming](http://en.wikipedia.org/wiki/Stemming) and [lemmatization](http://en.wikipedia.org/wiki/Lemmatisation). Stemming strips off word affixes, leaving just the root stem, while lemmatization replaces a word by its root word or _lemma_, as might be found in a dictionary. For example, the word "grieves" is stemmed into "grieve" but lemmatized into "grief." The excellent [NLTK](http://nltk.org/) Python library, with which I do much of my NLP work, provides an easy interface to multiple stemmers (Porter, Lancaster, Snowball) and a standard lemmatizer ([WordNet](http://wordnet.princeton.edu/), which is much more than just a lemmatizer).
 

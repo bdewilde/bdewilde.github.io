@@ -69,6 +69,7 @@ It is indeed pretty, but does it make _sense_? Yes, if you know a bit about Frie
 The big change from News to Op-Ed is evident in the plot, but what's with the lack of articles in 1988? I saw nothing amiss in the data, so it may be that Friedman was simply too busy receiving Pulitzers and writing his first book to report the news that year. \*shrug\* I also wondered about the overall number of articles, so I did a back-of-the-envelope calculation: Given that he's a twice-weekly columnist (and accounting for holidays/vacations), we'd expect upwards of 100 op-eds per year. Indeed, that is roughly what we see. He was especially productive in 2012, probably owing to a presidential election _shitstorm_, but seems on track for an average year in 2013.
 
 Reasonably confident that I'd covered most of Friedman's work at the NYT and that all my documents were what I thought they were, I started to dig deeper.
+<!--more-->
 
 ### Corpus Stats
 

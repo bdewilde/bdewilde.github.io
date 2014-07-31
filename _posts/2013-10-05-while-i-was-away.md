@@ -20,6 +20,7 @@ I've also been working hard at Harmony Institute on (among other things) a massi
 <figure>
   <img class="tqw" src="/assets/images/2013-10-05-impactspace-wireframe.png" alt="2013-10-05-impactspace-wireframe.png">
 </figure>
+<!--more-->
 
 I've tried to keep up with developments in data science... Some seriously cool code, projects, and papers have come out in the past few months. In case you missed them:
 

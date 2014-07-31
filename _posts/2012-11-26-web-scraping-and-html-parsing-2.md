@@ -97,6 +97,7 @@ Let's save this script as scrape_xmen.py. Now, when the script is called from th
 That information can just as easily be saved into a file for reference, should you have further plans for it. Going through all the results, you may notice that the lists of abilities aren't always "perfect": Sometimes individual abilities are split into multiple entries in the list on account of the HTML formatting, sometimes abilities varied over the character's lifetime so there are actually two lists per character, etc. As a result, some degree of manual intervention is required to really clean up the data. So it goes.
 
 Side-note: These Wikipedia pages contain _much_ more information than just a list of abilities, including origin stories, publication history, arch-nemeses, and so on. Might there be some way to read the full text of the page and extract specific information? (The answer is a resounding YES! In an upcoming post I'll get into how this is done —-- namely, [Natural Language Processing](http://en.wikipedia.org/wiki/Natural_language_processing).)
+<!--more-->
 
 ### Metascores from Metacritic
 

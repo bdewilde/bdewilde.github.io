@@ -28,6 +28,7 @@ As it turns out, there's not a whole lot to visualize in the hand-written digits
   <img class="halfw" src="/assets/images/2012-10-17-minst-database-example-digits.png" alt="2012-10-17-minst-database-example-digits.png">
   <figcaption>Made in R with the <code>ggplot</code> package, using <code>facet_wrap</code> and <code>geom_tile</code>.</figcaption>
 </figure>
+<!--more-->
 
 Besides the obvious variations in shape (e.g. 4s closed/open, 7s with/without hanging lines or cross-bars, etc.), one thing I noticed is that some examples are much bolder than others. To see if that varied systematically by digit (which could potentially be a useful discriminating feature!), I plotted the _mean pixel brightness_ (on a scale from 0 to 255, i.e. white to black) for each class:
 

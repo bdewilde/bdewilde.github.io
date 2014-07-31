@@ -146,6 +146,7 @@ Downloading from the API is, by design, meant to be straightforward; it's mostly
 ```
 
 As you can see, the Times adds _lots_ of metadata to each post! There are human-annotated entities (e.g. Barack Obama) and subjects (e.g. Shutdown), the publication date, word count, a link to Thomas Friedman's [new portrait](http://nytimes.com/images/2010/09/16/opinion/Friedman_New/Friedman_New-thumbStandard.jpg), the URL for the digital article, as well as an abstract and the lead paragraph. Excellent! Except... Well, shit. Where's the full article text?!
+<!--more-->
 
 Unfortunately, the New York Times doesn't want you to read its journalistic output without actually visiting the web site or buying the paper (think: advertising revenue), so they exclude that data from their API results. Irritating, yes, but there is hope: the URL for each article is included in the metadata. Getting Friedman's full text is just a matter of web scraping! Except... that's easier said than done. As I said, they want people to actually visit their site --— _robots_ don't count. On my first attempt at a straightforward scrape, the site's web admin blocked me within a hundred calls or so. Probably should've seen that coming. I won't get into the full details of how I managed to scrape about 6500 Friedman articles from the NYT website, but I will share some general guidelines for how to scrape a web site without getting caught.
 

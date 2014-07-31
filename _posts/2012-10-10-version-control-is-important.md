@@ -22,6 +22,7 @@ To be fair, I used version control with all of my physics analysis code and diss
     - __Plus:__ I've noticed that prospective employers often ask if you have an online repository of your work so they can take a look. _Yeah_, VCS can help you get a job...
 
 Basically, version control gives you a permanent undo button to use in case of error, experiment, or _total disaster_. Do yourself a favor and take advantage of it. :)
+<!--more-->
 
 When I worked on [ATLAS](http://atlas.ch/), most people seemed to use [Apache Subversion](http://en.wikipedia.org/wiki/Apache_Subversion) (commonly known as SVN). That said, I get the impression that [Git](http://en.wikipedia.org/wiki/Git_(software)) is more popular among the tech crowd. They follow different models but implement the same basic principles. Happily, both are open source, so you don't have to pay! I'm not going to bother with a How-To, since the Internet has already provided us with many: for Git, see [this](http://www-cs-students.stanford.edu/~blynn/gitmagic/), [this](http://git-scm.com/book), or [this](http://coding.smashingmagazine.com/2011/07/26/modern-version-control-with-git-series/); for SVN, see [this](http://svnbook.red-bean.com/) or [this](http://subversion.apache.org/docs/community-guide/).
 
