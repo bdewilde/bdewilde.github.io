@@ -10,16 +10,22 @@ layout: default
     </h1>
 
     <div class="post-date">{{ post.date | date: '%Y-%m-%d' }}</div>
-    <div class="post-content">
+    <div class="post-preview">
       {% if post.preview_pic %}
         <a href="{{ post.url }}">
-          <img class="preview-pic" src="{{ post.preview_pic }}" style="float: right; margin: 0">
+          <img class="preview-pic" src="{{ post.preview_pic }}">
         </a>
+        <div class="post-excerpt">
+          {{ post.excerpt }}
+          <a class="nav-link" href="{{ post.url }}">Read More &raquo;</a>
+        </div>
+      {% else %}
+        <div class="post-excerpt" style="max-width: 100%">
+          {{ post.excerpt }}
+          <a class="nav-link" href="{{ post.url }}">Read More &raquo;</a>
+        </div>
       {% endif %}
-      {{ post.excerpt }}
     </div>
-    <br><a class="nav-link" href="{{ post.url }}">Read on &raquo;</a>
-    <hr>
   </div>
   {% endfor %}
 </div>

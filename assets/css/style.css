@@ -22,19 +22,6 @@ h1, h2, h3, h4, h5, h6 {
   /*font-family: Helvetica, Arial, sans-serif;*/
 }
 
-hr {
-  border: 0;
-  height: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  margin: 30px auto;
-}
-
-.preview-pic {
-  width: 35%;
-  padding-left: 20px;
-}
-
 /* link color and decoration*/
 a { color: #4292c6; text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -171,9 +158,27 @@ footer a:hover {
 
 .posts li { margin-bottom: 30px; }
 
+.post-preview {
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 20px;
+  overflow: auto;
+}
+
+.post-excerpt {
+  max-width: 65%;
+}
+
+.preview-pic {
+  float: right;
+  max-width: 35%;
+  max-height: 250px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
 .posts .post-date {
   display: block;
-  font-size: 15px;
+  font-size: 16px;
   color: #818181;
 }
 
@@ -182,7 +187,8 @@ footer a:hover {
 }
 
 .posts .post-title {
-  font-size: 20px;
+  font-size: 25px;
+  font-weight: 200;
 }
 
 .posts p {
