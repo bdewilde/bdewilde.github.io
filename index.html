@@ -9,11 +9,17 @@ layout: default
       <a class="nav-link" href="{{ post.url }}">{{ post.title }}</a>
     </h1>
 
-    <span class="post-date">{{ post.date | date: '%Y-%m-%d' }}</span>
-    <span class="post-content">
+    <div class="post-date">{{ post.date | date: '%Y-%m-%d' }}</div>
+    <div class="post-content">
+      {% if post.preview_pic %}
+        <a href="{{ post.url }}">
+          <img class="preview-pic" src="{{ post.preview_pic }}" style="float: right; margin: 0">
+        </a>
+      {% endif %}
       {{ post.excerpt }}
-    </span>
+    </div>
     <br><a class="nav-link" href="{{ post.url }}">Read on &raquo;</a>
+    <hr>
   </div>
   {% endfor %}
 </div>

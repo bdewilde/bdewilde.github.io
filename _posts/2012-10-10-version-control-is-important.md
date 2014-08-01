@@ -5,6 +5,7 @@ date: 2012-10-10 00:31:00
 categories: [blog, blogger]
 tags: [backup, branching, collaboration, Git, Kaggle, rewinding, SVN, version control]
 comments: true
+preview_pic: /assets/images/2012-10-10-github-mac-gui.png
 ---
 
 I recently came across a post on Kaggle's [no free hunch blog](http://blog.kaggle.com/), "[Engineering Practices in Data Science](http://blog.kaggle.com/2012/10/04/engineering-practices-in-data-science/)", in which Chris Clark describes a set of best practices for those who work in the medium of code — specifically, those practices common among software engineers but _not_ among data scientists. I was much chagrined by the first wag of his finger: many data scientists don't use [version control](http://en.wikipedia.org/wiki/Revision_control) (a logical way to manage multiple versions of the same information, e.g. source code), preferring instead to save files with elaborate names and/or back them up dropbox. _Ugh_, I realized, _he's talking about me_.

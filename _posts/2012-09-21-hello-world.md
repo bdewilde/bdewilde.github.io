@@ -5,6 +5,7 @@ date: 2012-09-21 00:14:00
 categories: [blog, blogger]
 tags: [background, biography, data science, physics, science]
 comments: true
+preview_pic: /assets/images/2012-09-21-wedding-photog-selfie.jpg
 ---
 
 Hi, I'm Burton. Welcome to my blog!

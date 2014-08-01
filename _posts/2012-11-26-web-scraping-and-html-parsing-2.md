@@ -5,6 +5,7 @@ date: 2012-11-26 11:12:00
 categories: [blog, blogger]
 tags: [BeautifulSoup, HTML parsing, Metacritic, Natural Language Processing, PyCon, Requests, web scraping, Wikipedia, X-Men]
 comments: true
+preview_pic: /assets/images/2012-11-26-magneto-wikipedia-page.png
 ---
 
 As I wrote [last time]({% post_url 2012-11-14-web-scraping-and-html-parsing-1 %}), the Internet is chock-full of data, but much of it is "messy" and unstructured and spread throughout an [HTML tree](http://vinaytech.files.wordpress.com/2008/11/domimage.png) — in other words, _not ready_ for analysis. Fortunately, web scraping and HTML parsing allow for the automated extraction of online data and its conversion into a more analysis-friendly form; unfortunately, it can be an awful lot of work. In fact, data scientists often spend more of their time getting and cleaning data than analyzing it!

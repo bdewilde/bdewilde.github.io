@@ -5,6 +5,7 @@ date: 2012-10-22 11:51:00
 categories: [blog, blogger]
 tags: [data science, domain expertise, Kalamazoo College, liberal arts education, machine learning]
 comments: true
+preview_pic: /assets/images/2012-10-22-kzoo-reunion.jpg
 ---
 
 This past weekend I was at [Kalamazoo College](http://www.kzoo.edu/) for my five-year college reunion. I mentally prepared myself to feel _really old_ but came out of it feeling young and refreshed instead. Funny how that works out.
