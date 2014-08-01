@@ -67,10 +67,9 @@ a.nav-link:hover {
 }
 
 .site-title,
-.site-title:hover,
-.site-title:visited {
+.site-title:hover {
   display: block;
-  color: #333;
+  color: #303030;
   font-size: 26px;
   letter-spacing: -1px;
   float: left;
@@ -269,14 +268,14 @@ footer a:hover {
 /* terminal */
 .post pre.terminal {
   border: 1px solid #000;
-  background-color: #333;
+  background-color: #303030;
   color: #FFF;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
 
-.post pre.terminal code { background-color: #333; }
+.post pre.terminal code { background-color: #303030; }
 
 .post figcaption {
   text-align: center;
