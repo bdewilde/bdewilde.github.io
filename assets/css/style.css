@@ -13,7 +13,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   font-weight: 200;
-  background-color: #fdfdfd;
+  background-color: white;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -56,13 +56,14 @@ a.nav-link:hover {
 /* Layout Styles */
 /* ----------------------------------------------------------*/
 
-/* Site header */
+/* =========== */
+/* SITE HEADER */
 
 .site-header {
-  border-top: 5px solid #333;
-  border-bottom: 1px solid #e8e8e8;
+  border-top: 5px solid #303030;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #f0f0f0;
   min-height: 56px;
-  background-color: white;
 }
 
 .site-title,
@@ -87,19 +88,22 @@ a.nav-link:hover {
 
 .site-nav .page-link {
   margin-left: 20px;
-  color: #727272;
-  letter-spacing: -.5px;
+  color: #555555;
+  /*letter-spacing: -.5px;*/
 }
 
-/* Site footer */
+/* =========== */
+/* SITE FOOTER */
 
 footer {
   font-size: 30px;
 }
 
 .site-footer {
-  border-top: 1px solid #e8e8e8;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 5px solid #303030;
   padding: 15px 0;
+  background-color: #f0f0f0;
 }
 
 .footer-heading {
@@ -117,16 +121,6 @@ footer {
   font-size: 15px;
 }
 
-/*.footer-left {
-  float: left;
-  width: 45%;
-}
-
-.footer-right {
-  float: right;
-  width: 45%;
-}*/
-
 footer a { color: black }
 footer a:hover {
   color: #6a51a3;
@@ -143,9 +137,7 @@ footer a:hover {
 
 .site-footer li,
 .site-footer p {
-  /*font-size: 18px;*/
-  /*letter-spacing: -.3px;*/
-  color: #828282;
+  color: #555555;
 }
 
 
@@ -154,7 +146,7 @@ footer a:hover {
 
 .page-content {
   padding: 30px 0;
-  background-color: #fff;
+  background-color: #ffffff;
 }
 
 
@@ -253,14 +245,14 @@ footer a:hover {
 
 .post pre,
 .post code {
-  border: 1px solid #d5d5e9;
-  background-color: #eef;
+  border: 1px solid #e0e0e0;
+  background-color: #f0f0f0;
   padding: 8px 12px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
   font-size: 15px;
-  overflow:scroll;
+  overflow: auto;
 }
 
 .post code { padding: 1px 5px; }
