@@ -6,20 +6,19 @@
       <ul>
         <li><a href="{{ site.baseurl }}/">{{ site.title }}</a></li>
         {% if site.email %}
-          <li><a href="mailto:{{ site.email }}"><i class="fa fa-envelope-square fa-fw fa-lg"></i> email</a></li>
+          <li><a class="nav-link" href="mailto:{{ site.email }}"><i class="fa fa-envelope-square fa-fw fa-lg"></i> email</a></li>
         {% endif %}
         {% if site.twitter_username %}
-          <li><a href="https://twitter.com/{{ site.twitter_username }}"><i class="fa fa-twitter-square fa-fw fa-lg"></i> twitter</a></li>
+          <li><a class="nav-link" href="https://twitter.com/{{ site.twitter_username }}"><i class="fa fa-twitter-square fa-fw fa-lg"></i> twitter</a></li>
         {% endif %}
         {% if site.github_username %}
-          <li><a href="https://github.com/{{ site.github_username }}"><i class="fa fa-github-square fa-fw fa-lg"></i> github</a></li>
+          <li><a class="nav-link" href="https://github.com/{{ site.github_username }}"><i class="fa fa-github-square fa-fw fa-lg"></i> github</a></li>
         {% endif %}
     </div>
 
     <div class="footer-bottom">
       <p>{{ site.description }}</p>
       <p>&copy; 2014 Burton DeWilde. All rights reserved.
-      <!-- <p>site powered by <a href="http://jekyllrb.com/">jekyll</a></p> -->
     </div>
 
   </div>

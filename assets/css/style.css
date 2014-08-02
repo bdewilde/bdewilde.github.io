@@ -9,7 +9,7 @@
 html, body { height: 100%; }
 
 body {
-  font-family: Helvetica, Arial, sans-serif;  /*"Palatino Linotype", "Book Antiqua", Palatino, serif;*/
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 200;
@@ -19,16 +19,16 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-size: 100%;
   font-weight: 400;
-  /*font-family: Helvetica, Arial, sans-serif;*/
 }
 
 /* link color and decoration*/
 a { color: #4292c6; text-decoration: none; }
 a:hover { text-decoration: underline; }
-a.nav-link { color: #6a51a3 }
-/*a.nav-link {
+/*a.nav-link { color: #6a51a3 }*/
+a.nav-link {
   color: #6a51a3;
-  background-color: white;
+  /*background-color: #f0f0f0;*/
+  /*background-color: #ffffff;*/
   padding: 5px;
   border-radius: 7px;
   webkit-transition: color 0.25s, background-color 0.25s;
@@ -38,7 +38,36 @@ a.nav-link:hover {
   color: white;
   background-color: #6a51a3;
   text-decoration: none;
+}
+
+/*.site-title {
+  font-size: 26px;
+  float: left;
+  line-height: 56px;
+  position: relative;
+  z-index: 1;
+  color: #303030;
+  font-weight: 200;
+  font-style: normal;
+  webkit-transition: font-style 0.25s;
+  transition: font-style 0.25s;
+}
+.site-title:hover {
+  font-style: bold;
+  text-decoration: none;
 }*/
+
+.site-title,
+.site-title:hover {
+  display: block;
+  color: #303030;
+  font-size: 26px;
+  letter-spacing: -1px;
+  float: left;
+  line-height: 56px;
+  position: relative;
+  z-index: 1;
+}
 
 /* Utility */
 
@@ -64,18 +93,6 @@ a.nav-link:hover {
   border-bottom: 1px solid #e0e0e0;
   background-color: #f0f0f0;
   min-height: 56px;
-}
-
-.site-title,
-.site-title:hover {
-  display: block;
-  color: #303030;
-  font-size: 26px;
-  letter-spacing: -1px;
-  float: left;
-  line-height: 56px;
-  position: relative;
-  z-index: 1;
 }
 
 .site-nav {
@@ -212,7 +229,7 @@ footer a:hover {
 }
 
 .post-header .meta {
-  font-size: 15px;
+  font-size: 16px;
   color: #818181;
   margin-top: 5px;
 }
