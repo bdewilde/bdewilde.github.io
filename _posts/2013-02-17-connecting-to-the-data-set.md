@@ -3,7 +3,7 @@ layout: post
 title: Connecting to the Data Set
 date: 2013-02-17 15:20:00
 categories: [blog, blogger]
-tags: [CSV Soundsystem, datafest, hackathon, money, munging, networking, politics, Twitter]
+tags: [csv soundsystem, datafest, hackathon, money, munging, networking, politics, Twitter]
 comments: true
 preview_pic: /assets/images/2013-02-17-team-csv-at-hackathon.jpg
 ---

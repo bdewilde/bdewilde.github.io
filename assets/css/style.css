@@ -16,11 +16,6 @@ body {
   background-color: white;
 }
 
-/*h1, h2, h3, h4, h5, h6 {
-  font-size: 100%;
-  font-weight: 400;
-}*/
-
 /* link color and decoration*/
 a {
   color: #4292c6;
@@ -54,6 +49,7 @@ a:hover {
 .post-meta {
   color: #818181;
   font-size: 14px;
+  margin-top: 5px;
   margin-bottom: 5px;
 }
 .post-meta .post-date {

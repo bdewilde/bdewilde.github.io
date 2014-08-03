@@ -3,7 +3,7 @@ layout: post
 title: While I Was Away
 date: 2013-10-05 11:01:00
 categories: [blog, blogger]
-tags: [data mining, hackathon, Harmony Institute, Natural Language Processing, network analysis, top data science links, treasury.io]
+tags: [hackathon, Harmony Institute, top links, treasury.io]
 comments: true
 preview_pic: /assets/images/2013-10-05-treasuryio-query-builder.png
 ---

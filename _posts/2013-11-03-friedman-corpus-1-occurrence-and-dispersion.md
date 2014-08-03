@@ -3,7 +3,7 @@ layout: post
 title: Friedman Corpus (3) — Occurrence and Dispersion
 date: 2013-11-03 20:05:00
 categories: [blog, blogger]
-tags: [co-occurrence, corpus linguistics, dispersion, natural language processing, occurrence, Thomas Friedman, tokenization]
+tags: [corpus linguistics, dispersion, natural language processing, occurrence, Thomas Friedman]
 comments: true
 preview_pic: /assets/images/2013-11-03-top-words-by-count-and-freq.png
 ---

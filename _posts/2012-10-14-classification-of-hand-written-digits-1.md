@@ -3,7 +3,7 @@ layout: post
 title: Classification of Hand-written Digits (1)
 date: 2012-10-14 13:09:00
 categories: [blog, blogger]
-tags: [classification, hand-written digits, iris dataset, Kaggle, MINST, spam email filtering, supervised learning]
+tags: [classification, hand-written digits, iris dataset, Kaggle, supervised learning]
 comments: true
 preview_pic: /assets/images/2012-10-14-digit-to-pixels.png
 ---

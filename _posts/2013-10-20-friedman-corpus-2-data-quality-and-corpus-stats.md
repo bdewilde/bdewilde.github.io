@@ -3,7 +3,7 @@ layout: post
 title: Friedman Corpus (2) — Data Quality and Corpus Stats
 date: 2013-10-20 20:05:00
 categories: [blog, blogger]
-tags: [corpus linguistics, data quality, domain expertise, metadata, pie chart, Thomas Friedman]
+tags: [corpus linguistics, data quality, domain expertise, metadata, Thomas Friedman]
 comments: true
 preview_pic: /assets/images/2013-10-20-article-counts-by-type-over-time.png
 ---

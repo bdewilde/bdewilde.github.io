@@ -3,7 +3,7 @@ layout: post
 title: Web Scraping and HTML Parsing (2)
 date: 2012-11-26 11:12:00
 categories: [blog, blogger]
-tags: [BeautifulSoup, HTML parsing, Metacritic, Natural Language Processing, PyCon, Requests, web scraping, Wikipedia, X-Men]
+tags: [HTML parsing, Metacritic, natural language processing, PyCon, web scraping, Wikipedia]
 comments: true
 preview_pic: /assets/images/2012-11-26-magneto-wikipedia-page.png
 ---

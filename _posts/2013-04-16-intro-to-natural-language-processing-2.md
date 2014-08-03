@@ -3,7 +3,7 @@ layout: post
 title: Intro to Natural Language Processing (2)
 date: 2013-04-16 12:24:00
 categories: [blog, blogger]
-tags: [chunking, information extraction, Natural Language Processing, NLTK, part-of-speech tagging, text processing, tokenization, web scraping]
+tags: [information extraction, natural language processing, pos-tagging, tokenization, web scraping]
 comments: true
 ---
 

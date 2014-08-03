@@ -3,7 +3,7 @@ layout: post
 title: Classification of Hand-written Digits (2)
 date: 2012-10-17 17:47:00
 categories: [blog, blogger]
-tags: [algorithm, analysis strategy, classification, data visualization, hand-written digits, machine learning, optimization]
+tags: [analysis strategy, classification, data viz, hand-written digits, machine learning, optimization]
 comments: true
 preview_pic: /assets/images/2012-10-17-minst-database-example-digits.png
 ---

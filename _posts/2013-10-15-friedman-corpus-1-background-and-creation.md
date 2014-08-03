@@ -3,7 +3,7 @@ layout: post
 title: Friedman Corpus (1) — Background and Creation
 date: 2013-10-15 08:33:00
 categories: [blog, blogger]
-tags: [APIs, corpus linguistics, Natural Language Processing, New York Times, NLTK, Thomas Friedman, web scraping]
+tags: [APIs, corpora, corpus linguistics, natural language processing, Thomas Friedman, web scraping]
 comments: true
 ---
 

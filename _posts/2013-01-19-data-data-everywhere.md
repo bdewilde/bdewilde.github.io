@@ -3,7 +3,7 @@ layout: post
 title: Data, Data, Everywhere
 date: 2013-01-19 18:49:00
 categories: [blog, blogger]
-tags: [APIs, big data, data resources, free data, hackathon, web scraping]
+tags: [APIs, big data, top links, free data, hackathon, web scraping]
 comments: true
 ---
 

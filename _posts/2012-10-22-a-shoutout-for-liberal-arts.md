@@ -3,7 +3,7 @@ layout: post
 title: A Shout-out for Liberal Arts
 date: 2012-10-22 11:51:00
 categories: [blog, blogger]
-tags: [data science, domain expertise, Kalamazoo College, liberal arts education, machine learning]
+tags: [domain expertise, Kalamazoo College, liberal arts education, machine learning]
 comments: true
 preview_pic: /assets/images/2012-10-22-kzoo-reunion.jpg
 ---

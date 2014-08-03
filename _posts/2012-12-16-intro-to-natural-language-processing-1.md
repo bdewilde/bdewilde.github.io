@@ -3,7 +3,7 @@ layout: post
 title: Intro to Natural Language Processing (1)
 date: 2012-12-16 17:14:00
 categories: [blog, blogger]
-tags: [Harmony Institute, information extraction, Natural Language Processing, NLTK, zombies]
+tags: [Harmony Institute, information extraction, natural language processing, zombies]
 comments: true
 ---
 
