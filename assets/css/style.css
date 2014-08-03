@@ -60,14 +60,25 @@ a.nav-link:hover {
 .site-title,
 .site-title:hover {
   display: block;
-  color: #303030;
+  /*color: #303030;*/
   font-size: 26px;
   letter-spacing: -1px;
   float: left;
   line-height: 56px;
   position: relative;
   z-index: 1;
+  text-decoration: none;
 }
+.site-title {
+  color: #303030;
+  webkit-transition: color 0.25s, background-color 0.25s;
+  transition: color 0.25s, background-color 0.25s;
+}
+.site-title:hover {
+  color: white;
+  background-color: #303030;
+}
+
 
 /* Utility */
 
@@ -105,7 +116,6 @@ a.nav-link:hover {
 .site-nav .page-link {
   margin-left: 20px;
   color: #555555;
-  /*letter-spacing: -.5px;*/
 }
 
 /* =========== */
@@ -176,11 +186,14 @@ footer a:hover {
 .posts li { margin-bottom: 30px; }
 
 .preview {
-  border-bottom: 1px solid #e0e0e0;
-  padding-bottom: 30px;
-  margin-bottom: 30px;
+  /*border-bottom: 1px solid #e0e0e0;*/
+  /*padding-bottom: 30px;*/
+  margin-bottom: 50px;
 }
 
+.preview-meta {
+  font-size: 14px;
+}
 .preview .preview-content {
   display: flex;
   align-items: center;
