@@ -2,7 +2,7 @@
 
   <div class="wrap">
 
-    <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+    <a class="site-title site-link" href="{{ site.baseurl }}/">{{ site.title }}</a>
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -20,10 +20,10 @@
         {% assign site_pages = site.pages | sort: 'title' %}
         {% for page in site_pages %}
           {% if page.title and page.title != "404: Page not found" %}
-            <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+            <a class="site-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
           {% endif %}
         {% endfor %}
-        <a class="page-link" href="/assets/documents/bjd_resume.pdf">CV</a>
+        <a class="site-link" href="/assets/documents/bjd_resume.pdf">CV</a>
       </div>
     </nav>
 

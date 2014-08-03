@@ -1,11 +1,12 @@
 title: Burton DeWilde
 tagline: "Data Science, Physics, and Zombies!"
-description: "data scientist / data scientologist / physicist / filmmaker"
+description: "data scientist / physicist / filmmaker"
 baseurl: ""
 url: ""
 email: burtondewilde@gmail.com
 twitter_username: bjdewilde
 github_username:  bdewilde
+linkedin_link: http://www.linkedin.com/pub/burton-dewilde/51/b18/301/
 timezone: America/New_York
 
 markdown: kramdown
