@@ -175,22 +175,39 @@ footer a:hover {
 
 .posts li { margin-bottom: 30px; }
 
-.post-preview {
+.preview {
   border-bottom: 1px solid #e0e0e0;
-  padding-bottom: 20px;
-  overflow: auto;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
 }
 
-.post-excerpt {
-  max-width: 65%;
+.preview .preview-content {
+  display: flex;
+  align-items: center;
+}
+.preview .preview-excerpt {
+  flex: 1;
+  min-width: 100px;
+  align-self: flex-start;
 }
 
-.preview-pic {
-  float: right;
-  max-width: 35%;
+.preview-excerpt p {
+  display: inline;
+}
+
+.preview .preview-pic {
+  width: 33%!important;
   max-height: 250px;
-  padding-left: 20px;
-  padding-bottom: 20px;
+  margin-left: 20px;
+}
+
+.preview-pic img {
+  display: block;
+  margin: auto!important;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
 }
 
 .posts .post-date {
@@ -199,18 +216,12 @@ footer a:hover {
   color: #818181;
 }
 
-.posts .post {
-  margin-bottom: 30px;
-}
-
-.posts .post-title {
+.post-title {
   font-size: 25px;
   font-weight: 200;
 }
 
-.posts p {
-  display: inline;
-}
+
 
 #disqus_thread {
     margin-top: 20px;

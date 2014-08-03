@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<div class="posts">
+<!-- <div class="posts">
   {% for post in paginator.posts %}
   <div class="post">
     <h1 class="post-title">
@@ -23,6 +23,31 @@ layout: default
         <div class="post-excerpt" style="max-width: 100%">
           {{ post.excerpt }}
           <a class="nav-link" href="{{ post.url }}">Read More &raquo;</a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div> -->
+
+<div class="previews">
+  {% for post in paginator.posts %}
+  <div class="preview">
+    <h1 class="post-title">
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </h1>
+
+    <div class="post-date">{{ post.date | date: '%Y-%m-%d' }}</div>
+    <div class="preview-content">
+      <div class="preview-excerpt">
+        {{ post.excerpt }}
+        <a href="{{ post.url }}">Read More &raquo;</a>
+      </div>
+      {% if post.preview_pic %}
+        <div class="preview-pic">
+        <a href="{{ post.url }}">
+          <img style="margin:auto" src="{{ post.preview_pic }}">
+        </a>
         </div>
       {% endif %}
     </div>
