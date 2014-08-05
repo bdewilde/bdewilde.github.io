@@ -93,6 +93,7 @@ a:hover {
 .site-footer .site-title {
   font-size: 22px;
   margin-right: 20px;
+  display: block;
 }
 
 
@@ -141,6 +142,10 @@ a:hover {
   border-bottom: 5px solid #303030;
   padding: 15px 0;
   background-color: #f0f0f0;
+}
+
+.site-footer .fa-fw {
+  text-align: left;
 }
 
 .footer-heading {
