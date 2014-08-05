@@ -52,15 +52,16 @@ a:hover {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+.post-meta i,
+.post-meta span {
+    margin-right: 3px;
+}
 .post-meta .post-date {
   margin-right: 15px;
   display: inline;
 }
 .post-meta .post-tags {
   display: inline;
-}
-.post-tags span {
-  margin: 3px;
 }
 
 .nav-link{

@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Bio
-permalink: /bio/
+title: About Me
+permalink: /aboutme/
 ---
 
 <img src="/assets/images/about_bio_pic.jpg" alt="about_bio_pic.jpg" width="100%">
