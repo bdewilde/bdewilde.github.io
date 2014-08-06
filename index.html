@@ -10,20 +10,19 @@ layout: default
       <a class="post-link" href="{{ post.url }}">{{ post.title }}</a>
     </h1>
 
-    <div class="post-meta">
-      <div class="post-date">
-        <i class="fa fa-calendar-o"></i>   {{ post.date | date: '%Y-%m-%d' }}
-      </div>
-      <div class="post-tags">
-        <i class="fa fa-tags"></i>
-        {% for tag in post.tags %}
-          <span>{{tag}}</span>
-        {% endfor %}
-      </div>
-    </div>
-
     <div class="preview-content">
       <div class="preview-excerpt">
+        <div class="post-meta">
+          <div class="post-date">
+            <i class="fa fa-calendar-o"></i>   {{ post.date | date: '%Y-%m-%d' }}
+          </div>
+          <div class="post-tags">
+            <i class="fa fa-tags"></i>
+            {% for tag in post.tags %}
+              <span>{{tag}}</span>
+            {% endfor %}
+          </div>
+        </div>
         {{ post.excerpt }}
         <a class="post-link" href="{{ post.url }}">Read More &raquo;</a>
       </div>

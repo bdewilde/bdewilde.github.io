@@ -59,7 +59,7 @@ a:hover {
 }
 .post-meta i,
 .post-meta span {
-    margin-right: 3px;
+    margin-right: 4px;
 }
 .post-meta .post-date {
   margin-right: 15px;
@@ -85,21 +85,19 @@ a:hover {
 
 .site-title {
   font-family: serifa;
+  letter-spacing: -1px;
+}
+.site-header .site-title {
+  font-size: 28px;
+  line-height: 65px;
   display: block;
   vertical-align: middle;
-  letter-spacing: -1px;
   float: left;
   position: relative;
   z-index: 1;
 }
-.site-header .site-title {
-  font-size: 26px;
-  line-height: 65px;
-}
 .site-footer .site-title {
-  font-size: 22px;
-  margin-right: 20px;
-  display: block;
+  font-size: 24px;
 }
 
 
@@ -138,6 +136,7 @@ a:hover {
 
 .site-nav .site-link {
   margin-left: 20px;
+  font-size: 20px;
 }
 
 /* =========== */
@@ -239,7 +238,7 @@ a:hover {
 /* ----------------------------------------------------------*/
 
 header h1 {
-  font-size: 36px;
+  font-size: 34px;
   letter-spacing: -1.75px;
   font-weight: 300;
   margin-bottom: 10px;
