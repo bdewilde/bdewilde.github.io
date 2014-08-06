@@ -1,6 +1,11 @@
 /* Base */
 /* ----------------------------------------------------------*/
 
+@font-face {
+  font-family: serifa;
+  src: url('fonts/Serifa 55 Roman.ttf') format('opentype');
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -79,6 +84,7 @@ a:hover {
 }
 
 .site-title {
+  font-family: serifa;
   display: block;
   vertical-align: middle;
   letter-spacing: -1px;
