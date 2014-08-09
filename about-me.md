@@ -1,10 +1,10 @@
 ---
 layout: page
 title: About Me
-permalink: /aboutme/
+permalink: /about-me/
 ---
 
-<img src="/assets/images/about_bio_pic.jpg" alt="about_bio_pic.jpg" width="100%">
+<img src="/assets/images/about-pic.jpg" alt="about-pic.jpg" width="100%">
 
 Hi! I'm a Data Scientist at a non-profit research organization called [Harmony Institute](http://harmony-institute.org/), where we study the social impact of media on individuals and society. I spend most of my time on data product development, but I also do some original research and client-focused work. My lifelong passions lie at the intersection of art, science, social activism, and all things data.
 
