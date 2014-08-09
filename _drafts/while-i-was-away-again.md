@@ -22,9 +22,29 @@ It didn't take long for [Jekyll](http://jekyllrb.com/) to emerge as my preferred
 - __It's coder-friendly:__ Jekyll was built by [the folks at GitHub](http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html) for use by readme-writing coders and tech-savvy bloggers --- people like me. Posts are written in [Markdown](http://daringfireball.net/projects/markdown/); lists, links, images, quotes, code blocks, and more are all seamlessly integrated into text. I can produce new content entirely from the comfort of my terminal and favorite text editor.
 - __It's free:__ GitHub provides free hosting (!) for Jekyll blogs in the form of [GitHub Pages](https://pages.github.com/). My site is just a GitHub repository; version control is intrinsic.
 
-I found a few "helpers" for building out Jekyll sites --- [Octopress](http://octopress.org/), [poole](https://github.com/poole/poole), [JekyllBootstrap](http://jekyllbootstrap.com/) --- that provide ready-made templates, themes, and plugins to get you going faster and easier, but I opted to build and customize everything myself because I'm a stubborn workaholic control freak. After reading through much of the documentation, I set up a default site on my computer and began filling it with content from my old blog. Jekyll has [a package for migrating](http://import.jekyllrb.com/docs/home/) from other blogging systems, but I transcribed my old posts into Markdown manually (see: stubborn, workaholic, control freak). In the process, I learned some new tricks in both Markdown and HTML+CSS, so it wasn't entirely pointless.
+### Getting Started
 
+I found a few "helpers" for building out Jekyll sites --- [Octopress](http://octopress.org/), [poole](https://github.com/poole/poole), [JekyllBootstrap](http://jekyllbootstrap.com/) --- that provide ready-made templates, themes, and plugins to get you going faster and easier, but I opted to build and customize everything myself because I'm a stubborn workaholic control freak. After reading through much of the documentation, I set up a default site on my computer; the directory structure looked like this:
 
+{% highlight sh %}
+$ ls -1
+_config.yml
+_includes
+_layouts
+_posts
+about.md
+css
+feed.xml
+index.html
+{% endhighlight %}
+
+When you run Jekyll, it parses markdown files; adds tags, categories, and other properties specified in [YAML](http://yaml.org/); and builds pages from layout templates and dynamic [Liquid](http://docs.shopify.com/themes/liquid-documentation/basics) code, all of which goes into a `_site` folder. `_config.yml` contains site-wide configuration options used when Jekyll builds the static HTML. As is convention, `index.html` is the home page of the site, while `about.md` is a Markdown file that builds into an "About" page on the site. The `_layouts` directory contains boilerplate HTML templates to specify the structure of pages throughout the site, while `_includes` contains smaller snippets of HTML, such as that for headers and footers. Blog posts go in the `_posts` folder as individual .md files.
+
+### Content
+
+I began filling it with content from my old blog. Jekyll has [a package for migrating](http://import.jekyllrb.com/docs/home/) from other blogging systems, but I transcribed my old posts into Markdown manually (see: stubborn, workaholic, control freak). In the process, I learned some new tricks in both Markdown and HTML+CSS, so it wasn't entirely pointless.
+
+### Design
 
 
 
