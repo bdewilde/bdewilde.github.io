@@ -119,8 +119,8 @@ Lastly, I added [Google Analytics](http://www.google.com/analytics/) to my site 
 
 I could go on and on about how I came to the current design of this site (there were literally dozens of iterations), but I'll focus on a couple broader aspects.
 
-- __Color:__ In general, I prefer (almost-)black-on-white content, with shades of gray to demarcate special or distinct elements; color is used sparingly, for emphasis. Standard links are a cornflower blue, while special links --- blog titles linking to the full blog content, header links to pages, footer links to my social media accounts --- go from black to a dark orchid upon mouseover.
-- __Typography:__
+- __Color:__ In general, I prefer (almost-)black-on-white content, with shades of gray to demarcate special or distinct elements; color is used sparingly, for emphasis. Standard links are a <span style="color: #4292c6">cornflower blue</span>, while special links --- blog titles linking to the full blog content, header links to pages, footer links to my social media accounts --- go from black to <span style="color: #807dba">orchid</span> upon mouseover. The coloring of various components of code blocks was customized to include these two colors, plus a striking <span style="color: #00ab56">green</span> and <span style="color: #fb6a4a">orange</span>.
+- __Typography:__ I went with a sans-serif font-family (Helvetica/Arial) throughout because it feels cleaner and more modern to me, and kept the baseline font size somewhat large for readability. For headlines, I reduced the <span style="letter-spacing: -1px">letter spacing</span> just slightly to prevent them from sprawling across an entire page.
 - __Iconography:__
 
 

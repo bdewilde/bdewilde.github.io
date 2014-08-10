@@ -37,7 +37,7 @@ a:hover {
   transition: color 0.25s;
 }
 .site-link:hover {
-  color: #6a51a3;
+  color: #807dba;
   text-decoration: none;
 }
 
@@ -47,7 +47,7 @@ a:hover {
   transition: color 0.25s;
 }
 .post-link:hover {
-  color: #6a51a3;
+  color: #807dba;
   text-decoration: none;
 }
 
@@ -79,7 +79,7 @@ a:hover {
 }
 .nav-link:hover {
   color: white;
-  background-color: #6a51a3;
+  background-color: #807dba;
   text-decoration: none;
 }
 
@@ -381,8 +381,8 @@ header h1 {
 .highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
 .highlight .no { color: #008080 } /* Name.Constant */
 .highlight .ni { color: #800080 } /* Name.Entity */
-.highlight .ne { color: #6a51a3; font-weight: bold } /* Name.Exception */
-.highlight .nf { color: #6a51a3; font-weight: bold } /* Name.Function */
+.highlight .ne { color: #807dba; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #807dba; font-weight: bold } /* Name.Function */
 .highlight .nn { color: #555555 } /* Name.Namespace */
 .highlight .nt { color: #000080 } /* Name.Tag */
 .highlight .nv { color: #008080 } /* Name.Variable */
