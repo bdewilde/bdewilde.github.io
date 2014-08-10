@@ -1,9 +1,11 @@
 ---
 layout: post
 title: On Starting Over with Jekyll
+date: 2014-08-10 11:45:00
 categories: [blog]
 tags: [blogging, DataKind, Disqus, Harmony Institute, Jekyll, website design]
 comments: true
+preview_pic: /assets/images/2014-08-10-site-footer.pdf
 ---
 
 After another lengthy hiatus from blogging, I'm back! Long story short, I got so frustrated with [Blogger](https://www.blogger.com)'s shortcomings and complications, not to mention the general lack of control over my content, that I lost the will to update my old blog. At the same time, I was putting in longer hours at [Harmony Institute](http://harmony-institute.org/) and volunteering on the side for [DataKind](http://www.datakind.org/), so I didn't have much to say outside of official channels. That said, my data life has not gone entirely un-blogged:
@@ -117,11 +119,13 @@ Lastly, I added [Google Analytics](http://www.google.com/analytics/) to my site 
 
 ### Design
 
-I could go on and on about how I came to the current design of this site (there were literally dozens of iterations), but I'll focus on a couple broader aspects.
+I could go on and on about how I came to the current design of this site (there were literally dozens of iterations...), but instead I'll focus on a couple overall aspects.
 
-- __Color:__ In general, I prefer (almost-)black-on-white content, with shades of gray to demarcate special or distinct elements; color is used sparingly, for emphasis. Standard links are a <span style="color: #4292c6">cornflower blue</span>, while special links --- blog titles linking to the full blog content, header links to pages, footer links to my social media accounts --- go from black to <span style="color: #807dba">orchid</span> upon mouseover. The coloring of various components of code blocks was customized to include these two colors, plus a striking <span style="color: #00ab56">green</span> and <span style="color: #fb6a4a">orange</span>.
-- __Typography:__ I went with a sans-serif font-family (Helvetica/Arial) throughout because it feels cleaner and more modern to me, and kept the baseline font size somewhat large for readability. For headlines, I reduced the <span style="letter-spacing: -1px">letter spacing</span> just slightly to prevent them from sprawling across an entire page.
-- __Iconography:__
+- __Color:__ In general, I prefer <span style="color: #303030">(almost-)black</span>-on-white content, with shades of gray to demarcate special or distinct <span style="background-color:#f0f0f0; border: 1px solid #e0e0e0; padding: 2px">regions</span> or <span style="color: #818181">elements</span>; color is used sparingly, for emphasis. Standard links are a <span style="color: #4292c6">cornflower blue</span>, while special links --- <span class="site-link" style="font-size: 16px">blog titles linking to the full blog content</span>, <span class="site-link" style="font-size: 16px">header links to pages</span>, <span class="site-link" style="font-size: 16px">footer links to my social media accounts</span> --- go from black to <span style="color: #807dba">orchid</span> upon mouseover. The coloring of code blocks was customized to include these two colors, plus a striking <span style="color: #00ab56">green</span> for numbers and <span style="color: #fb6a4a">orange</span> for strings.
+- __Typography:__ I went with a sans-serif font-family (Helvetica/Arial) throughout because it feels cleaner and more modern to me, and kept the baseline font size somewhat large for readability. I reduced <span style="font-size: 20px; letter-spacing: -1px">the letter spacing of headlines</span> slightly, to add density and visual weight without relying on __bold font__, which I save for list item pseudo-headers. As is standard, `code blocks` and the like use a monospace font. Lastly, I gave my name / site title <span style="font-family: serifa">Burton DeWilde</span> a special font (Serifa) that has a technical but still classic vibe.
+- __Iconography:__ I used the [Font Awesome](http://fortawesome.github.io/Font-Awesome/) toolkit to incorporate customizable vector icons into my site where clarity and/or brevity is needed. In the site footer, I list links out to my web presence in the form of icons rather than words: email as <i class="fa fa-envelope-square"></i>, Twitter as <i class="fa fa-twitter-square"></i>, and so on. I also supplemented the metadata shown below post titles with icons: <i class="fa fa-calendar-o"></i> for publication date and <i class="fa fa-tags"></i> for tags, in case the content's meaning wasn't self-evident.
+
+And that's how I made this new site! I hope you like it, and I sincerely hope the joy of blogging with Jekyll will keep me coming back with updates.
 
 
 
