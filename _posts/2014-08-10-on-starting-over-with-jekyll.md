@@ -5,7 +5,7 @@ date: 2014-08-10 11:45:00
 categories: [blog]
 tags: [blogging, DataKind, Disqus, Harmony Institute, Jekyll, website design]
 comments: true
-preview_pic: /assets/images/2014-08-10-site-footer.pdf
+preview_pic: /assets/images/2014-08-10-site-footer.png
 ---
 
 After another lengthy hiatus from blogging, I'm back! Long story short, I got so frustrated with [Blogger](https://www.blogger.com)'s shortcomings and complications, not to mention the general lack of control over my content, that I lost the will to update my old blog. At the same time, I was putting in longer hours at [Harmony Institute](http://harmony-institute.org/) and volunteering on the side for [DataKind](http://www.datakind.org/), so I didn't have much to say outside of official channels. That said, my data life has not gone entirely un-blogged:
