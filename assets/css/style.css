@@ -266,13 +266,23 @@ header h1 {
 }
 
 .post-content h3 {
-  font-size: 26px;
-  letter-spacing: -1px;
+  font-size: 28px;
+  letter-spacing: -1.125px;
 }
 
 .post-content h4 {
-  font-size: 20px;
+  font-size: 24px;
   letter-spacing: -1px;
+}
+
+.post-content h5 {
+  font-size: 20px;
+  letter-spacing: -0.875px;
+}
+
+.post-content h6 {
+  font-size: 16px;
+  letter-spacing: -0.75px;
 }
 
 .post-content blockquote {
