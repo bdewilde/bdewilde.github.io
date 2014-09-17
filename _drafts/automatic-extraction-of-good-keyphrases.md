@@ -8,7 +8,11 @@ comments: true
 preview_pic: 
 ---
 
-In my work, I most often apply natural language processing for purposes of automatically extracting structured information from unstructured (text) datasets. One such task is the extraction of important topical words and phrases from documents, commonly known as [terminology extraction](http://en.wikipedia.org/wiki/Terminology_extraction) or __automatic keyphrase extraction__. Keyphrases provide a concise description of a document's content; they are useful for document categorization, clustering, indexing, search, and summarization; quantifying semantic similarity with other documents; as well as conceptualizing particular knowledge domains.
+I often apply natural language processing for purposes of automatically extracting structured information from unstructured (text) datasets. One such task is the extraction of important topical words and phrases from documents, commonly known as [terminology extraction](http://en.wikipedia.org/wiki/Terminology_extraction) or __automatic keyphrase extraction__. Keyphrases provide a concise description of a document's content; they are useful for document categorization, clustering, indexing, search, and summarization; quantifying semantic similarity with other documents; as well as conceptualizing particular knowledge domains.
+
+<figure>
+  <img class="halfw" src="/assets/images/keyphrase_extraction.png" alt="keyphrase_extraction.png">
+</figure>
 
 Despite wide applicability and much research, keyphrase extraction suffers from poor performance relative to many other core NLP tasks, partly because there's no objectively "correct" set of keyphrases for a given document. While human-labeled keyphrases are generally considered to be the gold standard, humans disagree about what that standard is! As a general rule of thumb, keyphrases should be relevant to one or more of a document's major topics, and the set of keyphrases describing a document should provide good coverage of all major topics. (They should also be understandable and grammatical, of course.) The fundamental difficulty lies in determining which keyphrases are the _most_ relevant and provide the _best_ coverage. As described in [Automatic Keyphrase Extraction: A Survey of the State of the Art](http://www.hlt.utdallas.edu/~saidul/acl14.pdf), several factors contribute to this difficulty, including document length, structural inconsistency, changes in topic, and (a lack of) correlations between topics.
 
@@ -34,7 +38,7 @@ For example, rather than taking all of the [_n_-grams](http://en.wikipedia.org/w
 'summarization', 'survey', 'terminology extraction', 'topics', 'wide applicability', 'work']
 ```
 
-Looks like a small, decent set of candidates, right? As document length increases, though, the number of candidates can still get quite large. Selecting the best keyphrase candidates is the objective of step 2.
+Looks like a small, likely set of candidates, right? Compare that to the brute force result, which includes 1100+ _n_-grams, most of them almost certainly not keyphrases (e.g. "about", "relative to", "no objectively correct", "survey of the state", ...). As document length increases, though, the number of _likely_ candidates can still get quite large. Selecting the best keyphrase candidates is the objective of step 2.
 
 #### 2. Keyphrase Selection
 
@@ -42,19 +46,23 @@ Researchers have devised a plethora of methods for distinguishing between good a
 
 ##### Unsupervised
 
-The canonical unsupervised approach to automatic keyphrase extraction uses a __graph-based ranking__ method, in which the importance of a candidate is determined by its relatedness to other candidates, where "relatedness" may be measured by two terms' frequency of co-occurrence or [semantic relatedness](http://en.wikipedia.org/wiki/Semantic_similarity). This method assumes that more important candidates are related to a greater number of other candidates, and that more of those related candidates are _also_ considered important; it does not, however, ensure that selected keyphrases cover all major topics, although multiple variations try to compensate for this weakness.
+Unsupervised machine learning methods attempt to discover the underlying structure of a dataset without the assistance of already-labeled examples ("training data"). The canonical unsupervised approach to automatic keyphrase extraction uses a __graph-based ranking__ method, in which the importance of a candidate is determined by its relatedness to other candidates, where "relatedness" may be measured by two terms' frequency of co-occurrence or [semantic relatedness](http://en.wikipedia.org/wiki/Semantic_similarity). This method assumes that more important candidates are related to a greater number of other candidates, and that more of those related candidates are _also_ considered important; it does not, however, ensure that selected keyphrases cover all major topics, although multiple variations try to compensate for this weakness.
 
-Essentially, a document is represented as a network whose nodes are candidate keyphrases (typically only key _words_) and whose edges (optionally weighted by the _degree_ of relatedness) connect related candidates. Then, a graph-based ranking algorithm, such as Google's famous [PageRank](http://en.wikipedia.org/wiki/PageRank), is run over the network, and the highest-scoring terms are taken to be the document's keyphrases.
+Essentially, a document is represented as a network whose nodes are candidate keyphrases (typically only key _words_) and whose edges (optionally weighted by the _degree_ of relatedness) connect related candidates. Then, a [graph-based ranking algorithm](http://networkx.github.io/documentation/networkx-1.9/reference/algorithms.centrality.html), such as Google's famous [PageRank](http://en.wikipedia.org/wiki/PageRank), is run over the network, and the highest-scoring terms are taken to be the document's keyphrases.
 
 [INSERT IMAGE OF DOCUMENT-AS-NETWORK]
 
 The most famous instantiation of this approach is [TextRank](http://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf); a variation that attempts to ensure good topic coverage is [DivRank](http://clair.si.umich.edu/~radev/papers/SIGKDD2010.pdf). For a more extensive breakdown, see [Conundrums in Unsupervised Keyphrase Extraction](http://www.hlt.utdallas.edu/~vince/papers/coling10-keyphrase.pdf), which includes an example of a __topic-based clustering__ method, the other main class of unsupervised keyphrase extraction algorithms.
 
-Unsupervised approaches have at least one notable advantage: No training data required! In an age of massive, unlabled, readily-available datasets, this is a big deal. As for disadvantages, unsupervised methods make assumptions that don't necessarily hold across different domains, and up until recently, their performance has been inferior to supervised methods. Which brings me to the next section.
+Unsupervised approaches have at least one notable advantage: No training data required! In an age of massive but unlabled datasets, this can be a big deal. As for disadvantages, unsupervised methods make assumptions that don't necessarily hold across different domains, and up until recently, their performance has been inferior to supervised methods. Which brings me to the next section.
 
 ##### Supervised
 
-The two main components of supervised approaches to automatic keyphrase extraction are __task reformulation__ and __feature design__.
+Supervised machine learning methods use training data to infer a function that maps a set of input variables called features to some desired (and _known_) output value; ideally, this function can correctly predict the (_unknown_) output value on a new example based on its features alone. The two primary developments in supervised approaches to automatic keyphrase extraction deal with __task reformulation__ and __feature design__.
+
+Early implementations recast the problem of extracting keyphrases from a document as a __binary classification__ problem, in which some fraction of candidates are classified as keyphrases and the rest as _non_-keyphrases. This is a well-understood problem, and there are many methods to solve it: [Naive Bayes](http://scikit-learn.org/stable/modules/naive_bayes.html), [decision trees](http://scikit-learn.org/stable/modules/tree.html), and [support vector machines](http://scikit-learn.org/stable/modules/svm.html), among others. However, this reformulation of the task is conceptually problematic; humans don't judge keyphrases independently of one another, instead they judge certain phrases as _more key_ than others in a fundamentally relative sense. As such, more recently the problem has been reformulated as a __ranking__ problem, in which a function is trained to rank candidates pairwise according to degree of "keyness". The best candidates rise to the top, and the top _N_ are taken to be the document's keyphrases.
+
+The second line of research into supervised approaches has explored a wide variety of features used to discriminate between keyphrases and non-keyphrases.
 
 ### Results
 

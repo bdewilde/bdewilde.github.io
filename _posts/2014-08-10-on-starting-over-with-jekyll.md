@@ -126,28 +126,3 @@ I could go on and on about how I came to the current design of this site (there 
 - __Iconography:__ I used the [Font Awesome](http://fortawesome.github.io/Font-Awesome/) toolkit to incorporate customizable vector icons into my site where clarity and/or brevity is needed. In the site footer, I list links out to my web presence in the form of icons rather than words: email as <i class="fa fa-envelope-square"></i>, Twitter as <i class="fa fa-twitter-square"></i>, and so on. I also supplemented the metadata shown below post titles with icons: <i class="fa fa-calendar-o"></i> for publication date and <i class="fa fa-tags"></i> for tags, in case the content's meaning wasn't self-evident.
 
 And that's how I made this new site! I hope you like it, and I sincerely hope the joy of blogging with Jekyll will keep me coming back with updates.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
