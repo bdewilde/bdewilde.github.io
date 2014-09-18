@@ -50,7 +50,9 @@ Unsupervised machine learning methods attempt to discover the underlying structu
 
 Essentially, a document is represented as a network whose nodes are candidate keyphrases (typically only key _words_) and whose edges (optionally weighted by the _degree_ of relatedness) connect related candidates. Then, a [graph-based ranking algorithm](http://networkx.github.io/documentation/networkx-1.9/reference/algorithms.centrality.html), such as Google's famous [PageRank](http://en.wikipedia.org/wiki/PageRank), is run over the network, and the highest-scoring terms are taken to be the document's keyphrases.
 
-[INSERT IMAGE OF DOCUMENT-AS-NETWORK]
+<figure>
+  <img class="tqw" src="/assets/images/document_as_network.png" alt="document_as_network.png">
+</figure>
 
 The most famous instantiation of this approach is [TextRank](http://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf); a variation that attempts to ensure good topic coverage is [DivRank](http://clair.si.umich.edu/~radev/papers/SIGKDD2010.pdf). For a more extensive breakdown, see [Conundrums in Unsupervised Keyphrase Extraction](http://www.hlt.utdallas.edu/~vince/papers/coling10-keyphrase.pdf), which includes an example of a __topic-based clustering__ method, the other main class of unsupervised keyphrase extraction algorithms (which I'm not going to delve into).
 
