@@ -74,14 +74,40 @@ A well-known implementation of the binary classification method, [KEA](http://ww
 
 Supervised approaches have generally achieved better performance than unsupervised approaches; however, good training data is hard to find (although here's [a decent place to start](https://github.com/snkim/AutomaticKeyphraseExtraction)), and the danger of training a model that doesn't generalize to unseen examples is something to always guard against (e.g. through [cross-validation](http://en.wikipedia.org/wiki/Cross-validation_(statistics))).
 
-Alright, now that I've scared/bored away all but the truly interested, let's dig into some code and results!
-
 ### Results
 
+Okay, now that I've scared/bored away all but the truly interested, let's dig into some code and results! As mentioned, there are many ways to extract candidate keyphrases from a document; here's a simplified and compacted implementation of the "noun phrases only" heuristic method:
 
+{% highlight python %}
+def extract_candidate_chunks(text, grammar=r'KT: {(<JJ>* <NN.*>+ <IN>)? <JJ>* <NN.*>+}'):
+    import itertools, nltk
 
+    chunker = nltk.chunk.regexp.RegexpParser(grammar)
+    tagged_sents = nltk.pos_tag_sents(nltk.word_tokenize(sent) for sent in nltk.sent_tokenize(text))
+    all_chunks = list(itertools.chain.from_iterable(nltk.chunk.tree2conlltags(chunker.parse(tagged_sent))
+                                                    for tagged_sent in tagged_sents))
+    candidates = set(' '.join(word for word, pos, chunk in group).lower()
+                     for key, group in itertools.groupby(all_chunks, lambda (word,pos,chunk): chunk != 'O') if key)
 
+    return candidates
+{% endhighlight %}
 
+When `text` is assigned to the first two paragraphs of this post, `candidates` is more or less the same as the candidate keyphrases listed in <a href="#candidate-identification">1. Candidate Identification</a>. (Additional cleaning and filtering code improves the list a bit and helps to makes up for tokenizing/tagging/chunking errors.) For comparison, the original TextRank algorithm performs best when extracting all (unigram) nouns and adjectives, like so:
+
+{% highlight python %}
+def extract_candidate_words(text, good_tags=set(['JJ','JJR','JJS','NN','NNP','NNS','NNPS'])):
+    import itertools, nltk
+
+    tagged_words = itertools.chain.from_iterable(nltk.pos_tag_sents(nltk.word_tokenize(sent)
+                                                                    for sent in nltk.sent_tokenize(text)))
+    candidates = set(word.lower() for word, tag in tagged_words if tag in good_tags)
+
+    return candidates
+{% endhighlight %}
+
+In this case, `candidates` is more or less equivalent to the set of words visualized as a network in the sub-section on <a href="#unsupervised">Unsupervised</a> methods.
+
+Code for keyphrase selection depends entirely on the approach taken, of course. The simplest, frequency statistic-based approach can be coded easily using [scikit-learn](http://scikit-learn.org/stable/) or [gensim](http://radimrehurek.com/gensim/):
 
 
 
