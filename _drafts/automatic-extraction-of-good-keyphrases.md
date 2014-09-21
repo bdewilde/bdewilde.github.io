@@ -5,7 +5,7 @@ date: 2014-09-16 11:16:00
 categories: [blog]
 tags: [feature design, frequency statistics, keyphrase extraction, graph-based ranking, NLP, task reformulation]
 comments: true
-preview_pic: /assets/images/keyphrase_extraction.png
+preview_pic: /assets/images/document_as_network.png
 ---
 
 I often apply natural language processing for purposes of automatically extracting structured information from unstructured (text) datasets. One such task is the extraction of important topical words and phrases from documents, commonly known as [terminology extraction](http://en.wikipedia.org/wiki/Terminology_extraction) or __automatic keyphrase extraction__. Keyphrases provide a concise description of a document's content; they are useful for document categorization, clustering, indexing, search, and summarization; quantifying semantic similarity with other documents; as well as conceptualizing particular knowledge domains.
@@ -18,7 +18,7 @@ Despite wide applicability and much research, keyphrase extraction suffers from 
 
 ### Methodology
 
-Automatic keyphrase extraction is typically a two-step process.
+Automatic keyphrase extraction is typically a two-step process: first, a set of words and phrases that could convey the topical content of a document are identified, then these candidates are scored/ranked and the "best" are selected as a document's keyphrases.
 
 #### 1. Candidate Identification
 
@@ -76,23 +76,26 @@ Supervised approaches have generally achieved better performance than unsupervis
 
 ### Results
 
-Okay, now that I've scared/bored away all but the truly interested, let's dig into some code and results! As mentioned, there are many ways to extract candidate keyphrases from a document; here's a simplified and compacted implementation of the "noun phrases only" heuristic method:
+Okay, now that I've scared/bored away all but the truly interested, let's dig into some code and results! As an example document, I'll use all of the text in this post _up to_ this results section; as a reference corpus, I'll use all other posts on this blog. In principle, a reference corpus isn't necessary for single-document keyphrase extraction, but it's generally helpful to compare a document's candidates against other documents' to characterize its particular content. Consider that _tf*idf_ reduces to just _tf_ (term frequency) in the case of a single document since _idf_ (inverse document frequency) is the same value for every candidate.
+
+As mentioned, there are many ways to extract candidate keyphrases from a document; here's a simplified and compact implementation of the "noun phrases only" heuristic method:
 
 {% highlight python %}
 def extract_candidate_chunks(text, grammar=r'KT: {(<JJ>* <NN.*>+ <IN>)? <JJ>* <NN.*>+}'):
+
     import itertools, nltk
 
     chunker = nltk.chunk.regexp.RegexpParser(grammar)
     tagged_sents = nltk.pos_tag_sents(nltk.word_tokenize(sent) for sent in nltk.sent_tokenize(text))
     all_chunks = list(itertools.chain.from_iterable(nltk.chunk.tree2conlltags(chunker.parse(tagged_sent))
                                                     for tagged_sent in tagged_sents))
-    candidates = set(' '.join(word for word, pos, chunk in group).lower()
-                     for key, group in itertools.groupby(all_chunks, lambda (word,pos,chunk): chunk != 'O') if key)
+    candidates = [' '.join(word for word, pos, chunk in group).lower()
+                  for key, group in itertools.groupby(all_chunks, lambda (word,pos,chunk): chunk != 'O') if key]
 
     return candidates
 {% endhighlight %}
 
-When `text` is assigned to the first two paragraphs of this post, `candidates` is more or less the same as the candidate keyphrases listed in <a href="#candidate-identification">1. Candidate Identification</a>. (Additional cleaning and filtering code improves the list a bit and helps to makes up for tokenizing/tagging/chunking errors.) For comparison, the original TextRank algorithm performs best when extracting all (unigram) nouns and adjectives, like so:
+When `text` is assigned to the first two paragraphs of this post, `set(candidates)` is more or less the same as the candidate keyphrases listed in <a href="#candidate-identification">1. Candidate Identification</a>. (Additional cleaning and filtering code improves the list a bit and helps to makes up for tokenizing/tagging/chunking errors.) For comparison, the original TextRank algorithm performs best when extracting all (unigram) nouns and adjectives, like so:
 
 {% highlight python %}
 def extract_candidate_words(text, good_tags=set(['JJ','JJR','JJS','NN','NNP','NNS','NNPS'])):
@@ -100,12 +103,12 @@ def extract_candidate_words(text, good_tags=set(['JJ','JJR','JJS','NN','NNP','NN
 
     tagged_words = itertools.chain.from_iterable(nltk.pos_tag_sents(nltk.word_tokenize(sent)
                                                                     for sent in nltk.sent_tokenize(text)))
-    candidates = set(word.lower() for word, tag in tagged_words if tag in good_tags)
+    candidates = [word.lower() for word, tag in tagged_words if tag in good_tags]
 
     return candidates
 {% endhighlight %}
 
-In this case, `candidates` is more or less equivalent to the set of words visualized as a network in the sub-section on <a href="#unsupervised">Unsupervised</a> methods.
+In this case, `set(candidates)` is more or less equivalent to the set of words visualized as a network in the <a href="#unsupervised">sub-section on unsupervised methods</a>.
 
 Code for keyphrase selection depends entirely on the approach taken, of course. The simplest, frequency statistic-based approach can be coded easily using [scikit-learn](http://scikit-learn.org/stable/) or [gensim](http://radimrehurek.com/gensim/):
 
