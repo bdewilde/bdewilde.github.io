@@ -76,15 +76,15 @@ Supervised approaches have generally achieved better performance than unsupervis
 
 ### Results
 
-Okay, now that I've scared/bored away all but the truly interested, let's dig into some code and results! As an example document, I'll use all of the text in this post _up to_ this results section; as a reference corpus, I'll use all other posts on this blog. In principle, a reference corpus isn't necessary for single-document keyphrase extraction, but it's generally helpful to compare a document's candidates against other documents' to characterize its particular content. Consider that _tf*idf_ reduces to just _tf_ (term frequency) in the case of a single document since _idf_ (inverse document frequency) is the same value for every candidate.
+Okay, now that I've scared/bored away all but the truly interested, let's dig into some code and results! As an example document, I'll use all of the text in this post _up to_ this results section; as a reference corpus, I'll use all other posts on this blog. In principle, a reference corpus isn't necessary for single-document keyphrase extraction (example: TextRank), but it's often helpful to compare a document's candidates against other documents' to characterize its particular content. Consider that _tf*idf_ reduces to just _tf_ (term frequency) in the case of a single document since _idf_ (inverse document frequency) is the same value for every candidate.
 
 As mentioned, there are many ways to extract candidate keyphrases from a document; here's a simplified and compact implementation of the "noun phrases only" heuristic method:
 
 {% highlight python %}
 def extract_candidate_chunks(text, grammar=r'KT: {(<JJ>* <NN.*>+ <IN>)? <JJ>* <NN.*>+}'):
-
     import itertools, nltk
 
+    stop_words = set(nltk.corpus.stopwords.words('english'))
     chunker = nltk.chunk.regexp.RegexpParser(grammar)
     tagged_sents = nltk.pos_tag_sents(nltk.word_tokenize(sent) for sent in nltk.sent_tokenize(text))
     all_chunks = list(itertools.chain.from_iterable(nltk.chunk.tree2conlltags(chunker.parse(tagged_sent))
@@ -92,7 +92,7 @@ def extract_candidate_chunks(text, grammar=r'KT: {(<JJ>* <NN.*>+ <IN>)? <JJ>* <N
     candidates = [' '.join(word for word, pos, chunk in group).lower()
                   for key, group in itertools.groupby(all_chunks, lambda (word,pos,chunk): chunk != 'O') if key]
 
-    return candidates
+    return [c for c in candidates if c not in stop_words]
 {% endhighlight %}
 
 When `text` is assigned to the first two paragraphs of this post, `set(candidates)` is more or less the same as the candidate keyphrases listed in <a href="#candidate-identification">1. Candidate Identification</a>. (Additional cleaning and filtering code improves the list a bit and helps to makes up for tokenizing/tagging/chunking errors.) For comparison, the original TextRank algorithm performs best when extracting all (unigram) nouns and adjectives, like so:
@@ -101,22 +101,105 @@ When `text` is assigned to the first two paragraphs of this post, `set(candidate
 def extract_candidate_words(text, good_tags=set(['JJ','JJR','JJS','NN','NNP','NNS','NNPS'])):
     import itertools, nltk
 
+    stop_words = set(nltk.corpus.stopwords.words('english'))
     tagged_words = itertools.chain.from_iterable(nltk.pos_tag_sents(nltk.word_tokenize(sent)
                                                                     for sent in nltk.sent_tokenize(text)))
-    candidates = [word.lower() for word, tag in tagged_words if tag in good_tags]
+    candidates = [word.lower() for word, tag in tagged_words
+                  if tag in good_tags and word.lower() not in stop_words]
 
     return candidates
 {% endhighlight %}
 
 In this case, `set(candidates)` is more or less equivalent to the set of words visualized as a network in the <a href="#unsupervised">sub-section on unsupervised methods</a>.
 
-Code for keyphrase selection depends entirely on the approach taken, of course. The simplest, frequency statistic-based approach can be coded easily using [scikit-learn](http://scikit-learn.org/stable/) or [gensim](http://radimrehurek.com/gensim/):
+Code for keyphrase selection depends entirely on the approach taken, of course. It's relatively straightforward to implement the simplest, frequency statistic-based approach using [scikit-learn](http://scikit-learn.org/stable/) or [gensim](http://radimrehurek.com/gensim/):
 
+{% highlight python %}
+import gensim, nltk
 
+def make_corpus_and_dictionary(texts, candidates='chunks'):
+    # extract candidates from each text in texts, either chunks or words
+    if candidates == 'chunks':
+        boc_texts = [extract_candidate_chunks(text) for text in texts]
+    elif candidates == 'words':
+        boc_texts = [extract_candidate_words(text) for text in texts]
+    # make gensim dictionary and corpus
+    dictionary = gensim.corpora.Dictionary(boc_texts)
+    corpus = [dictionary.doc2bow(boc_text) for boc_text in boc_texts]
+    return corpus, dictionary
 
+corpus, dictionary = make_corpus_and_dictionary(texts, candidates='chunks')
+tfidf = gensim.models.TfidfModel(corpus)
+corpus_tfidf = tfidf[corpus]
+{% endhighlight %}
 
+In the above code, `texts` was a list of normalized text (stripped of various YAML, HTML, and Markdown formatting) from all previous blog posts plus the first two sections of this post. For the latter, the 15 candidate keyphrases with the highest _tf*idf_ values are as follows:
 
+```
+keyphrase                           tfidf 
+-----------------------------------------
+keyphrases......................... 0.573
+document........................... 0.375
+candidates......................... 0.306
+approaches......................... 0.191
+approach........................... 0.115
+candidate.......................... 0.115
+major topics....................... 0.115
+methods............................ 0.115
+automatic keyphrase extraction..... 0.076
+frequency statistics............... 0.076
+keyphrase.......................... 0.076
+keyphrase candidates............... 0.076
+network............................ 0.076
+relatedness........................ 0.076
+researchers........................ 0.076
+```
 
+Not too shabby, although you can clearly see how [stemming](http://en.wikipedia.org/wiki/Stemming) or [lemmatizing](http://en.wikipedia.org/wiki/Lemmatisation) candidates would improve results (_candidate_ / _candidates_, _approach_ / _approaches_, and _keyphrase_ / _keyphrases_ would normalize together). You can also see that this approach seems to favor unigram keyphrases, likely owing to their much higher frequencies of occurrence in natural language texts. Considering that human-selected keyphrases are most often bigrams (according to the analysis in [Descriptive Keyphrases for Text Visualization](http://vis.stanford.edu/papers/keyphrases)), this seems to be another limitation of such simplistic methods.
+
+Results for TextRank:
+
+```
+keyphrase                           textrank 
+--------------------------------------------
+keyphrases.........................    0.179
+candidates.........................    0.149
+candidate keyphrases...............    0.141
+keyphrase candidates...............     0.12
+document length....................    0.115
+methods............................    0.111
+unsupervised methods...............    0.109
+words..............................    0.102
+method.............................    0.095
+approaches.........................    0.093
+best keyphrases....................    0.089
+set of keyphrases..................    0.089
+structural features................    0.089
+approach...........................    0.086
+automatic keyphrase extraction.....    0.084
+```
+
+Results for Ranking SVM:
+
+```
+keyphrase                           ranksvm 
+-------------------------------------------
+keyphrase extraction...............   1.318
+set of keyphrases..................   0.895
+document categorization............   0.732
+human-labeled keyphrases...........   0.643
+Candidate Identification...........   0.642
+frequency of co-occurrence.........   0.636
+candidate keyphrases...............   0.624
+particular knowledge domains.......   0.612
+wide applicability.................   0.604
+phrases from documents.............   0.596
+rest as non-keyphrases.............   0.578
+binary classification problem......   0.567
+canonical unsupervised approach....   0.566
+structural inconsistency...........   0.556
+keyphrase..........................   0.552
+```
 
 
 
