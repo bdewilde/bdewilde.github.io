@@ -76,7 +76,7 @@ Supervised approaches have generally achieved better performance than unsupervis
 
 ### Results
 
-Okay, now that I've scared/bored away all but the truly interested, let's dig into some code and results! As an example document, I'll use all of the text in this post _up to_ this results section; as a reference corpus, I'll use all other posts on this blog. In principle, a reference corpus isn't necessary for single-document keyphrase extraction (example: TextRank), but it's often helpful to compare a document's candidates against other documents' to characterize its particular content. Consider that _tf*idf_ reduces to just _tf_ (term frequency) in the case of a single document since _idf_ (inverse document frequency) is the same value for every candidate.
+Okay, now that I've scared/bored away all but the truly interested, let's dig into some code and results! As an example document, I'll use all of the text in this post _up to_ this results section; as a reference corpus, I'll use all other posts on this blog. In principle, a reference corpus isn't necessary for single-document keyphrase extraction (case in point: TextRank), but it's often helpful to compare a document's candidates against other documents' in order to characterize its particular content. Consider that _tf*idf_ reduces to just _tf_ (term frequency) in the case of a single document, since _idf_ (inverse document frequency) is the same value for every candidate.
 
 As mentioned, there are many ways to extract candidate keyphrases from a document; here's a simplified and compact implementation of the "noun phrases only" heuristic method:
 
@@ -115,9 +115,9 @@ In this case, `set(candidates)` is more or less equivalent to the set of words v
 Code for keyphrase selection depends entirely on the approach taken, of course. It's relatively straightforward to implement the simplest, frequency statistic-based approach using [scikit-learn](http://scikit-learn.org/stable/) or [gensim](http://radimrehurek.com/gensim/):
 
 {% highlight python %}
-import gensim, nltk
-
-def make_corpus_and_dictionary(texts, candidates='chunks'):
+def score_keyphrases_by_tfidf(texts, candidates='chunks'):
+    import gensim, nltk
+    
     # extract candidates from each text in texts, either chunks or words
     if candidates == 'chunks':
         boc_texts = [extract_candidate_chunks(text) for text in texts]
@@ -126,14 +126,14 @@ def make_corpus_and_dictionary(texts, candidates='chunks'):
     # make gensim dictionary and corpus
     dictionary = gensim.corpora.Dictionary(boc_texts)
     corpus = [dictionary.doc2bow(boc_text) for boc_text in boc_texts]
-    return corpus, dictionary
-
-corpus, dictionary = make_corpus_and_dictionary(texts, candidates='chunks')
-tfidf = gensim.models.TfidfModel(corpus)
-corpus_tfidf = tfidf[corpus]
+    # transform corpus with tf*idf model
+    tfidf = gensim.models.TfidfModel(corpus)
+    corpus_tfidf = tfidf[corpus]
+    
+    return corpus_tfidf, dictionary
 {% endhighlight %}
 
-In the above code, `texts` was a list of normalized text (stripped of various YAML, HTML, and Markdown formatting) from all previous blog posts plus the first two sections of this post. For the latter, the 15 candidate keyphrases with the highest _tf*idf_ values are as follows:
+First we assign `texts` to a list of normalized text content (stripped of various YAML, HTML, and Markdown formatting) from all previous blog posts _plus_ the first two sections of this post, then we call `score_keyphrases_by_tfidf(texts)` to get all posts back in a sparse, _tf*idf_-weighted representation. The 15 candidate keyphrases with the highest _tf*idf_ values for this blog post are as follows:
 
 ```
 keyphrase                           tfidf 
