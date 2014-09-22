@@ -82,35 +82,45 @@ As mentioned, there are many ways to extract candidate keyphrases from a documen
 
 {% highlight python %}
 def extract_candidate_chunks(text, grammar=r'KT: {(<JJ>* <NN.*>+ <IN>)? <JJ>* <NN.*>+}'):
-    import itertools, nltk
-
+    import itertools, nltk, string
+    
+    # exclude candidates that are stop words or entirely punctuation
+    punct = set(string.punctuation)
     stop_words = set(nltk.corpus.stopwords.words('english'))
+    # tokenize, POS-tag, and chunk using regular expressions
     chunker = nltk.chunk.regexp.RegexpParser(grammar)
     tagged_sents = nltk.pos_tag_sents(nltk.word_tokenize(sent) for sent in nltk.sent_tokenize(text))
     all_chunks = list(itertools.chain.from_iterable(nltk.chunk.tree2conlltags(chunker.parse(tagged_sent))
                                                     for tagged_sent in tagged_sents))
+    # join constituent chunk words into a single chunked phrase
     candidates = [' '.join(word for word, pos, chunk in group).lower()
                   for key, group in itertools.groupby(all_chunks, lambda (word,pos,chunk): chunk != 'O') if key]
 
-    return [c for c in candidates if c not in stop_words]
+    return [cand for cand in candidates
+            if cand not in stop_words and not all(char in punct for char in cand)]
 {% endhighlight %}
 
-When `text` is assigned to the first two paragraphs of this post, `set(candidates)` is more or less the same as the candidate keyphrases listed in <a href="#candidate-identification">1. Candidate Identification</a>. (Additional cleaning and filtering code improves the list a bit and helps to makes up for tokenizing/tagging/chunking errors.) For comparison, the original TextRank algorithm performs best when extracting all (unigram) nouns and adjectives, like so:
+When `text` is assigned to the first two paragraphs of this post, `set(extract_candidate_chunks(text))` returns more or less the same set of candidate keyphrases as listed in <a href="#candidate-identification">1. Candidate Identification</a>. (Additional cleaning and filtering code improves the list a bit and helps to makes up for tokenizing/tagging/chunking errors.) For comparison, the original TextRank algorithm performs best when extracting all (unigram) nouns and adjectives, like so:
 
 {% highlight python %}
 def extract_candidate_words(text, good_tags=set(['JJ','JJR','JJS','NN','NNP','NNS','NNPS'])):
-    import itertools, nltk
+    import itertools, nltk, string
 
+    # exclude candidates that are stop words or entirely punctuation
+    punct = set(string.punctuation)
     stop_words = set(nltk.corpus.stopwords.words('english'))
+    # tokenize and POS-tag words
     tagged_words = itertools.chain.from_iterable(nltk.pos_tag_sents(nltk.word_tokenize(sent)
                                                                     for sent in nltk.sent_tokenize(text)))
+    # filter on certain POS tags and lowercase all words
     candidates = [word.lower() for word, tag in tagged_words
-                  if tag in good_tags and word.lower() not in stop_words]
+                  if tag in good_tags and word.lower() not in stop_words
+                  and not all(char in punct for char in word)]
 
     return candidates
 {% endhighlight %}
 
-In this case, `set(candidates)` is more or less equivalent to the set of words visualized as a network in the <a href="#unsupervised">sub-section on unsupervised methods</a>.
+In this case, `set(extract_candidate_words(text))` gives basically the same set of words visualized as a network in the <a href="#unsupervised">sub-section on unsupervised methods</a>.
 
 Code for keyphrase selection depends entirely on the approach taken, of course. It's relatively straightforward to implement the simplest, frequency statistic-based approach using [scikit-learn](http://scikit-learn.org/stable/) or [gensim](http://radimrehurek.com/gensim/):
 
@@ -133,7 +143,7 @@ def score_keyphrases_by_tfidf(texts, candidates='chunks'):
     return corpus_tfidf, dictionary
 {% endhighlight %}
 
-First we assign `texts` to a list of normalized text content (stripped of various YAML, HTML, and Markdown formatting) from all previous blog posts _plus_ the first two sections of this post, then we call `score_keyphrases_by_tfidf(texts)` to get all posts back in a sparse, _tf*idf_-weighted representation. The 15 candidate keyphrases with the highest _tf*idf_ values for this blog post are as follows:
+First we assign `texts` to a list of normalized text content (stripped of various YAML, HTML, and Markdown formatting) from all previous blog posts _plus_ the first two sections of this post, then we call `score_keyphrases_by_tfidf(texts)` to get all posts back in a sparse, _tf*idf_-weighted representation. It's now trivial to print out the 20 candidate keyphrases with the highest _tf*idf_ values for this blog post:
 
 ```
 keyphrase                           tfidf 
@@ -153,31 +163,92 @@ keyphrase candidates............... 0.076
 network............................ 0.076
 relatedness........................ 0.076
 researchers........................ 0.076
+set of keyphrases.................. 0.076
+state.............................. 0.076
+survey............................. 0.076
+function........................... 0.075
+performance........................ 0.075
 ```
 
-Not too shabby, although you can clearly see how [stemming](http://en.wikipedia.org/wiki/Stemming) or [lemmatizing](http://en.wikipedia.org/wiki/Lemmatisation) candidates would improve results (_candidate_ / _candidates_, _approach_ / _approaches_, and _keyphrase_ / _keyphrases_ would normalize together). You can also see that this approach seems to favor unigram keyphrases, likely owing to their much higher frequencies of occurrence in natural language texts. Considering that human-selected keyphrases are most often bigrams (according to the analysis in [Descriptive Keyphrases for Text Visualization](http://vis.stanford.edu/papers/keyphrases)), this seems to be another limitation of such simplistic methods.
+Not too shabby! Although you can clearly see how [stemming](http://en.wikipedia.org/wiki/Stemming) or [lemmatizing](http://en.wikipedia.org/wiki/Lemmatisation) candidates would improve results (_candidate_ / _candidates_, _approach_ / _approaches_, and _keyphrase_ / _keyphrases_ would normalize together). You can also see that this approach seems to favor unigram keyphrases, likely owing to their much higher frequencies of occurrence in natural language texts. Considering that human-selected keyphrases are most often bigrams (according to the analysis in [Descriptive Keyphrases for Text Visualization](http://vis.stanford.edu/papers/keyphrases)), this seems to be another limitation of such simplistic methods.
 
-Results for TextRank:
+Now, let's try a bare-bones implementation of the TextRank algorithm. To keep it simple, only unigram candidates (not chunks or _n_-grams) are added to the network as nodes, the co-occurrence window size is fixed at 2 (so only adjacent words are said to "co-occur"), and the edges between nodes are unweighted (rather than weighted by the number of co-occurrences). The _N_ top-scoring candidates are taken to be its keywords; sequences of adjacent keywords are merged to form key _phrases_ and their individual PageRank scores are averaged, so as not to bias for longer keyphrases.
+
+{% highlight python %}
+def score_keyphrases_by_textrank(text, n_keywords=0.05):
+    from itertools import takewhile, tee, izip
+    import networkx, nltk
+    
+    # tokenize for all words, and extract *candidate* words
+    words = [word.lower()
+             for sent in nltk.sent_tokenize(text)
+             for word in nltk.word_tokenize(sent)]
+    candidates = extract_candidate_words(text)
+    # build graph, each node is a unique candidate
+    graph = networkx.Graph()
+    graph.add_nodes_from(set(candidates))
+    # iterate over word-pairs, add unweighted edges into graph
+    def pairwise(iterable):
+        """s -> (s0,s1), (s1,s2), (s2, s3), ..."""
+        a, b = tee(iterable)
+        next(b, None)
+        return izip(a, b)
+    for w1, w2 in pairwise(candidates):
+        if w2:
+            graph.add_edge(*sorted([w1, w2]))
+    # score nodes using default pagerank algorithm, sort by score, keep top n_keywords
+    ranks = networkx.pagerank(graph)
+    if 0 < n_keywords < 1:
+        n_keywords = int(round(len(candidates) * n_keywords))
+    word_ranks = {word_rank[0]: word_rank[1]
+                  for word_rank in sorted(ranks.iteritems(), key=lambda x: x[1], reverse=True)[:n_keywords]}
+    keywords = set(word_ranks.keys())
+    # merge keywords into keyphrases
+    keyphrases = {}
+    j = 0
+    for i, word in enumerate(words):
+        if i < j:
+            continue
+        if word in keywords:
+            kp_words = list(takewhile(lambda x: x in keywords, words[i:i+10]))
+            avg_pagerank = sum(word_ranks[w] for w in kp_words) / float(len(kp_words))
+            keyphrases[' '.join(kp_words)] = avg_pagerank
+            # counter as hackish way to ensure merged keyphrases are non-overlapping
+            j = i + len(kp_words)
+    
+    return sorted(keyphrases.iteritems(), key=lambda x: x[1], reverse=True)
+{% endhighlight %}
+
+With `text` as the first two sections of this post, calling `score_keyphrases_by_textrank(text)` returns the following top 20 keyphrases:
 
 ```
 keyphrase                           textrank 
 --------------------------------------------
-keyphrases.........................    0.179
-candidates.........................    0.149
-candidate keyphrases...............    0.141
-keyphrase candidates...............     0.12
-document length....................    0.115
-methods............................    0.111
-unsupervised methods...............    0.109
-words..............................    0.102
-method.............................    0.095
-approaches.........................    0.093
-best keyphrases....................    0.089
-set of keyphrases..................    0.089
-structural features................    0.089
-approach...........................    0.086
-automatic keyphrase extraction.....    0.084
+keyphrases.........................    0.028
+candidates.........................    0.022
+document...........................    0.022
+candidate keyphrases...............    0.019
+best keyphrases....................    0.018
+keyphrase candidates...............    0.017
+likely candidates..................    0.015
+best candidates....................    0.015
+best keyphrase candidates..........    0.014
+features...........................    0.013
+keyphrase..........................    0.012
+keyphrase extraction...............    0.012
+extraction.........................    0.012
+methods............................    0.011
+candidate..........................     0.01
+words..............................     0.01
+automatic keyphrase extraction.....     0.01
+approaches.........................    0.009
+problem............................    0.009
+set................................    0.008
 ```
+
+Again, not too shabby, but obviously there's room for improvement. You can see that this algorithm occasionally produces novel and high-quality keyphrases, but there's a fair amount of noise, too. Normalization of candidates (_keyphrase_ / _keyphrases_, ...) could help, as could better cleaning and filtering. Furthermore, experimenting with different aspects of the algorithm --- like [DivRank](http://clair.si.umich.edu/~radev/papers/SIGKDD2010.pdf), SingleRank, [ExpandRank](http://www.aaai.org/Papers/AAAI/2008/AAAI08-136.pdf), [CollabRank](http://www.aclweb.org/anthology/C/C08/C08-1122.pdf), and others --- including co-occurrence window size, weighted graphs, and the manner in which keywords are merged into keyphrases, has been shown to produce better results.
+
+Lastly, let's compare to a supervised algorithm.
 
 Results for Ranking SVM:
 
