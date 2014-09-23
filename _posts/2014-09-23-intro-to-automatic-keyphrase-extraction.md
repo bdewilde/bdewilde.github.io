@@ -424,4 +424,4 @@ Palestinian guerrillas..................  39.849
 Lebanese................................  39.299
 ```
 
-Looks reasonable to me!
+Looks like a who's who of U.S. politics and international relations over the past 30 years. Not too shabby, Friedman!
