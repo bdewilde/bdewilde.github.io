@@ -1,17 +1,17 @@
 ---
 layout: post
 title: Intro to Automatic Keyphrase Extraction
-date: 2014-09-22 11:16:00
+date: 2014-09-23 09:15:00
 categories: [blog]
 tags: [feature design, frequency statistics, keyphrase extraction, graph-based ranking, NLP, task reformulation]
 comments: true
-preview_pic: /assets/images/document_as_network.png
+preview_pic: /assets/images/2014-09-23-document_as_network.png
 ---
 
 I often apply natural language processing for purposes of automatically extracting structured information from unstructured (text) datasets. One such task is the extraction of important topical words and phrases from documents, commonly known as [terminology extraction](http://en.wikipedia.org/wiki/Terminology_extraction) or __automatic keyphrase extraction__. Keyphrases provide a concise description of a document's content; they are useful for document categorization, clustering, indexing, search, and summarization; quantifying semantic similarity with other documents; as well as conceptualizing particular knowledge domains.
 
 <figure>
-  <img class="halfw" src="/assets/images/keyphrase_extraction.png" alt="keyphrase_extraction.png">
+  <img class="halfw" src="/assets/images/2014-09-23-keyphrase_extraction.png" alt="2014-09-23-keyphrase_extraction.png">
 </figure>
 
 Despite wide applicability and much research, keyphrase extraction suffers from poor performance relative to many other core NLP tasks, partly because there's no objectively "correct" set of keyphrases for a given document. While human-labeled keyphrases are generally considered to be the gold standard, humans disagree about what that standard is! As a general rule of thumb, keyphrases should be relevant to one or more of a document's major topics, and the set of keyphrases describing a document should provide good coverage of all major topics. (They should also be understandable and grammatical, of course.) The fundamental difficulty lies in determining which keyphrases are the _most_ relevant and provide the _best_ coverage. As described in [Automatic Keyphrase Extraction: A Survey of the State of the Art](http://www.hlt.utdallas.edu/~saidul/acl14.pdf), several factors contribute to this difficulty, including document length, structural inconsistency, changes in topic, and (a lack of) correlations between topics.
@@ -51,7 +51,7 @@ Unsupervised machine learning methods attempt to discover the underlying structu
 Essentially, a document is represented as a network whose nodes are candidate keyphrases (typically only key _words_) and whose edges (optionally weighted by the _degree_ of relatedness) connect related candidates. Then, a [graph-based ranking algorithm](http://networkx.github.io/documentation/networkx-1.9/reference/algorithms.centrality.html), such as Google's famous [PageRank](http://en.wikipedia.org/wiki/PageRank), is run over the network, and the highest-scoring terms are taken to be the document's keyphrases.
 
 <figure>
-  <img class="tqw" src="/assets/images/document_as_network.png" alt="document_as_network.png">
+  <img class="tqw" src="/assets/images/2014-09-23-document_as_network.png" alt="2014-09-23-document_as_network.png">
 </figure>
 
 The most famous instantiation of this approach is [TextRank](http://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf); a variation that attempts to ensure good topic coverage is [DivRank](http://clair.si.umich.edu/~radev/papers/SIGKDD2010.pdf). For a more extensive breakdown, see [Conundrums in Unsupervised Keyphrase Extraction](http://www.hlt.utdallas.edu/~vince/papers/coling10-keyphrase.pdf), which includes an example of a __topic-based clustering__ method, the other main class of unsupervised keyphrase extraction algorithms (which I'm not going to delve into).
@@ -67,7 +67,7 @@ Early implementations recast the problem of extracting keyphrases from a documen
 The second line of research into supervised approaches has explored a wide variety of features used to discriminate between keyphrases and non-keyphrases. The most common are the aforementioned frequency statistics, along with a grab-bag of other __statistical features__: phrase length (number of constituent words), phrase position (normalized position within a document of first and/or last occurrence therein), and "supervised keyphraseness" (number of times a keyphrase appears as such in the training data). Some models take advantage of a document's __structural features__ --- titles, abstracts, intros and conclusions, metadata, and so on --- because a candidate is more likely to be a keyphrase if it appears in notable sections. Others are __external resource-based features__: "Wikipedia-based keyphraseness" assumes that keyphrases are more likely to appear as Wiki article links and/or titles, while phrase commonness compares a candidate's frequency in a document with respect to its frequency in an external corpus. The list of possible features goes on and on.
 
 <figure>
-  <img class="fullw" src="/assets/images/keyphrase_extraction_features.png" alt="keyphrase_extraction_features.png">
+  <img class="fullw" src="/assets/images/2014-09-23-keyphrase_extraction_features.png" alt="2014-09-23-keyphrase_extraction_features.png">
 </figure>
 
 A well-known implementation of the binary classification method, [KEA](http://www.nzdl.org/Kea/) (as published in [Practical Automatic Keyphrase Extraction](http://www.nzdl.org/Kea/Nevill-et-al-1999-DL99-poster.pdf)), used TF*IDF and position of first occurrence (while filtering on phrase length) to identify keyphrases. In [A Ranking Approach to Keyphrase Extraction](http://research.microsoft.com/en-us/people/hangli/jiang-etal-sigir2009-poster.pdf), researchers used a Linear Ranking SVM to rank candidate keyphrases with much success (but failed to give their algorithm a catchy name).
@@ -367,21 +367,61 @@ Now _that_ is a nice set of keyphrases! There's some bias for longer keyphrases 
 
 All of the code shown here has been pared down and simplified for demonstration purposes. Adding extensive candidate cleaning, filtering, case/syntactic normalization, and de-duplication can dramatically reduce noise and improve results, as can incorporating additional features and external resources into the keyphrase selection algorithm. Furthermore, although all of these methods were presented in the context of single-document keyphrase extraction, there are ways to extract keyphrases from _multiple_ documents and thus categorize/cluster/summarize/index/conceptualize entire corpora. This really is just an introduction to an ongoing challenge in natural language processing research.
 
-On a final note, just for kicks, here are the top 20 keyphrases from my Thomas Friedman corpus:
+On a final note, just for kicks, here are the top 50 keyphrases from my long-neglected Thomas Friedman corpus:
 
+```
+keyphrase                                  score 
+------------------------------------------------
+United States........................... 393.736
+Bush Administration..................... 390.941
+Administration.......................... 310.831
+Israel.................................. 256.609
+Palestine Liberation Organization....... 256.148
+Middle East............................. 182.171
+President Bush.......................... 170.812
+Clinton................................. 166.669
+Administration officials................ 164.812
+Clinton Administration.................. 158.695
+Lebanon................................. 150.466
+Baker................................... 141.051
+President Clinton....................... 138.680
+Secretary of State...................... 135.036
+Soviet Union............................ 133.976
+West Bank............................... 128.490
+Palestinian............................. 121.275
+State Department........................ 107.860
+Washington.............................. 102.507
+Prime Minister.......................... 101.282
+Saudi Arabia............................ 100.062
+White House.............................  83.649
+Beirut..................................  81.046
+Reagan Administration...................  80.338
+Israeli officials.......................  80.119
+Yasir Arafat............................  79.334
+Israeli.................................  74.289
+Israeli Army............................  70.909
+China...................................  69.484
+Saddam Hussein..........................  68.645
+United Nations..........................  63.641
+President...............................  62.621
+America.................................  59.833
+foreign policy..........................  59.444
+Bush....................................  56.545
+Lebanese Army...........................  55.878
+Arafat..................................  53.848
+American officials......................  52.991
+President Obama.........................  51.924
+Iraq....................................  51.896
+peace conference........................  51.549
+Bill Clinton............................  50.438
+west Beirut.............................  49.418
+Jerusalem...............................  48.914
+Israeli Government......................  47.910
+Gorbachev...............................  44.902
+Syria...................................  44.791
+Administration official.................  41.743
+Palestinian guerrillas..................  39.849
+Lebanese................................  39.299
+```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Looks reasonable to me!
