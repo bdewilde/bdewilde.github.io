@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Automatic Keyphrase Extraction
-date: 2014-09-16 11:16:00
+title: Intro to Automatic Keyphrase Extraction
+date: 2014-09-22 11:16:00
 categories: [blog]
 tags: [feature design, frequency statistics, keyphrase extraction, graph-based ranking, NLP, task reformulation]
 comments: true
@@ -248,33 +248,126 @@ set................................    0.008
 
 Again, not too shabby, but obviously there's room for improvement. You can see that this algorithm occasionally produces novel and high-quality keyphrases, but there's a fair amount of noise, too. Normalization of candidates (_keyphrase_ / _keyphrases_, ...) could help, as could better cleaning and filtering. Furthermore, experimenting with different aspects of the algorithm --- like [DivRank](http://clair.si.umich.edu/~radev/papers/SIGKDD2010.pdf), SingleRank, [ExpandRank](http://www.aaai.org/Papers/AAAI/2008/AAAI08-136.pdf), [CollabRank](http://www.aclweb.org/anthology/C/C08/C08-1122.pdf), and others --- including co-occurrence window size, weighted graphs, and the manner in which keywords are merged into keyphrases, has been shown to produce better results.
 
-Lastly, let's compare to a supervised algorithm.
+Lastly, let's try a supervised algorithm. I prefer a ranking approach over binary classification, for conceptual as well as result quality reasons. Conveniently, someone has already implemented a [pairwise Ranking SVM](https://gist.github.com/agramfort/2071994) in Python --- and [blogged about it](http://fa.bianp.net/blog/2012/learning-to-rank-with-scikit-learn-the-pairwise-transform/)! Feature design is something of an art; drawing on multiple sources for inspiration, I extracted a diverse grab-bag of features:
 
-Results for Ranking SVM:
+- __frequency-based:__ term frequency, $g^2$, corpus and web "commonness" (as defined [here](http://vis.stanford.edu/papers/keyphrases))
+- __statistical:__ term length, spread, lexical cohesion, max word length
+- __grammatical:__ "is acronym", "is [named entity](http://en.wikipedia.org/wiki/Named-entity_recognition)"
+- __positional:__ normalized positions of first and last occurrence, "is in title", "is in key excerpt" (such as an abstract or introductory paragraph)
+
+Feature extraction can get very complicated and convoluted. In the interest of brevity and simplicity, then, here's a partial example:
+
+{% highlight python %}
+def extract_candidate_features(candidates, doc_text, doc_excerpt, doc_title):
+    import collections, math, nltk, re
+    
+    candidate_scores = collections.OrderedDict()
+    
+    # get word counts for document
+    doc_word_counts = collections.Counter(word.lower()
+                                          for sent in nltk.sent_tokenize(doc_text)
+                                          for word in nltk.word_tokenize(sent))
+    
+    for candidate in candidates:
+        
+        pattern = re.compile(r'\b'+re.escape(candidate)+r'(\b|[,;.!?]|\s)', re.IGNORECASE)
+        
+        # frequency-based
+        # number of times candidate appears in document
+        cand_doc_count = len(pattern.findall(doc_text))
+        # count could be 0 for multiple reasons; shit happens in a simplified example
+        if not cand_doc_count:
+            print '**WARNING:', candidate, 'not found!'
+            continue
+    
+        # statistical
+        candidate_words = candidate.split()
+        max_word_length = max(len(w) for w in candidate_words)
+        term_length = len(candidate_words)
+        # get frequencies for term and constituent words
+        sum_doc_word_counts = float(sum(doc_word_counts[w] for w in candidate_words))
+        try:
+            # lexical cohesion doesn't make sense for 1-word terms
+            if term_length == 1:
+                lexical_cohesion = 0.0
+            else:
+                lexical_cohesion = term_length * (1 + math.log(cand_doc_count, 10)) * cand_doc_count / sum_doc_word_counts
+        except (ValueError, ZeroDivisionError) as e:
+            lexical_cohesion = 0.0
+        
+        # positional
+        # found in title, key excerpt
+        in_title = 1 if pattern.search(doc_title) else 0
+        in_excerpt = 1 if pattern.search(doc_excerpt) else 0
+        # first/last position, difference between them (spread)
+        doc_text_length = float(len(doc_text))
+        first_match = pattern.search(doc_text)
+        abs_first_occurrence = first_match.start() / doc_text_length
+        if cand_doc_count == 1:
+            spread = 0.0
+            abs_last_occurrence = abs_first_occurrence
+        else:
+            for last_match in pattern.finditer(doc_text):
+                pass
+            abs_last_occurrence = last_match.start() / doc_text_length
+            spread = abs_last_occurrence - abs_first_occurrence
+
+        candidate_scores[candidate] = {'term_count': cand_doc_count,
+                                       'term_length': term_length, 'max_word_length': max_word_length,
+                                       'spread': spread, 'lexical_cohesion': lexical_cohesion,
+                                       'in_excerpt': in_excerpt, 'in_title': in_title,
+                                       'abs_first_occurrence': abs_first_occurrence,
+                                       'abs_last_occurrence': abs_last_occurrence}
+
+    return candidate_scores
+{% endhighlight %}
+
+As an example, `candidate_scores["automatic keyphrase extraction"]` returns the following features:
+
+{% highlight python %}
+{'abs_first_occurrence': 0.029178287921046986,
+ 'abs_last_occurrence': 0.9301652006007295,
+ 'in_excerpt': 1,
+ 'in_title': 1,
+ 'lexical_cohesion': 0.9699006820274416,
+ 'max_word_length': 10,
+ 'spread': 0.9009869126796826,
+ 'term_count': 6,
+ 'term_length': 3}
+{% endhighlight %}
+
+The last thing to do is train a Ranking SVM model on an already-labeled dataset; I used the SemEval 2010 keyphrase extraction dataset, plus a couple extra bits and pieces, which can be found [in this GitHub repo](https://github.com/snkim/AutomaticKeyphraseExtraction). When applied to the first two sections of this blog post, the 20 top-scoring candidates are as follows:
 
 ```
 keyphrase                           ranksvm 
 -------------------------------------------
-keyphrase extraction...............   1.318
+keyphrase extraction...............   1.736
+document categorization............   1.151
+particular knowledge domains.......   1.031
+phrases from documents.............   1.014
+keyphrase..........................    0.97
+terminology extraction.............   0.951
+keyphrases.........................   0.909
 set of keyphrases..................   0.895
-document categorization............   0.732
+concise description................   0.873
+document...........................   0.691
 human-labeled keyphrases...........   0.643
-Candidate Identification...........   0.642
+candidate identification...........   0.642
 frequency of co-occurrence.........   0.636
 candidate keyphrases...............   0.624
-particular knowledge domains.......   0.612
 wide applicability.................   0.604
-phrases from documents.............   0.596
 rest as non-keyphrases.............   0.578
 binary classification problem......   0.567
 canonical unsupervised approach....   0.566
 structural inconsistency...........   0.556
-keyphrase..........................   0.552
+paragraphs as candidates...........   0.548
 ```
 
+Now _that_ is a nice set of keyphrases! There's some bias for longer keyphrases (and longer words within keyphrases), perhaps because the training dataset was about 90% scientific articles, but it's not inappropriate for this science-ish blog's content.
 
+All of the code shown here has been pared down and simplified for demonstration purposes. Adding extensive candidate cleaning, filtering, case/syntactic normalization, and de-duplication can dramatically reduce noise and improve results, as can incorporating additional features and external resources into the keyphrase selection algorithm. Furthermore, although all of these methods were presented in the context of single-document keyphrase extraction, there are ways to extract keyphrases from _multiple_ documents and thus categorize/cluster/summarize/index/conceptualize entire corpora. This really is just an introduction to an ongoing challenge in natural language processing research.
 
-
+On a final note, just for kicks, here are the top 20 keyphrases from my Thomas Friedman corpus:
 
 
 
