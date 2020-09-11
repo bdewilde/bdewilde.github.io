@@ -42,6 +42,18 @@ markdown: kramdown
 permalink: pretty
 #excerpt_separator: <!--more-->
 
+# GitHub Pages settings -- these can't be changed!
+lsi: false
+safe: true
+# source: [your repo's top level directory]
+incremental: false
+highlighter: rouge
+gist:
+  noscript: false
+kramdown:
+  math_engine: mathjax
+  syntax_highlighter: rouge
+
 kramdown:
   auto_ids: true
   footnote_nr: 1
@@ -50,8 +62,6 @@ kramdown:
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
   input: GFM
-
-#lsi: true
 
 paginate: 10
 paginate_path: "blog/p:num"

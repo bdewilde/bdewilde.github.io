@@ -256,7 +256,7 @@ PLATFORMS
 DEPENDENCIES
   github-pages
   jekyll-archives
-  jekyll-feed (~> 0.12)
+  jekyll-feed
   jekyll-paginate
   jekyll-seo-tag
   minima (~> 2.5)
