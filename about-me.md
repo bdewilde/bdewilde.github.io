@@ -5,7 +5,7 @@ permalink: /about-me/
 ---
 
 <!-- <img src="/assets/images/about-pic.jpg" alt="about-pic.jpg" width="100%"> -->
-<img src="/assets/images/about-pic-2018.jpg" alt="about-pic-2018.jpg" width="45%" style="float: right; margin: 5px 15px">
+<img src="/assets/images/about-pic-2018.jpg" alt="about-pic-2018.jpg" width="40%" style="float: right; margin: 0px 15px">
 
 Hi. I'm Burton DeWilde, an end-to-end data scientist with several years' experience in web analytics, data product development, media research, and nonprofit consulting. I'm passionate about solving meaningful problems using data, and empowering myself and others to make positive change in the world.
 
