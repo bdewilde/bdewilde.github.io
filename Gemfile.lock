@@ -259,6 +259,7 @@ DEPENDENCIES
   jekyll-feed
   jekyll-paginate
   jekyll-seo-tag
+  jekyll-sitemap
   minima (~> 2.5)
 
 BUNDLED WITH

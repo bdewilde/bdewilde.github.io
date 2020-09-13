@@ -37,6 +37,7 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 markdown: kramdown
 permalink: pretty
