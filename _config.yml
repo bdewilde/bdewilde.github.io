@@ -46,7 +46,7 @@ permalink: pretty
 # GitHub Pages settings -- these can't be changed!
 lsi: false
 safe: true
-source: "src"
+# source: [top level of this repo]
 incremental: false
 highlighter: rouge
 gist:
