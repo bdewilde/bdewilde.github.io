@@ -4,12 +4,15 @@ title: About Me
 permalink: /about-me/
 ---
 
-<img src="/assets/images/about-pic.jpg" alt="about-pic.jpg" width="100%">
+<!-- <img src="/assets/images/about-pic.jpg" alt="about-pic.jpg" width="100%"> -->
+<img src="/assets/images/about-pic-2018.jpg" alt="about-pic-2018.jpg" width="45%" style="float: right; margin: 5px 15px">
 
-Hi! I'm a Data Scientist at a non-profit research organization called [Harmony Institute](http://harmony-institute.org/), where we study the social impact of media on individuals and society. I spend most of my time on data product development, but I also do some original research and client-focused work. My lifelong passions lie at the intersection of art, science, social activism, and all things data.
+Hi. I'm Burton DeWilde, an end-to-end data scientist with several years' experience in web analytics, data product development, media research, and nonprofit consulting. I'm passionate about solving meaningful problems using data, and empowering myself and others to make positive change in the world.
 
-On the side, I enjoy volunteering for [DataKind](http://www.datakind.org/), palling around with a data scientology collective known as [csv soundsystem](http://csvsoundsystem.com/), and indulging in travel and photography.
+Currently, I'm a Senior Data Scientist at [Chartbeat](https://chartbeat.com), where I build data pipelines and products to help media publishers understand how audiences engage with their content online. Previously, I was a Data Scientist at [Harmony Institute](https://harmony-institute.org), where I built data pipelines and products to help researchers and creators understand the social impact of narrative media on individuals and society. In both roles, I've also dabbled in applied media research, user experience design, and consulting projects.
 
-I got a Ph.D. in Physics from [Stony Brook University](http://www.physics.sunysb.edu/Physics/), through which I spent two years at [CERN](http://home.web.cern.ch/) searching for [new fundamental particles of matter](/assets/documents/2012-06-20-thesis-defense.pdf) with the Large Hadron Collider. I blogged (intermittently) about it on [Quantum Diaries](http://www.quantumdiaries.org/author/burton-dewilde/). I also co-produced, filmed, and edited a feature-length, particle physics-themed zombie movie called [Decay](http://www.decayfilm.com/). Before all that, I graduated _summa cum laude_ from [Kalamazoo College](http://www.kzoo.edu/) with a double major in Physics and Spanish.
+On the side, I do pro bono work for [DataKind](https://www.datakind.org), with whom I've completed many data projects addressing challenges in conservation, criminal justice, public health, and social services. I also volunteer with my [neighborhood environmental org](http://www.sustainedgewater.org) on direct actions, data analysis, and tech support. And I do open-source software development: I'm the primary author and maintainer of [textacy](https://github.com/chartbeat-labs/textacy), which extends and enhances natural language processing capabilities upon a popular package; and I've contributed to the [dragnet](https://github.com/dragnet-org) project, which provides data and models for extracting page content from HTML documents without all the cruft.
 
-I grew up in Michigan, live in New York, and one day I'd like to move to Mars.
+Before all that, I was a [particle physicist](/assets/documents/2012-06-20-thesis-defense.pdf), [zombie filmmaker](http://www.decayfilm.com), and [LGBT activist](https://pointfoundation.org/scholars/burton-dewilde).
+
+I live in Chicago with my husband and three cats. In my free time, I enjoy photography, board and video games, travel, and politics.
