@@ -3,28 +3,26 @@
   <div class="wrap">
 
     <div class="footer-top">
-
       <a class="site-title site-link" href="{{ site.baseurl }}/">{{ site.title }}</a><br>
-
-      <ul>
-        {% if site.email %}
-          <li><a class="site-link" href="mailto:{{ site.email }}"><i class="fa fa-envelope-square fa-fw fa-2x"></i></a></li>
-        {% endif %}
-        {% if site.twitter_username %}
-          <li><a class="site-link" href="https://twitter.com/{{ site.twitter_username }}"><i class="fa fa-twitter-square fa-fw fa-2x"></i></a></li>
-        {% endif %}
-        {% if site.github_username %}
-          <li><a class="site-link" href="https://github.com/{{ site.github_username }}"><i class="fa fa-github-square fa-fw fa-2x"></i></a></li>
-        {% endif %}
-        {% if site.linkedin_link %}
-          <li><a class="site-link" href="{{ site.linkedin_link }}"><i class="fa fa-linkedin-square fa-fw fa-2x"></i></a></li>
-        {% endif %}
-        <li><a class="site-link" href="{{ "/feed.xml" | prepend: site.baseurl }}"><i class="fa fa-rss-square fa-fw fa-2x"></i></a></li>
+      {% if site.footer.links %}
+        <ul class="social-icons">
+        {% for link in site.footer.links %}
+          {% if link.label == "RSS" %}
+            <!-- labeled vs unlabeled footer links -->
+            <!-- <li><a class="site-link" href="{% if site.feed.path %}{{ site.feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}"><i class="{{ link.icon | 'fas fa-rss-square fa-fw fa-2x' }}" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a></li> -->
+            <li><a class="site-link" href="{% if site.feed.path %}{{ site.feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}"><i class="{{ link.icon | 'fas fa-rss-square fa-fw fa-2x' }}" aria-hidden="true"></i></a></li>
+          {% else %}
+            <li><a class="site-link" href="{{ link.url }}" rel="nofollow noopener noreferrer"><i class="{{ link.icon | default: 'fas fa-link fa-fw fa-2x' }}" aria-hidden="true"></i></a></li>
+            <!-- <li><a class="site-link" href="{{ link.url }}" rel="nofollow noopener noreferrer"><i class="{{ link.icon | default: 'fas fa-link fa-fw fa-2x' }}" aria-hidden="true"></i> {{ link.label }}</a></li> -->
+          {% endif %}
+        {% endfor %}
+        </ul>
+      {% endif %}
     </div>
 
     <div class="footer-bottom">
-      <p>{{ site.description }}</p>
-      <p>&copy; 2012 – {{ site.time | date: '%Y' }} Burton DeWilde. All rights reserved.
+      <!-- <p>{{ site.description }}</p> -->
+      <p>&copy; {{ site.time | date: "%Y" }} {{ site.name | default: site.title }}. {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a>.
     </div>
 
   </div>
