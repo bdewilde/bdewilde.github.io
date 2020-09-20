@@ -1,0 +1,88 @@
+<!-- begin _includes/meta.html -->
+
+{% assign title_separator = site.title_separator | default: "-" | replace: "|", "&#124;" %}
+{% if page.title %}
+  {% assign meta_title = page.title | append: " " | append: title_separator | append: " " | append: site.title %}
+{% else %}
+  {% assign meta_title = site.title %}
+{% endif %}
+{% assign meta_title = meta_title | markdownify | strip_html | strip_newlines | escape_once %}
+
+{% if page.canonical_url %}
+  {% assign canonical_url = page.canonical_url %}
+{% else %}
+  {% assign canonical_url = page.url | replace: "index.html", "" | absolute_url %}
+{% endif %}
+
+{% assign meta_description = page.description | default: page.excerpt | default: site.description %}
+{% if meta_description %}
+  {% assign meta_description = meta_description | markdownify | strip_html | newline_to_br | strip_newlines | replace: "<br />", " " | escape_once | strip %}
+{% endif %}
+
+{% assign author = page.author | default: page.authors[0] | default: site.author %}
+{% assign author = site.data.authors[author] | default: author %}
+
+{% if page.date %}
+  {% assign og_type = "article" %}
+{% else %}
+  {% assign og_type = "website" %}
+{% endif %}
+
+<!-- TITLE -->
+<title>
+  {{ meta_title }}{% if paginator %}{% unless paginator.page == 1 %} {{ title_separator }} {{ site.data.ui-text[site.locale].page | default: "Page" }} {{ paginator.page }}{% endunless %}{% endif %}
+</title>
+<meta property="og:title" content="{{ meta_title }}">
+<meta property="twitter:title" content="{{ meta_title }}">
+
+<!-- DESCRIPTION -->
+{% if meta_description %}
+  <meta name="description" content="{{ meta_description }}">
+  <meta property="og:description" content="{{ meta_description }}">
+  <meta property="twitter:description" content="{{ meta_description }}">
+{% endif %}
+
+<!-- DATE -->
+{% if page.date %}
+  <meta name="date" content="{{ page.date }}" scheme="YYYY-MM-DD">
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+{% endif %}
+
+<!-- AUTHOR -->
+{% if author %}
+  <meta name="author" content="{{ author.name | default: author }}">
+  {% if og_type == "article" %}
+    <meta property="article:author" content="{{ author.name | default: author }}">
+  {% endif %}
+{% endif %}
+
+<!-- URL -->
+<link rel="canonical" href="{{ canonical_url }}">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta name="twitter:url" content="{{ canonical_url }}">
+
+<!-- TAGS -->
+{% if page.tags %}
+  <meta name="keywords" content="{{ page.tags  | array_to_sentence_string }}">
+{% endif %}
+
+<!-- TODO: IMAGE -->
+<!-- {% if IMAGE_VARIABLE %}
+  <meta property="og:image" content="{{ IMAGE_VARIABLE }}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="{{ IMAGE_VARIABLE }}">
+{% endif %} -->
+
+<!-- MISCELLANY -->
+<meta property="og:type" content="{{ og_type }}">
+<meta property="og:locale" content="{{ site.locale | replace: '-', '_' | default: 'en_US' }}">
+<meta property="og:site_name" content="{{ site.title }}">
+
+{% if paginator.previous_page %}
+  <link rel="prev" href="{{ paginator.previous_page_path | absolute_url }}">
+{% endif %}
+{% if paginator.next_page %}
+  <link rel="next" href="{{ paginator.next_page_path | absolute_url }}">
+{% endif %}
+
+<!-- end _includes/meta.html -->
