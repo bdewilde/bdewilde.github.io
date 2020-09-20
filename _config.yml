@@ -1,7 +1,10 @@
-# Site settings
-# Variables accessible via liquid objects via {{ site.title }}, {{ site.email }}, etc.
+# site settings
+# variables accessible via liquid objects via {{ site.title }}, {{ site.email }}, etc.
+# reference: https://jekyllrb.com/docs/configuration/default/
+
 locale: "en-US"
 title: "Burton DeWilde"
+name: "Burton DeWilde"
 tagline: "Data Science, Physics, and Zombies!"
 description: >-
   Burton DeWilde's personal / professional website.
@@ -13,50 +16,93 @@ email: burtdewilde@gmail.com
 twitter_username: bjdewilde
 github_username:  bdewilde
 linkedin_link: http://www.linkedin.com/pub/burton-dewilde/51/b18/301/
-timezone: America/Chicago
-
 title_separator: "-"
 
-# Build settings
-# theme: minima
-# theme: minimal-mistakes-jekyll
-remote_theme: "mmistakes/minimal-mistakes@4.20.2"
-# "default", "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
-minimal_mistakes_skin: "contrast"
+# directory structure
+source: "."  # required by GitHub Pages to be set to the top level of this repo
+destination: "./_site"
+# collections_dir: "."  # NOTE: setting this value seems to break the site, so leave it
+layouts_dir: "_layouts"
+includes_dir: "_includes"
+data_dir: "_data"
+# plugins_dir: "_plugins"
+sass:
+  sass_dir: "_sass"
+collections:
+  posts:
+    output: true
 
+# handling reading
+safe: true  # required true by GitHub Pages
+include: [".htaccess"]
+# exclude directories / files from processing
+exclude:
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "gemfiles/"
+  - "node_modules/"
+  - "vendor/bundle/"
+  - "vendor/cache/"
+  - "vendor/gems/"
+  - "vendor/ruby/"
+  - ".sass-cache/"
+  - ".jekyll-cache/"
+keep_files: [".git", ".svn"]
+encoding: "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+strict_front_matter : false
+
+# filtering content
+show_drafts: false
+limit_posts: 0
+future: false
+unpublished: false
+
+# plugins
 plugins:
   - jekyll-archives
   - jekyll-include-cache  # required by minimal-mistakes-jekyll theme
 
-markdown: kramdown
-permalink: pretty
-#excerpt_separator: <!--more-->
+# conversion
+markdown: "kramdown"
+highlighter: "rouge"  # required "rouge" by GitHub Pages
+lsi: false  # required false by GitHub Pages
+excerpt_separator: "\n\n"  # <!--more-->
+incremental: false  # required false by GitHub Pages
 
-# GitHub Pages settings -- these can't be changed!
-lsi: false
-safe: true
-# source: [top level of this repo]
-incremental: false
-highlighter: rouge
-gist:
-  noscript: false
-kramdown:
-  math_engine: mathjax
-  syntax_highlighter: rouge
+# outputting
+permalink: "pretty"
+paginate_path: "blog/p:num"  # /page:num
+timezone: "America/Chicago"
 
+# markdown processor
+# reference: https://jekyllrb.com/docs/configuration/markdown/
 kramdown:
   auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
+  entity_output: "as_char"
   toc_levels: 1..6
-  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  smart_quotes: "lsquo,rsquo,ldquo,rdquo"
+  input: "GFM"
+  footnote_nr: 1
+  math_engine: "mathjax"  # required "mathjax" by GitHub Pages
+  syntax_highlighter: "rouge"  # required "rouge" by GitHub Pages
   enable_coderay: false
-  input: GFM
 
-paginate: 10
-paginate_path: "blog/p:num"
+# required exactly like this by GitHub Pages
+gist:
+  noscript: false
 
+# plugin settings
 sitemap: true
+paginate: 10
+feed:
+  path: "/feed.xml"
+
+# theme settings
+# theme: minima  # minimal-mistakes-jekyll
+remote_theme: "mmistakes/minimal-mistakes@4.20.2"
+# "default", "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin: "contrast"
 
 analytics:
   # false (default), "google", "google-gtag", "custom"
@@ -65,22 +111,19 @@ analytics:
     tracking_id: "UA-53458117-1"
     anonymize_ip: false
 
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+footer:
+  links:
+    - label: "Email"
+      icon: "fas fa-envelope-square fa-fw fa-2x"
+      url: "mailto:burtdewilde@gmail.com"
+    - label: "Twitter"
+      icon: "fab fa-twitter-square fa-fw fa-2x"
+      url: "https://twitter.com/bjdewilde"
+    - label: "GitHub"
+      icon: "fab fa-github-square fa-fw fa-2x"
+      url: "https://github.com/bdewilde"
+    - label: "LinkedIn"
+      icon: "fab fa-linkedin fa-fw fa-2x"
+      url: "http://www.linkedin.com/pub/burton-dewilde/51/b18/301"
+    - label: "RSS"
+      icon: "fas fa-rss-square fa-fw fa-2x"
