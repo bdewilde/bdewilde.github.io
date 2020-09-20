@@ -1,0 +1,10 @@
+{% if jekyll.environment == "production" and site.analytics.provider and page.analytics != false %}
+  {% case site.analytics.provider %}
+    {% when "google" %}
+      {% include /analytics/google.html %}
+    {% when "google-gtag" %}
+      {% include /analytics/google-gtag.html %}
+    {% when "custom" %}
+      {% include /analytics/custom.html %}
+  {% endcase %}
+{% endif %}

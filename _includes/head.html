@@ -6,9 +6,15 @@
     {% include meta.html %}
 
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <!-- rss feed -->
+    <link href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
+    <!-- custom css -->
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <!-- fontawesome kit embed -->
+    <script src="https://kit.fontawesome.com/1e44c8229d.js" crossorigin="anonymous"></script>
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | prepend: site.baseurl }}">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    {% if site.analytics and jekyll.environment == "production" %}
+        {% include analytics.html %}
+    {% endif %}
 
 </head>
