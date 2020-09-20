@@ -1,43 +1,32 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
 # Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-
-title: Burton DeWilde
+# Variables accessible via liquid objects via {{ site.title }}, {{ site.email }}, etc.
+locale: "en-US"
+title: "Burton DeWilde"
 tagline: "Data Science, Physics, and Zombies!"
 description: >-
   Burton DeWilde's personal / professional website.
-baseurl: ""  # the subpath of your site, e.g. /blog
-url: ""  # the base hostname & protocol for your site, e.g. http://example.com
+# the base hostname & protocol for your site e.g. "https://bdewilde.github.io"
+url: ""
+# the subpath of your site, e.g. "/blog"
+baseurl: ""
 email: burtdewilde@gmail.com
 twitter_username: bjdewilde
 github_username:  bdewilde
 linkedin_link: http://www.linkedin.com/pub/burton-dewilde/51/b18/301/
 timezone: America/Chicago
 
+title_separator: "-"
+
 # Build settings
-theme: minima
+# theme: minima
+# theme: minimal-mistakes-jekyll
+remote_theme: "mmistakes/minimal-mistakes@4.20.2"
+# "default", "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin: "contrast"
+
 plugins:
   - jekyll-archives
-  - jekyll-feed
-  - jekyll-paginate
-  - jekyll-seo-tag
-  - jekyll-sitemap
+  - jekyll-include-cache  # required by minimal-mistakes-jekyll theme
 
 markdown: kramdown
 permalink: pretty
@@ -66,6 +55,8 @@ kramdown:
 
 paginate: 10
 paginate_path: "blog/p:num"
+
+sitemap: true
 
 # Exclude from processing.
 # The following items will not be processed, by default.
