@@ -1,0 +1,23 @@
+<!-- begin _includes/mathjax.html -->
+<script type="text/javascript">
+    window.MathJax = {
+        tex: {
+            // TODO: get rid of this line and use $$ for both inline and display math
+            inlineMath: [["$", "$"]],
+            // kramdown parser automatically handles $$, so don't mess with this
+            // displayMath: [["$$", "$$"]],
+            processEscapes: true,
+            packages: {"[+]": ["noerrors"]}
+        },
+        options: {
+            skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code"],
+            ignoreHtmlClass: "tex2jax_ignore",
+            processHtmlClass: "tex2jax_process"
+        },
+        loader: {
+            load: ["[tex]/noerrors"]
+        }
+    };
+</script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<!-- end _includes/mathjax.html -->

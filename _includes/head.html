@@ -4,14 +4,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {% include meta.html %}
+    {% include mathjax.html %}
 
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <!-- rss feed -->
     <link href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
     <!-- custom css -->
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
     <!-- fontawesome kit embed -->
     <script src="https://kit.fontawesome.com/1e44c8229d.js" crossorigin="anonymous"></script>
+    <!-- favicon | https://realfavicongenerator.net -->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 
     {% if site.analytics and jekyll.environment == "production" %}
         {% include analytics.html %}
