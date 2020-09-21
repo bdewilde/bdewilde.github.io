@@ -93,6 +93,9 @@ gist:
   noscript: false
 
 # plugin settings
+search: false  # true, false (default)
+search_full_content: false  # true, false (default)
+search_provider: # lunr (default), algolia, google
 sitemap: true
 paginate: 10
 feed:
@@ -110,6 +113,11 @@ analytics:
   google:
     tracking_id: "UA-53458117-1"
     anonymize_ip: false
+
+masthead:
+  logo:  # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+  title:  # overrides the website title displayed in the masthead; use " " for no title
+  subtitle:  # site tagline that appears below site title in masthead
 
 footer:
   links:
