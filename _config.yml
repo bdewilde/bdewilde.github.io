@@ -114,6 +114,11 @@ analytics:
     tracking_id: "UA-53458117-1"
     anonymize_ip: false
 
+comments:
+  provider: "disqus"
+  disqus:
+    shortname: "bdewilde"
+
 masthead:
   logo:  # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
   title:  # overrides the website title displayed in the masthead; use " " for no title
