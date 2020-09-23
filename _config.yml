@@ -120,7 +120,8 @@ comments:
     shortname: "bdewilde"
   staticman:
     branch: "master"
-    endpoint: "https://[YOUR_STATICMAN_V3_API]/v3/entry/github/bdewilde/bdewilde.github.io"
+    endpoint: "https://burtbot-staticman.herokuapp.com/v3/entry/github/bdewilde/bdewilde.github.io"
+    moderation: true
   utterances:
     theme: "github-light"
     issue_term: "pathname"
@@ -146,3 +147,11 @@ footer:
       url: "http://www.linkedin.com/pub/burton-dewilde/51/b18/301"
     - label: "RSS"
       icon: "fas fa-rss-square fa-fw fa-2x"
+
+
+# reCaptcha configuration info: the exact same site key and *encrypted* secret that you used in staticman.yml
+# I personally don't think the secret needs to be included in the generated site, but the staticman API bridge uses
+# it to ensure the site configuration and bridge configuration match (but why not just compare the site key?)
+reCaptcha:
+  siteKey: "6LdHbs8ZAAAAAEGgH0cLQQAvyGPCoqFZkFtiNs6k"
+  secret: "ay2Emj+oAqdXIpnsfX2fwDNmBw/p5ywBfPrOfGLvrz010uIbwV6BBlIvyrKP3wGniBKorMBZUJg/AuDn/pNBlIaz9MrbxFpvXr8cdqnQ+/Up6+YeiY05MsgERp74O97bb7mrOLGQbPEuAkOO71NxJQg5d9ELCVAsevlB/vQhF4j5pr6CKv4F1eWSJ+AEzSKYzC7rGegVmqnsMaUAlD4gLu+t3g20Kkca/jWyrcb68kX+NT180x2sqjIyzlMNta7H/WND1UyBGou2azQ0Sk0+aXNSLvN0vniC12ls+MiOy9lBQaMfS8Vtjp1Qb9p1U6u+a8JC9k/aI4CzFUqCTFpwpm0XqFO3xzQMh6eEThGoaImX9gzHwkGj+TT45XmsNeMZNw2xeiD5T+pllQ5ih5P+3xOn+bpDh03152uFAN4LRgmxmV6AjGkKCrCNHgzP05MdK6hFHW9hkIqAmV0oKoyQL4sQhBXu7t6wwK7rlThENNw13ckDbtAVqzARbgJGNuJJeK091eKYVyquqYJR9LxA8HP1GRPKvmS8DlWgPvXaAjCOrjf1SiamoS109ixbLfq2wvNY2Pp0M4wKj7RDW76XHh9KUs9KEe04phC3USM4WJgnL9Ggwa/YSBY5k0K6eB8Chmb19eHWwsYKEpFExwVa3D0JUMYG6ZF0yh0GphEy8YM="

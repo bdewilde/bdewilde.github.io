@@ -1,3 +1,5 @@
+# REFERENCE: https://travisdowns.github.io/blog/2020/02/05/now-with-comments.html
+
 # Name of the property. You can have multiple properties with completely
 # different config blocks for different sections of your site.
 # For example, you can have one property to handle comment submission and
@@ -79,6 +81,6 @@ comments:
     # Set to true to force reCAPTCHA validation, set to false to accept comments without
     # reCAPTCHA. Plut site key for reCAPTCHA site registration and RSA encrypted secret
     reCaptcha:
-      enabled: false  # true
-      # siteKey: "TODO"
-      # secret: "TODO"
+      enabled: true
+      siteKey: "6LdHbs8ZAAAAAEGgH0cLQQAvyGPCoqFZkFtiNs6k"
+      secret: "ay2Emj+oAqdXIpnsfX2fwDNmBw/p5ywBfPrOfGLvrz010uIbwV6BBlIvyrKP3wGniBKorMBZUJg/AuDn/pNBlIaz9MrbxFpvXr8cdqnQ+/Up6+YeiY05MsgERp74O97bb7mrOLGQbPEuAkOO71NxJQg5d9ELCVAsevlB/vQhF4j5pr6CKv4F1eWSJ+AEzSKYzC7rGegVmqnsMaUAlD4gLu+t3g20Kkca/jWyrcb68kX+NT180x2sqjIyzlMNta7H/WND1UyBGou2azQ0Sk0+aXNSLvN0vniC12ls+MiOy9lBQaMfS8Vtjp1Qb9p1U6u+a8JC9k/aI4CzFUqCTFpwpm0XqFO3xzQMh6eEThGoaImX9gzHwkGj+TT45XmsNeMZNw2xeiD5T+pllQ5ih5P+3xOn+bpDh03152uFAN4LRgmxmV6AjGkKCrCNHgzP05MdK6hFHW9hkIqAmV0oKoyQL4sQhBXu7t6wwK7rlThENNw13ckDbtAVqzARbgJGNuJJeK091eKYVyquqYJR9LxA8HP1GRPKvmS8DlWgPvXaAjCOrjf1SiamoS109ixbLfq2wvNY2Pp0M4wKj7RDW76XHh9KUs9KEe04phC3USM4WJgnL9Ggwa/YSBY5k0K6eB8Chmb19eHWwsYKEpFExwVa3D0JUMYG6ZF0yh0GphEy8YM="
