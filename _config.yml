@@ -118,6 +118,12 @@ comments:
   provider: "disqus"
   disqus:
     shortname: "bdewilde"
+  staticman:
+    branch: "master"
+    endpoint: "https://[YOUR_STATICMAN_V3_API]/v3/entry/github/bdewilde/bdewilde.github.io"
+  utterances:
+    theme: "github-light"
+    issue_term: "pathname"
 
 masthead:
   logo:  # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
