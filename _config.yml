@@ -97,7 +97,7 @@ search: false  # true, false (default)
 search_full_content: false  # true, false (default)
 search_provider: # lunr (default), algolia, google
 sitemap: true
-paginate: 10
+paginate: 5
 feed:
   path: "/feed.xml"
 
@@ -113,6 +113,12 @@ analytics:
   google:
     tracking_id: "UA-53458117-1"
     anonymize_ip: false
+
+author:
+  name: "Burton DeWilde"
+  avatar: "/assets/images/about-pic.jpg"
+  # bio: "My awesome biography constrained to a sentence or two goes here."
+  location : "Chicago, IL"
 
 comments:
   provider: "disqus"
