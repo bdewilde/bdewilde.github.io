@@ -45,7 +45,7 @@ An unlabeled observation falling in the gold-colored region(s) is assigned to Cl
 
 Recall that the input feature-space of the MINST hand-written digit data set is 784-dimensional, with a feature for each pixel in the 28x28 = 784-pixel images, so instead of $x = (x_1, x_2)$, we have $x = (x_1, x_2, ..., x_784)$. Plus, instead of just two classes ($A$ and $B$), we have ten classes (0, 1, ..., 9). Nevertheless, everything I've just described about kNN generalizes to this more complex classification problem. :)
 
-A number of libraries implement kNN algorithms in R. The default is called `class`, but it is unacceptably slow running over large data sets because it brute-force computes the distance between an unlabeled observation and _all_ training examples, even though most of them are far away. A faster version is in the [FNN](http://cran.r-project.org/web/packages/FNN/FNN.pdf) (fast nearest-neighbors) package, which uses clever data-structures like [cover trees](http://en.wikipedia.org/wiki/Cover_tree) or [k-d trees](http://en.wikipedia.org/wiki/Kd-tree) to reduce runtime [from O(_mn_) to O(_m_log(_n_)), where _m_ is the number of features and _n_ the number of training examples]. 
+A number of libraries implement kNN algorithms in R. The default is called `class`, but it is unacceptably slow running over large data sets because it brute-force computes the distance between an unlabeled observation and _all_ training examples, even though most of them are far away. A faster version is in the [FNN](http://cran.r-project.org/web/packages/FNN/FNN.pdf) (fast nearest-neighbors) package, which uses clever data-structures like [cover trees](http://en.wikipedia.org/wiki/Cover_tree) or [k-d trees](http://en.wikipedia.org/wiki/Kd-tree) to reduce runtime [from O(_mn_) to O(_m_log(_n_)), where _m_ is the number of features and _n_ the number of training examples].
 
 The [Kaggle competition](http://www.kaggle.com/c/digit-recognizer) from which I got this data set provided the source code in R for a totally vanilla "benchmark" kNN model, using _k_ = 10 and the "cover tree" algorithm for speed:
 
@@ -54,19 +54,19 @@ The evaluation metric used by Kaggle in this contest is classification accuracy 
 {% highlight r %}
 # fast nearest neighbor package
 library(FNN)
- 
+
 # training and test sets, with variable names in the first row
 train <- read.csv("train.csv", header=TRUE)
 test <- read.csv("test.csv", header=TRUE)
- 
+
 # split train data frame in two
 # first column is class labels (0, 1, ..., 9)
 labels <- train[,1]
 train <- train[,-1]
- 
+
 # save only the knn's class predictions for each observation in test set
 results <- (0:9)[knn(train, test, labels, k = 10, algorithm="cover_tree")]
- 
+
 # output to file as a single column of class predictions
 write(results, file="knn_benchmark.csv", ncolumns=1)
 {% endhighlight %}
@@ -92,11 +92,11 @@ You can see that the training set's error increases with _k_, and for _k_ = 1, i
 # helpful functions for classification/regression training
 # http://cran.r-project.org/web/packages/caret/index.html
 library(caret)
- 
+
 # get indices of data.frame columns (pixels) with low variance
 badCols <- nearZeroVar(train)
 print(paste("Fraction of nearZeroVar columns:", round(length(badCols)/length(train),4)))
- 
+
 # remove those "bad" columns from the training and cross-validation sets
 train <- train[, -badCols]
 cv <- cv[, -badCols]

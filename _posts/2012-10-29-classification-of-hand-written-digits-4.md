@@ -31,19 +31,19 @@ Okay! Now I would like to optimize a kNN model for both the number of neighbors 
 {% highlight r %}
 # weighted k-nearest neighbors package
 library(kknn)
- 
+
 # load the training data set
 train <- read.csv("train.csv", header=TRUE)
- 
+
 # remove near-zero variance features
 library(caret)
 badCols <- nearZeroVar(train[, -1])
 train <- train[, -(badCols+1)]
- 
+
 # optimize knn for k=1:15
 # and kernel=triangular, rectangular, or gaussian
 model <- train.kknn(as.factor(label) ~ ., train, kmax=15, kernel=c("triangular","rectangular","gaussian"))
- 
+
 # print out best parameters and prediction error
 print(paste("Best parameters:", "kernel =", model$best.parameters$kernel, ", k =", model$best.parameters$k))
 print(model$MISCLASS)
@@ -61,11 +61,11 @@ Models corresponding to the solid lines use _all_ features in the training data,
 {% highlight r %}
 # load test datasets
 test <- read.csv("test.csv", header=TRUE)
- 
+
 # train the optimal kknn model
 model <- kknn(as.factor(label) ~ ., train, test, k=9, kernel="triangular")
 results <- model$fitted.values
- 
+
 # save the class predictions in a column vector
 write(as.numeric(levels(results))[results], file="kknn_submission.csv", ncolumns=1)
 {% endhighlight %}

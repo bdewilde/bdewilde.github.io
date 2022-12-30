@@ -3,9 +3,9 @@
     window.MathJax = {
         tex: {
             // TODO: get rid of this line and use $$ for both inline and display math
-            inlineMath: [["$", "$"]],
+            inlineMath: [["$", "$"], ["\\(", "\\)"]],
             // kramdown parser automatically handles $$, so don't mess with this
-            // displayMath: [["$$", "$$"]],
+            // displayMath: [["$$", "$$"], , ["\\[", "\\]"]],
             processEscapes: true,
             packages: {"[+]": ["noerrors"]}
         },
