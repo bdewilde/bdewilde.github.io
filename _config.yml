@@ -19,7 +19,7 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Burton DeWilde
-tagline: "Data Science, Physics, and Zombies!"
+tagline: "art, data, sustainability"
 description: >-
   Burton DeWilde's personal / professional website.
 baseurl: ""  # the subpath of your site, e.g. /blog
@@ -28,7 +28,7 @@ email: burtdewilde@gmail.com
 twitter_username: bjdewilde
 github_username:  bdewilde
 linkedin_link: http://www.linkedin.com/pub/burton-dewilde/51/b18/301/
-timezone: America/Chicago
+timezone: America/New_York
 
 # Build settings
 theme: minima
@@ -38,34 +38,6 @@ plugins:
   - jekyll-paginate
   - jekyll-seo-tag
   - jekyll-sitemap
-
-markdown: kramdown
-permalink: pretty
-#excerpt_separator: <!--more-->
-
-# GitHub Pages settings -- these can't be changed!
-lsi: false
-safe: true
-# source: [top level of this repo]
-incremental: false
-highlighter: rouge
-gist:
-  noscript: false
-kramdown:
-  math_engine: mathjax
-  syntax_highlighter: rouge
-
-kramdown:
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  smart_quotes: lsquo,rsquo,ldquo,rdquo
-  enable_coderay: false
-  input: GFM
-
-paginate: 10
-paginate_path: "blog/p:num"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
