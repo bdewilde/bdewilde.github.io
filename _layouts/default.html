@@ -3,8 +3,6 @@
 
   {% include head.html %}
 
-  {% include google_analytics.html %}
-
   <!-- mathjax config similar to math.stackexchange -->
   <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
@@ -21,7 +19,7 @@
   </script>
   <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
 
-    <body>
+  <body>
 
     <a name="top"></a>
 
@@ -29,11 +27,12 @@
 
     <div class="page-content">
       <div class="wrap">
-      {{ content }}
+        {{ content }}
       </div>
     </div>
 
     {% include footer.html %}
 
-    </body>
+  </body>
+
 </html>
