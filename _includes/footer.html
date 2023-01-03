@@ -2,29 +2,8 @@
 
   <div class="wrap">
 
-    <div class="footer-top">
-
-      <a class="site-title site-link" href="{{ site.baseurl }}/">{{ site.title }}</a><br>
-
-      <ul>
-        {% if site.email %}
-          <li><a class="site-link" href="mailto:{{ site.email }}"><i class="fa fa-envelope-square fa-fw fa-2x"></i></a></li>
-        {% endif %}
-        {% if site.twitter_username %}
-          <li><a class="site-link" href="https://twitter.com/{{ site.twitter_username }}"><i class="fa fa-twitter-square fa-fw fa-2x"></i></a></li>
-        {% endif %}
-        {% if site.github_username %}
-          <li><a class="site-link" href="https://github.com/{{ site.github_username }}"><i class="fa fa-github-square fa-fw fa-2x"></i></a></li>
-        {% endif %}
-        {% if site.linkedin_link %}
-          <li><a class="site-link" href="{{ site.linkedin_link }}"><i class="fa fa-linkedin-square fa-fw fa-2x"></i></a></li>
-        {% endif %}
-        <li><a class="site-link" href="{{ "/feed.xml" | prepend: site.baseurl }}"><i class="fa fa-rss-square fa-fw fa-2x"></i></a></li>
-    </div>
-
     <div class="footer-bottom">
-      <p>{{ site.description }}</p>
-      <p>&copy; 2012 – {{ site.time | date: '%Y' }} Burton DeWilde. All rights reserved.
+      <p>&copy; {{ site.time | date: '%Y' }} Burton DeWilde. All rights reserved.
     </div>
 
   </div>
