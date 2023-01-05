@@ -19,7 +19,7 @@
       <div class="trigger">
         {% assign site_pages = site.pages | sort: 'title' %}
         {% for page in site_pages %}
-        {% if page.title and page.title != "404: Page not found" and page.title != "Home" %}
+        {% if page.title and page.title != "404" and page.title != "Home" %}
         <a class="site-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
         {% endif %}
         {% endfor %}
