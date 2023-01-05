@@ -14,28 +14,25 @@ layout: default
       <div class="post-tags">
         <i class="fa fa-tags"></i>
         {% for tag in page.tags %}
-          <span> {{tag}}</span>
+        <span> {{tag}}</span>
         {% endfor %}
       </div>
     </div>
   </header>
 
   <article class="post-content">
-  {{ content }}
+    {{ content }}
   </article>
 
 </div>
 
 <div class="post-nav">
   {% if page.previous.url %}
-    <a class="nav-link" href="{{ page.previous.url | prepend: site.baseurl }}" title="{{ page.previous.title }}">&#8592; previous</a>
+  <a class="nav-link" href="{{ page.previous.url | prepend: site.baseurl }}" title="{{ page.previous.title }}">&#8592;
+    previous</a>
   {% endif %}
   <a class="nav-link" href="#top">&#8593;</a>
   {% if page.next.url %}
-    <a class="nav-link" href="{{ page.next.url | prepend: site.baseurl }}" title="{{ page.next.title }}">next &#8594;</a>
+  <a class="nav-link" href="{{ page.next.url | prepend: site.baseurl }}" title="{{ page.next.title }}">next &#8594;</a>
   {% endif %}
 </div>
-
-{% if page.comments %}
-  {% include comments.html %}
-{% endif %}
