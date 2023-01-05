@@ -23,7 +23,8 @@ body {
 
 /* link color and decoration*/
 a {
-  color: #4292c6;
+  /* color: #4292c6; */
+  color: #2f8bc8;
   text-decoration: none;
 }
 a:hover {
@@ -37,7 +38,8 @@ a:hover {
   transition: color 0.25s;
 }
 .site-link:hover {
-  color: #807dba;
+  /* color: #807dba; */
+  color: #6662ba;
   text-decoration: none;
 }
 
@@ -121,9 +123,9 @@ a:hover {
 /* SITE HEADER */
 
 .site-header {
-  border-top: 5px solid #303030;
-  border-bottom: 1px solid #e0e0e0;
-  background-color: #f0f0f0;
+  border-top: 5px solid #ababab;
+  border-bottom: 1px solid #ebebeb;
+  background-color: #fbfbfb;
   min-height: 65px;
 }
 
@@ -143,14 +145,10 @@ a:hover {
 /* SITE FOOTER */
 
 .site-footer {
-  border-top: 1px solid #e0e0e0;
-  border-bottom: 5px solid #303030;
   padding: 15px 0;
-  background-color: #f0f0f0;
-}
-
-.site-footer .fa-fw {
-  text-align: left;
+  border-bottom: 5px solid #ababab;
+  border-top: 1px solid #ebebeb;
+  background-color: #fbfbfb;
 }
 
 .footer-heading {
