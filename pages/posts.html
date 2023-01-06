@@ -15,12 +15,12 @@ title: Posts
       <div class="preview-excerpt">
         <div class="post-meta">
           <div class="post-date">
-            <i class="fa fa-calendar-o"></i>   {{ post.date | date: '%Y-%m-%d' }}
+            <i class="fa fa-calendar-o"></i> {{ post.date | date: '%Y-%m-%d' }}
           </div>
           <div class="post-tags">
             <i class="fa fa-tags"></i>
             {% for tag in post.tags %}
-              <span>{{tag}}</span>
+            <span>{{tag}}</span>
             {% endfor %}
           </div>
         </div>
@@ -28,11 +28,11 @@ title: Posts
         <a class="post-link" href="{{ post.url }}">Read More &raquo;</a>
       </div>
       {% if post.preview_pic %}
-        <div class="preview-pic">
-          <a href="{{ post.url }}">
-            <img style="margin:auto" src="{{ post.preview_pic }}">
-          </a>
-        </div>
+      <div class="preview-pic">
+        <a href="{{ post.url }}">
+          <img style="margin:auto" src="{{ post.preview_pic }}">
+        </a>
+      </div>
       {% endif %}
     </div>
 
@@ -42,14 +42,14 @@ title: Posts
 
 <div class="pagination">
   {% if paginator.next_page %}
-    <a class="nav-link" href="/blog/p{{ paginator.next_page }}/">&#8592; previous</a>
+  <a class="nav-link" href="/blog/p{{ paginator.next_page }}/">&#8592; previous</a>
   {% endif %}
   <a class="nav-link" href="#top">&#8593;</a>
   {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="nav-link" href="/">next &#8594;</a>
-    {% else %}
-      <a class="nav-link" href="/blog/p{{paginator.previous_page}}/">next &#8594;</a>
-    {% endif %}
+  {% if paginator.page == 2 %}
+  <a class="nav-link" href="/">next &#8594;</a>
+  {% else %}
+  <a class="nav-link" href="/blog/p{{paginator.previous_page}}/">next &#8594;</a>
+  {% endif %}
   {% endif %}
 </div>
