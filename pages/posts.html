@@ -1,8 +1,15 @@
 ---
 layout: page
 title: Posts
+permalink: /posts
 ---
 
+{% if site.posts == empty %}
+<div>
+  <p>Ah, geez. I must've deleted all of my old posts, and now this page is empty.</p>
+  <p>I'm sure I'll get back into blogging, someday...</p>
+</div>
+{% else %}
 <div class="previews">
   {% for post in paginator.posts %}
   <div class="preview">
@@ -53,3 +60,4 @@ title: Posts
   {% endif %}
   {% endif %}
 </div>
+{% endif %}
