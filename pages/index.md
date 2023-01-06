@@ -12,7 +12,7 @@ a data scientist and engineer, volunteer do-gooder, photographer, potter, and oc
     <a class="site-link" href="https://github.com/{{ site.github_username }}" title="GitHub">
         <i class="fa-brands fa-github fa-fw fa-2x"></i>
     </a>
-    <a class="site-link" href="{{ site.mastodon_link }}" title="Mastodon">
+    <a class="site-link" rel="me" href="{{ site.mastodon_link }}" title="Mastodon">
         <i class="fa-brands fa-mastodon fa-fw fa-2x"></i>
     </a>
     <a class="site-link" href="{{ site.linkedin_link }}" title="LinkedIn">
