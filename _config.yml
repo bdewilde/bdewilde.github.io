@@ -25,10 +25,20 @@ description: >-
 baseurl: ""  # the subpath of your site, e.g. /blog
 url: ""  # the base hostname & protocol for your site, e.g. http://example.com
 email: burtdewilde@gmail.com
-github_username:  bdewilde
-linkedin_link: http://www.linkedin.com/pub/burton-dewilde/51/b18/301/
-mastodon_link: https://mstdn.social/@burton
 timezone: America/New_York
+
+socials:
+  - name: GitHub
+    link: https://github.com/bdewilde
+    icon: "fa-github"
+  - name: Mastodon
+    link: https://mstdn.social/@burton
+    icon: "fa-mastodon"
+    rel: "me"
+  - name: LinkedIn
+    link: https://www.linkedin.com/in/burtondewilde
+    icon: "fa-linkedin"
+
 
 # Build settings
 theme: minima
