@@ -1,15 +1,14 @@
 <div class="social-icons">
     {%- for social in site.socials -%}
-    <a class="site-link" href="{{ social.link | escape }}" title="{{ social.name }}" target="_blank"
-        rel="noreferrer me">
+    <a class="alt-link" href="{{ social.link | escape }}" title="{{ social.name }}" target="_blank" rel="noreferrer me">
         <i class="fa-brands {{ social.icon }} fa-fw fa-2x"></i>
     </a>
     {%- endfor -%}
-    <a class="site-link" href="mailto:{{ site.email }}" title="Email">
+    <a class="alt-link" href="mailto:{{ site.email }}" title="Email">
         <i class="fa-solid fa-envelope fa-fw fa-2x"></i>
     </a>
     {%- if site.rss -%}
-    <a class="site-link" href="{{ '/feed.xml' | relative_url }}">
+    <a class="alt-link" href="{{ '/feed.xml' | relative_url }}">
         <i class="fa-solid fa-rss fa-fw fa-2x"></i>
     </a>
     {%- endif -%}
