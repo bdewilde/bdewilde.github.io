@@ -238,7 +238,7 @@ table td {
 .site-header {
   border-top: 5px solid var(--grey-color);
   border-bottom: 1px solid var(--grey-color-light);
-  /* background-color: var(--background-color-accent); */
+  background-color: var(--background-color-accent);
   min-height: calc(var(--spacing-unit) * 1.865);
   /* Positioning context for the mobile navigation icon */
   position: relative;
@@ -322,11 +322,10 @@ table td {
 /* SITE FOOTER */
 
 .site-footer {
-  padding: var(--spacing-unit) 0;
+  padding: calc(var(--spacing-unit) / 3) 0;
   border-bottom: 5px solid var(--grey-color);
   border-top: 1px solid var(--grey-color-light);
   background-color: var(--background-color-accent);
-  /* height: 20px; */
 }
 
 .site-footer .wrapper {
@@ -337,9 +336,12 @@ table td {
 .site-footer .copyright {
   font-size: var(--small-font-size);
   color: var(--grey-color-dark);
-  height: 100%;
   display: flex;
   align-items: center;
+}
+
+.site-footer .copyright p {
+  margin: 0;
 }
 
 
