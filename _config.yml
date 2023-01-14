@@ -9,7 +9,7 @@ url: ""  # the base hostname & protocol for your site, e.g. http://example.com
 timezone: America/New_York
 lang: "en"
 show_excerpts: true
-rss: false
+rss: true
 
 socials:
   - name: GitHub
