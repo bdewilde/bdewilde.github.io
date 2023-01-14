@@ -10,11 +10,11 @@
   --content-width-on-mobile: 600px;
   --text-color: #2f2f2f;
   --background-color: #ffffff;
-  --background-color-accent: #fafafa;
+  --background-color-accent: #fbfbfb;
   --accent-color: #2f8bc8;
   --accent-color-alt: #6662ba;
-  --border-color: #eaeaea;
-  --border-color-accent: #aaaaaa;
+  --border-color: #dbdbdb;
+  --border-color-accent: #ababab;
   --grey-color: #828282;
   --grey-color-light: #c0c0c0;
   --grey-color-dark: #404040;
@@ -24,7 +24,7 @@
   --footer-height: 40px;
   --base-font-family: Helvetica, Arial, sans-serif;
   --base-font-size: 16px;
-  --base-font-weight: 400;
+  --base-font-weight: 300;
   --small-font-size: calc(var(--base-font-size) * 0.875);
   --base-line-height: 1.5;
   --table-text-align: left;
@@ -176,7 +176,7 @@ table {
   border: 1px solid var(--grey-color-light);
 }
 table tr:nth-child(even) {
-  background-color: lighten(var(--grey-color-light), 6%);
+  background-color: var(--background-color-accent);
 }
 table th, table td {
   padding: calc(var(--spacing-unit) / 3) calc(var(--spacing-unit) / 2);
@@ -236,8 +236,8 @@ table td {
 /* SITE HEADER */
 
 .site-header {
-  border-top: 5px solid var(--grey-color);
-  border-bottom: 1px solid var(--grey-color-light);
+  border-top: 5px solid var(--border-color-accent);
+  border-bottom: 1px solid var(--border-color);
   background-color: var(--background-color-accent);
   min-height: calc(var(--spacing-unit) * 1.865);
   /* Positioning context for the mobile navigation icon */
@@ -322,9 +322,9 @@ table td {
 /* SITE FOOTER */
 
 .site-footer {
-  padding: calc(var(--spacing-unit) / 3) 0;
-  border-bottom: 5px solid var(--grey-color);
-  border-top: 1px solid var(--grey-color-light);
+  padding: calc(var(--spacing-unit) / 2) 0;
+  border-bottom: 5px solid var(--border-color-accent);
+  border-top: 1px solid var(--border-color);
   background-color: var(--background-color-accent);
 }
 
