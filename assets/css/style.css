@@ -347,14 +347,24 @@ table td {
 
 /* PAGE CONTENT */
 
-.page-content {
+.content {
   padding: var(--spacing-unit) 0;
   flex: 1;
   background-color: var(--background-color);
 }
 
-.page-heading {
+.page-content {
+  flex: 1;
+  background-color: var(--background-color);
+}
+
+.page-header {
+  margin-bottom: var(--spacing-unit);
+}
+
+.page-title {
   font-size: calc(var(--base-font-size) * 2.0);
+  letter-spacing: -1px;
 }
 
 .post-list-heading {
