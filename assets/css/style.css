@@ -30,11 +30,6 @@
   --table-text-align: left;
 }
 
-@font-face {
-  font-family: serifa;
-  src: url('fonts/Serifa 55 Roman.ttf') format('opentype');
-}
-
 /* Reset some basic elements */
 body, h1, h2, h3, h4, h5, h6,
 p, blockquote, pre, hr,
@@ -245,9 +240,8 @@ table td {
 }
 
 .site-title {
-  font-family: serifa;
   font-size: calc(var(--base-font-size) * 1.625);
-  font-weight: 300;
+  font-weight: calc(var(--base-font-weight) + 100);
   line-height: calc(var(--base-line-height) * var(--base-font-size) * 2.25);
   letter-spacing: -1px;
   margin-bottom: 0;
