@@ -58,6 +58,7 @@ body {
   -webkit-text-size-adjust: 100%;
   display: flex;
   min-height: 100vh;
+  min-width: 100vw;
   flex-direction: column;
 }
 
@@ -111,6 +112,7 @@ a.alt-link:hover {
 img {
   max-width: 100%;
   vertical-align: middle;
+  padding: calc(var(--spacing-unit) / 3) 0px;
 }
 figure>img {
   display: block;
@@ -261,7 +263,7 @@ table td {
 }
 .site-nav .page-link {
   color: var(--text-color);
-  line-height: var(--base-line-height);
+  font-size: calc(var(--base-font-size) * 1.2);
 }
 .site-nav .page-link:not(:last-child) {
   /* Gaps between nav items, but not on the last one */
