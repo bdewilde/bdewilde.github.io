@@ -375,9 +375,24 @@ table td {
   margin-bottom: var(--spacing-unit);
 }
 
+.post-list>li>h3 {
+  margin-bottom: calc(var(--spacing-unit) / 3);
+}
 .post-meta {
   font-size: var(--small-font-size);
   color: var(--grey-color);
+  margin-top: 5px;
+  margin-bottom: calc(var(--spacing-unit) / 3);
+}
+.post-meta i {
+  margin-right: 5px;
+}
+.post-meta div {
+  margin-right: calc(var(--spacing-unit) / 2);
+  display: inline;
+}
+.post-meta .post-tags span:not(:last-child) {
+  margin-right: 5px;
 }
 
 .post-link {
