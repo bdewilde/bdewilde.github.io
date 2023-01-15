@@ -29,9 +29,7 @@ header_pages:
 # Build settings
 theme: minima
 plugins:
-  # - jekyll-archives
   - jekyll-feed
-  - jekyll-paginate
   - jekyll-seo-tag
 
 # Exclude from processing.
