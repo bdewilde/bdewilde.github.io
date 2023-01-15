@@ -2,30 +2,21 @@
 layout: default
 ---
 
-<div class="post">
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1>{{ page.title }}</h1>
-    <div class="post-meta">
-      <div class="post-date">
-        <i class="fa fa-calendar-o"></i>
-        {{ page.date | date: '%Y-%m-%d' }}
-      </div>
-      <div class="post-tags">
-        <i class="fa fa-tags"></i>
-        {% for tag in page.tags %}
-        <span> {{tag}}</span>
-        {% endfor %}
-      </div>
-    </div>
+    <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+    {% include post_meta.html %}
   </header>
 
-  <article class="post-content">
+  <div class="post-content" itemprop="articleBody">
     {{ content }}
-  </article>
+  </div>
 
-</div>
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>
 
+<!--
 <div class="post-nav">
   {% if page.previous.url %}
   <a class="nav-link" href="{{ page.previous.url | prepend: site.baseurl }}" title="{{ page.previous.title }}">&#8592;
@@ -35,4 +26,4 @@ layout: default
   {% if page.next.url %}
   <a class="nav-link" href="{{ page.next.url | prepend: site.baseurl }}" title="{{ page.next.title }}">next &#8594;</a>
   {% endif %}
-</div>
+</div> -->
