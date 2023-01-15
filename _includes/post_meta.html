@@ -1,8 +1,22 @@
+{%- assign date_format = site.minima.date_format | default: "%Y-%m-%d" -%}
+{%- unless post -%}
+{%- assign post = page -%}
+{%- endunless -%}
 <div class="post-meta">
     <div class="post-date">
         <i class="fa-solid fa-calendar"></i>
-        <span>{{ post.date | date: date_format }}</span>
+        <time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
+            {{ post.date | date: date_format }}
+        </time>
     </div>
+    {%- if post.author -%}
+    <div class="post-author">
+        <i class="fa-solid fa-user"></i>
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span itemprop="name">{{ post.author }}</span>
+        </span>
+    </div>
+    {%- endif -%}
     {%- if post.tags.size > 0 -%}
     <div class="post-tags">
         <i class="fa-solid fa-tags"></i>
