@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About
-permalink: /about/
+permalink: /about
 ---
 
 <img src="/assets/images/about-pic-2018.jpg" alt="about-pic-2018.jpg" width="40%" style="float: right; margin: 0px 15px">

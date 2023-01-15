@@ -1,0 +1,30 @@
+---
+layout: page
+---
+
+{{ content }}
+
+<div class="posts">
+
+  {%- if site.posts.size > 0 -%}
+  <ul class="post-list">
+    {%- for post in site.posts -%}
+    <li>
+      <h3>
+        <a class="post-link alt-link" href="{{ post.url | relative_url }}">
+          {{ post.title | escape }}
+        </a>
+      </h3>
+      {% include post_meta.html %}
+      {%- if site.show_excerpts -%}
+      {{ post.excerpt }}
+      {%- endif -%}
+    </li>
+    {%- endfor -%}
+  </ul>
+  {%- else -%}
+  <p>Ah, geez. I must've deleted all of my old posts, and now this page is empty.</p>
+  <p>I'm sure I'll get back into blogging, someday...</p>
+  {%- endif -%}
+
+</div>
