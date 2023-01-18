@@ -4,13 +4,13 @@ title: "A Better Information Diet, Post-Twitter"
 tags: ["twitter", "newsletters", "information diet"]
 ---
 
-Say what you will about [Elon Musk's Twitter](https://www.garbageday.email/i/83091513/comedy-is-legal-on-twitter-again-as-long-as-you-do-what-elon-musk-says), but in days past it was a decent way to stay up-to-date on happenings in various communities of interest. I followed data professionals and hackers, social commentators, journalists, scientists, and activists, plus a few friends and coworkers. My feed was decently curated, and despite some algorithmic froth, I considered it a valuable source of information. And yet...
+Say what you will about [Elon Musk's Twitter](https://www.garbageday.email/i/83091513/comedy-is-legal-on-twitter-again-as-long-as-you-do-what-elon-musk-says), but in days past it was at least a decent way to stay up-to-date on happenings in one's communities of interest. I followed data professionals and hackers, social commentators, journalists, scientists, and activists, plus a few friends and coworkers. My feed was decently curated, and despite some algorithmic froth, I considered it a valuable source of information. And yet...
 
-For many reasons, I joined the great [#TwitterMigration](https://twitter.com/hashtag/TwitterMigration)'s first wave last fall, and eventually landed over on Mastodon. In retrospect, I realize that the volume of content, variability in its quality and relevance, and chronically toxic undercurrents made for a poor signal-to-noise ratio. It was mentally exhausting to keep up with, let alone participate in, The Discourse. And I had the growing sense that posts were being written for -- and sometimes by! -- an algorithm. [This experience](https://www.washingtonpost.com/news/wonk/wp/2013/04/01/the-problem-with-twitter) isn't new or novel, but it reached a critical point for me personally in 2022. I needed a better way to consume information online.
+For many reasons, I joined the great [#TwitterMigration](https://twitter.com/hashtag/TwitterMigration)'s first wave last fall, and eventually landed over on Mastodon. In retrospect, I realize that the volume of content, variability in its quality and relevance, and chronically toxic undercurrents made for a poor signal-to-noise ratio. It was mentally exhausting to keep up with, let alone participate in, The Discourse. And it felt like more and more posts were being written for -- and sometimes by -- an algorithm. [This experience](https://www.washingtonpost.com/news/wonk/wp/2013/04/01/the-problem-with-twitter) isn't new or novel, but it reached a critical point for me personally in 2022. I needed a better way to consume information online.
 
-I decided to focus on a few subjects of particular interest, confine my reading to a more regular schedule, and have the information come to me rather than the other way around. In other words, I went on an [information diet](https://medium.com/future-crunch/the-information-diet-b84d683681ce). The easiest approach I found was to replace social media feeds with subscriptions to a curated set of email newsletters.
+I decided to focus on a few subjects of particular interest, confine my reading to a more regular schedule, and have the information come to me rather than the other way around. In other words, I went on an [information diet](https://medium.com/future-crunch/the-information-diet-b84d683681ce). After some experimentation, I found that the easiest approach to accomplishing these goals was to replace social media feeds with subscriptions to a curated set of email newsletters. Well, that _plus_ more self-control about checking my inbox. :)
 
-Here are my current favorites, grouped by subject matter:
+It's been great so far, and I strongly recommend it! For reference and posterity, here are my current favorite newsletters, grouped by subject matter:
 
 #### politics and culture
 
@@ -22,7 +22,7 @@ Here are my current favorites, grouped by subject matter:
 
 - [Distilled](https://www.distilled.earth): Well-researched, independent, frequently investigative climate journalism that does a good job of debunking lies and exposing opponents of change. Weekly-ish.
 - [The Beacon](https://grist.org/subscribe): News summaries focused on positive developments in the climate space, published by _Grist_. A much-needed source of hope. Daily.
-- [Volts](https://www.volts.wtf): In-depth, fairly wonky exploration of the political and technical path to decarbonization. Also (primarily?) a podcast, if that's your thing. Twice weekly.
+- [Volts](https://www.volts.wtf): In-depth, fairly wonky exploration of the political and technical path to decarbonization. Also (primarily?) a podcast, if you prefer that format. Twice weekly.
 
 #### data and engineering
 
@@ -34,7 +34,7 @@ Here are my current favorites, grouped by subject matter:
 
 - [Burlington Mayor's Updates](https://www.burlingtonvt.gov/mayor/mayorsupdates): News, policy, and soapboxing from the mayor of Burlington, even though I rarely agree with him. [Stand-in for any local government official.] Monthly-ish.
 - [Burlington City Arts newsletter](https://www.burlingtoncityarts.org): News, press releases, and event details dedicated to art and culture in the community. BCA's studio is where I make pottery! [Stand-in for any local cultural org.] Monthly-ish.
-- [Edgewater Environmental Coalition newsletter](https://www.edgewaterenvironmentalcoalition.org/connect): News and events for my (former) neighborhood environmental org. [Stand-in for any local advocacy nonprofit.] Bi-monthly.
+- [Edgewater Environmental Coalition newsletter](https://www.edgewaterenvironmentalcoalition.org/connect): News and events for my (former) neighborhood environmental org. [Stand-in for any local advocacy nonprofit.] Twice monthly.
 
 This list changes often. I unsubscribe when a newsletter stops serving my needs; on the flip side, I'm quick to subscribe when something new catches my eye. Maintaining a good balance of content requires some attention and care, unlike, say, casually doomscrolling on Twitter. The most important thing is to be intentional, and to practice moderation.
 
